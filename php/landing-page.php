@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles/landing-page.css">
+    <link rel="stylesheet" href="../styles/landing-page.css">    
     <title>VULCAN</title>
 </head>
 <body>
@@ -53,13 +53,59 @@
         <div class="products-container">
                 <img src="../assets/imgs/ball.jpg"class="product" alt="">
 
-                <img src="../assets/imgs/bag.jpg" class="product"alt="">
+                <img src="../assets/imgs/bag.jpg" class="product" alt="">
 
-                <img src="../assets/imgs/shoes.jpg" class="product"alt="">
+                <img src="../assets/imgs/shoes.jpg" class="product" alt="">
 
-                <img src="../assets/imgs/short.jpg" class="product"alt="">
+                <img src="../assets/imgs/short.jpg" class="product" alt="">
 
-                <img src="..\assets\imgs\sweater.jpg" class="product"alt="">
+                <img src="..\assets\imgs\sweater.jpg" class="product" alt="">
+        </div>
+    </div>
+
+    <!-- Event -->
+    <div class="event">
+        <div class="event-title">
+            <h1>CYBER WEEK IS HERE</h1>
+            <p class="event-sub-text">The best gifts is keep giving</p>
+        </div>
+        <div class="event-container">
+            <img src="../assets/imgs/sale1.jpg" class="event-promo" alt="">
+
+            <img src="../assets/imgs/sale3.jpg" class="event-promo" alt="">
+
+            <img src="..\assets\imgs\sale2.jpg" class="event-promo" alt="">
+        </div>
+    </div>
+
+    <!-- Trending -->
+    <div class="trending">
+        <div class="trending-title">
+            <span>Trending</span>
+            <hr>
+        </div>
+        <div class="trending-image"></div>
+        <div class="trending-details">
+            <!-- Titles, Paragraphs, Button -->
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="services">
+        <div class="services-title">
+
+        </div>
+
+        <div class="services-details">
+            <div class="service">
+                <!-- Icons, Paragraphs -->
+            </div>
+            <div class="service">
+                <!-- Icons, Paragraphs -->
+            </div>
+            <div class="service">
+                <!-- Icons, Paragraphs -->
+            </div>
         </div>
     </div>
 </body>
