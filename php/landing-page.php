@@ -123,6 +123,16 @@
     </div>
 
     <!--Contact Us -->
-    <div></div>
+    <div class="contacts">
+        <div class="contact-title">
+            <span>Contact Us</span>
+            <p class="contact-description">Your satisfaction is our mission, and we're here to make your online experience extraordinary.</p>
+        </div>
+        <div class="soc-meds">
+            <i class="fa-brands fa-square-x-twitter" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-facebook" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-instagram" style="color: #000000;"></i>
+        </div>
+    </div>
 </body>
 </html>

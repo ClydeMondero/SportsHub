@@ -292,3 +292,30 @@ header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   max-width: 35rem;
 }
+.contacts {
+  width: 100%;
+  height: 15vh;
+}
+.contact-title {
+  width: 100%;
+  text-align: center;
+}
+.contact-title span {
+  font-size: 4rem;
+}
+.contact-description {
+  max-width: 30rem;
+  font-size: 1.2rem;
+  margin: auto;
+}
+.soc-meds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 5vh;
+}
+.soc-meds i {
+  margin-top: 1rem;
+  font-size: 2.4rem;
+}
