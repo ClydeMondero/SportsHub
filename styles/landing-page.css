@@ -104,3 +104,59 @@ header {
   width: 0.1rem;
   height: 1.3rem;
 }
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60vh;
+  text-align: center;
+}
+.hero-text h1 {
+  font-size: 11rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.hero-text h2 {
+  font-size: 3rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.hero-text h3 {
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.hero-img img {
+  height: 40vh;
+  width: 35vw;
+}
+.popular-products {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: 30vh;
+}
+.product-title {
+  padding-left: 2rem;
+  font-size: 2.4rem;
+}
+.product-title hr {
+  border: 1px solid #000000;
+  border-radius: 1rem;
+  width: 16rem;
+}
+.products-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  width: 100%;
+  background-color: #000000;
+  padding: 2.5rem;
+}
+.product {
+  height: 300px;
+  width: 300px;
+  border-radius: 1rem;
+}

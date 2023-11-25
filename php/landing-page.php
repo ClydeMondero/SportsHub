@@ -31,5 +31,36 @@
             </div>
         </div>
     </header>
+
+    <!--Hero Content-->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>VULCAN</h1>
+            <h2>"Made for the Gods"</h2>
+            <h3>Vulcan Sports Hub brings you closer to the action. </h3>
+        </div>
+        <div class="hero-img">
+            <img src="../assets/imgs/img1.jpg" alt="">
+        </div>
+    </div>
+
+    <!--Product Details-->
+    <div class="popular-products">
+        <div class="product-title">
+            <span>Product Details</span>
+            <hr>
+        </div>
+        <div class="products-container">
+                <img src="../assets/imgs/ball.jpg"class="product" alt="">
+
+                <img src="../assets/imgs/bag.jpg" class="product"alt="">
+
+                <img src="../assets/imgs/shoes.jpg" class="product"alt="">
+
+                <img src="../assets/imgs/short.jpg" class="product"alt="">
+
+                <img src="..\assets\imgs\sweater.jpg" class="product"alt="">
+        </div>
+    </div>
 </body>
 </html>
