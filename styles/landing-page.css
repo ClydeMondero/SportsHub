@@ -197,3 +197,98 @@ header {
   justify-content: center;
   gap: 3.5rem;
 }
+.trending {
+  width: 100%;
+  height: 120vh;
+  margin-top: 10rem;
+}
+.trending-title {
+  padding-left: 2rem;
+  font-size: 2.4rem;
+}
+.trending-title hr {
+  border: 1px solid #000000;
+  border-radius: 1rem;
+  width: 10rem;
+}
+.trending-image {
+  margin: 3rem auto 0 auto;
+  height: 85vh;
+  width: 95vw;
+  background-color: aqua;
+}
+.trending-image img {
+  height: 85vh;
+  width: 95vw;
+  object-fit: cover;
+}
+.trending-details {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.trending-caption {
+  font-size: 5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.description {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.trending-details button {
+  margin-top: 1.6rem;
+  background-color: #000000;
+  font-size: 1.3rem;
+  color: #ffffff;
+  padding: 0.6rem;
+  width: 10rem;
+  border-radius: 15rem;
+  border: none;
+}
+.services {
+  width: 100%;
+  height: 90vh;
+  margin-top: 10rem;
+}
+.services-title {
+  padding-left: 2rem;
+  font-size: 2.4rem;
+}
+.services-title hr {
+  border: 1px solid #000000;
+  border-radius: 1rem;
+  width: 10rem;
+}
+.services-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  gap: 3.5rem;
+}
+.service {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 85vh;
+  margin-top: 6rem;
+}
+.service i {
+  font-size: 10rem;
+}
+.service span {
+  margin-top: 1rem;
+  font-size: 2.4rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.service p {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 35rem;
+}

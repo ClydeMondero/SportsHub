@@ -84,29 +84,45 @@
             <span>Trending</span>
             <hr>
         </div>
-        <div class="trending-image"></div>
+        <div class="trending-image">
+            <img src="..\assets\imgs\poster-img.jpg" alt="Nike Trending">
+        </div>
         <div class="trending-details">
-            <!-- Titles, Paragraphs, Button -->
+            <p class="trending-caption">Nike Men's Downshifter 12 Shoes</p>
+            <p class="description">Made from at least 20% recycled content by weight, 
+                it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout.
+            </p>
+            <button type="submit">Shop Now</button>
         </div>
     </div>
 
     <!-- Services -->
     <div class="services">
         <div class="services-title">
-
+            <span>Services</span>
+            <hr>
         </div>
 
         <div class="services-details">
             <div class="service">
-                <!-- Icons, Paragraphs -->
+                <i class="fa-solid fa-truck-fast" style="color: #000000;"></i>
+                <span>Online Shopping and Delivery</span>
+                <p>Allowing customers to browse and purchase products from the comfort of their homes. </p>
             </div>
             <div class="service">
-                <!-- Icons, Paragraphs -->
+                <i class="fa-solid fa-comments" style="color: #000000;"></i>
+                <span>Expert Advice and Consultation</span>
+                <p>Knowledgeable staff can provide advice and recommendations on the right equipment.</p>
             </div>
             <div class="service">
-                <!-- Icons, Paragraphs -->
+                <i class="fa-regular fa-money-bill-1" style="color: #000000;"></i>
+                <span>Equipment Sales</span>
+                <p>This includes items such as sports apparel, footwear, sports gear, and accessories.</p>
             </div>
         </div>
     </div>
+
+    <!--Contact Us -->
+    <div></div>
 </body>
 </html>
