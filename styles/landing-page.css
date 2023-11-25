@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 0.5rem;
+  background-color: #000000;
+}
+.header-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 11vh;
+}
+.logo-and-title {
+  position: relative;
+  right: 2%;
+}
+.logo-and-title img {
+  position: relative;
+  top: 0.3rem;
+  width: 85px;
+  height: 85px;
+}
+.logo-and-title span {
+  position: relative;
+  left: 1rem;
+  bottom: 0.8rem;
+  font-size: 4.7rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.2rem;
+  color: #ffffff;
+}
+.search-bar {
+  position: relative;
+  right: 2%;
+  margin-left: 0.4rem;
+}
+.search-bar i {
+  position: relative;
+  top: 0.3rem;
+  left: 3rem;
+  font-size: 2rem;
+  color: #000000;
+}
+.search-bar input {
+  width: 60rem;
+  height: 2.7rem;
+  border: none;
+  border-radius: 3rem;
+}
+.search-bar input[type="search"] {
+  padding-left: 3.5rem;
+  font-size: 1.5rem;
+}
+.add-to-cart {
+  position: relative;
+  bottom: 0.3rem;
+  right: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.add-to-cart .cart-count {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+.add-to-cart i {
+  font-size: 2rem;
+  color: #f4bf96;
+}
+.login-and-signup {
+  position: relative;
+  left: 5rem;
+  bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 20rem;
+}
+.login-and-signup p {
+  color: #ffffff;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+.login-and-signup p:hover {
+  color: #ce5a67;
+}
+.login-and-signup a {
+  text-decoration: none;
+}
+.login-and-signup .line {
+  background-color: #ffffff;
+  width: 0.1rem;
+  height: 1.3rem;
+}
