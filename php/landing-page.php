@@ -1,57 +1,39 @@
+
+<?php
+    session_start();
+    $loggedIn = isset($_SESSION['loggedin']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/landing-page.css">    
     <title>VULCAN</title>
 </head>
 <body>
-    <!--Header-->
-    <div class="header">
-        <div class="logo-and-title">
-            <img src="../assets/imgs/Vulcan Logo.png" alt="">
-            <span>VULCAN</span>
+    <?php include("header.php") ?>         
+    
+        <!-- Latest -->
+     <div class="trending content">
+        <div class="trending-title">
+            <span>Latest</span>            
         </div>
-
-        <div class="center">
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" placeholder="Search...">
-            </div>
-
-            <div class="add-to-cart">
-                <p class="cart-count">0</p>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
+        <div class="trending-image">
+            <img src="..\assets\imgs\latest.jpg" alt="Nike Trending">
         </div>
-       
-        <div class="login-and-signup">
-            <a href="login.php"><p>Sign In</p></a>
-            <div class="line"></div>
-            <a href="login.php"><p>Sign Up</p></a>
-        </div>
-
-        <div class="profile-and-logout">
-            <a href="login.php"><p>Profile</p></a>
-            <div class="line"></div>
-            <a href="login.php"><p>Logout</p></a>
-        </div>
-    </div>    
-
-    <!--Hero Content-->
-    <div class="hero content">
-        <div class="hero-text">
-            <h1>VULCAN</h1>
-            <h2>"Made for the Gods"</h2>
-            <h3>Vulcan Sports Hub brings you closer to the action. </h3>
-        </div>
-        <div class="hero-img">
-            <img src="../assets/imgs/img1.jpg" alt="">
+        <div class="trending-details">
+            <p class="trending-caption">Speed Beyond Your Wildest Dreams</p>
+            <p class="description">Make it real with Mercurial Dream Speed 7.
+            </p>
+            <a href="shopping-page.php"><button>Shop Now</button></a>
         </div>
     </div>
+
 
     <!--Product Details-->
     <div class="popular-products content">
@@ -93,7 +75,7 @@
             <p class="description">Made from at least 20% recycled content by weight, 
                 it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout.
             </p>
-            <button type="submit">Shop Now</button>
+            <a href="shopping-page.php"><button>Shop Now</button></a>
         </div>
     </div>
 
@@ -172,17 +154,4 @@
         </div>
     </footer>
 </body>
-
-
-<?php
-    include("conn.php");
-    
-    session_start();
-
-    if(isset($_SESSION['loggedin'])){
-        
-    }
-
-?>
-
 </html>

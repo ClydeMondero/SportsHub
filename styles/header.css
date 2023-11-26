@@ -1,0 +1,123 @@
+.header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 6rem;
+  background-color: #000000;
+  padding: 2rem 2.5rem;
+  transition: all ease-in-out 3ms;
+}
+.logo-and-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.logo-and-title img {
+  width: 75px;
+  height: 75px;
+}
+
+.logo-and-title span {
+  font-size: 4.7rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.2rem;
+  color: #ffffff;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+.search-bar {
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar i {
+  position: relative;
+  left: 2.5rem;
+  font-size: 2rem;
+  color: #000000;
+}
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 3rem;
+  border: none;
+  border-radius: 3rem;
+  font-size: 1.5rem;
+}
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.add-to-cart .cart-count {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+.add-to-cart i {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.add-to-cart i:hover {
+  color: #f4bf96;
+}
+
+.login-and-signup {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20rem;
+}
+.login-and-signup p {
+  color: #ffffff;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+.login-and-signup p:hover {
+  color: #ce5a67;
+}
+.login-and-signup a {
+  text-decoration: none;
+}
+.login-and-signup .line {
+  background-color: #ffffff;
+  width: 0.1rem;
+  height: 1.3rem;
+}
+
+.profile-and-logout {
+  display: none;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20rem;
+}
+.profile-and-logout p {
+  color: #ffffff;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+.profile-and-logout p:hover {
+  color: #ce5a67;
+}
+.profile-and-logout a {
+  text-decoration: none;
+}
+.profile-and-logout .line {
+  background-color: #ffffff;
+  width: 0.1rem;
+  height: 1.3rem;
+}
