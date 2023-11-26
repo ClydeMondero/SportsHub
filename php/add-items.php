@@ -35,8 +35,8 @@
     
             foreach($query_result as $row){
                 if($row['product_name'] == $product_name){
-                    echo ("<script>alert('Product already in the store!');</script>");
                     $product_duplicate = true;
+                    echo ("<script>alert('Product already in the store!');</script>");
                 }
             }
     
