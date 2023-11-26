@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .content {
   margin-top: 8rem;
   margin-bottom: 8rem;
@@ -241,8 +245,7 @@
 }
 .trending-caption {
   font-size: 5rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .description {
   font-size: 1.8rem;
