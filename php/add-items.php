@@ -1,6 +1,7 @@
 <?php
     include('conn.php');
     session_start();
+
     if(isset($_POST["btnAdd"])){
         $product_name = $_POST['txt-product-name'];
         $product_brand = $_POST['txt-brand'];
@@ -10,10 +11,10 @@
         $product_price = $_POST['txt-price'];
         $product_sport = $_POST['txt-sports'];
 
-        $fileName = $_FILES["file-image"]["name"];
-        $fileSize = $_FILES["file-image"]["size"];
-        $tmpName = $_FILES["file-image"]["tmp_name"];
-
+        $fileName = $_FILES["image"]["name"];
+        $fileSize = $_FILES["image"]["size"];
+        $tmpName = $_FILES["image"]["tmp_name"];
+        
         $validImageExtension = ['jpg', 'jpeg', 'png'];
         $imageExtension = explode('.', $fileName);
         $imageExtension = strtolower(end($imageExtension));
@@ -24,9 +25,11 @@
         } else {
             $newImageName = uniqid();
             $newImageName .= '.' . $imageExtension;
-            $res = move_uploaded_file($tmpName, 'products/' . $newImageName);
+            $destinationPath = '../products/' . $newImageName;
+            $res = move_uploaded_file($tmpName, $destinationPath);
+            
         }
-
+        
         $select_query = "select product_name from `tbproducts`";
         $query_result = $conn->query($select_query);
 
@@ -66,11 +69,11 @@
             include("../php/dashboard.php");
         ?>
         <div class="form-container">
-            <form method="POST" class="form">
+        <form method="POST" class="form" enctype="multipart/form-data">
                 <h1>ADD PRODUCTS</h1>
                     <div class="form-labels-one">
                         <label for="txt-product-name">Product Name: <input type="text" name="txt-product-name" id="txt-product-name" required></label>
-                        <label for="file-image">Image: <input type="file" name="file-image" id="file-image" required></label>
+                        <label for="image">Image: <input type="file" name="image" id="image" required></label>
                         <label for="txt-brand">Brand: <input type="text" name="txt-brand" id="txt-brand" required></label>
                         <label for="txt-sports">Sports: <input type="text" name="txt-sports" id="txt-sports" required></label>
                     </div>
@@ -111,7 +114,7 @@
                                 echo "<tr>";
                                 echo "<td><input type = 'checkbox' name = '' id = ''></td>";
                                 echo "<td>" . $row["product_id"] . "</td>";
-                                echo "<td><img src = '$row[product_image]'></td>";
+                                echo "<td><img src='../products/" . $row["product_image"] . "'></td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
                                 echo "<td>" . $row["product_brand"] . "</td>";
                                 echo "<td>" . $row["product_category"] . "</td>";
