@@ -38,6 +38,33 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="search" placeholder="Search Items...">
                 </div>
+                <!--Table-->
+                <div class="product-table">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Action</th>
+                            <th>Product Code</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Sports</th>
+                            <th>Total</th>
+                            <th>Edit</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="" id=""></td>
+                            <td>1</td>
+                            <td><img src="../assets/imgs/sweater.jpg" alt="" width="150" height="150"></td>
+                            <td>Sweater Nike</td>
+                            <td>Nike</td>
+                            <td>Sweater</td>
+                            <td>Casual Wear</td>
+                            <td>2,300</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
     </div>
 </body>

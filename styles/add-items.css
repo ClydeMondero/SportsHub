@@ -8,7 +8,7 @@
   align-items: center;
 }
 .form-container {
-  margin-bottom: 34rem;
+  margin-bottom: 12rem;
   width: 75%;
 }
 .form {
@@ -94,4 +94,26 @@
   padding-left: 2rem;
   font-size: 1rem;
   width: 20rem;
+}
+.product-table {
+  margin-top: 5%;
+  background-color: #ffffff;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 2px solid black;
+  padding: 1rem;
+  text-align: center;
+}
+th {
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #191919;
+  font-family: "poppins", sans-serif;
+}
+td {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
