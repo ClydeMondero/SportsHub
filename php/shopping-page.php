@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="../styles/shopping-page.css">
     <title>Shopping Page</title>
 </head>
-<body>
+<body>       
     <?php include("header.php") ?>
-    
+
     <div class="container">
         <div class="categories">
             <a href="shopping-page.php?page=shoes">Shoes</a>            
@@ -25,32 +25,34 @@
             <a href="shopping-page.php?page=innerwears">Inner Wears</a>
             <a href="shopping-page.php?page=acsandeqpmnt">Accessories & Equipment</a>
         </div> 
-             
+            
         <div class="products">
-        <?php                   
-            if(isset($_GET["page"])){
-               switch($_GET["page"]){
-                case "shoes":
-                    include_once "./categories/shoes.php";
-                    break;
-                case "topsandtees":
-                    include_once "./categories/tops&tshirts.php";
-                    break;
-                case "shortsandpants":
-                    include_once "./categories/shorts&pants.php";
-                    break;
-                case "innerwears":
-                    include_once "./categories/innerwears.php";
-                    break;
-                case "acsandqpmnt":
-                    include_once "./categories/accessories&equipment.php";
-                    break;                
-               }
-            }else{
-                include_once "./categories/shoes.php";  
-            }
-        ?> 
-        </div>               
-    </div>    
+            <?php                   
+                if(isset($_GET["page"])){
+                switch($_GET["page"]){
+                    case "shoes":
+                        include_once "./categories/shoes.php";
+                        break;
+                    case "topsandtees":
+                        include_once "./categories/tops&tshirts.php";
+                        break;
+                    case "shortsandpants":
+                        include_once "./categories/shorts&pants.php";
+                        break;
+                    case "innerwears":
+                        include_once "./categories/innerwears.php";
+                        break;
+                    case "acsandqpmnt":
+                        include_once "./categories/accessories&equipment.php";
+                        break;                
+                }
+                }else{
+                    include_once "./categories/shoes.php";  
+                }
+            ?> 
+        </div>                                      
+    </div>
+    
+    <?php include "footer.php"?>     
 </body>
 </html>
