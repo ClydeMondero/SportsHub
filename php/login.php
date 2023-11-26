@@ -37,13 +37,12 @@
     
     session_start();
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      if($stmt = $conn->prepare('select user_id, user_password from tbusers where user_email = ?')){
+      if($stmt = $conn->prepare('select user_id, user_password, acc_type from tbusers where user_email = ?')){
         $stmt->bind_param('s', $_POST['email']);
         $stmt->execute();
         $stmt->store_result();
-  
         if($stmt->num_rows() > 0){
-          $stmt->bind_result($id, $password);
+          $stmt->bind_result($id, $password,$accType);
           $stmt->fetch();
   
           if($_POST['password'] === $password){
@@ -51,7 +50,13 @@
             $_SESSION['loggedin'] = true;
             $_SESSION['name'] = $_POST['email'];
             $_SESSION['id'] = $id;
-            header('Location: landing-page.php');
+            $_SESSION['acc_type'] = $accType;
+
+            if($accType === 'customer'){
+              header('Location: landing-page.php');
+            }else if($accType === 'admin'){
+              header('Location: dashboard.php');
+            }
   
           }else{
             echo ("<script>alert('Incorrect password');</script>");

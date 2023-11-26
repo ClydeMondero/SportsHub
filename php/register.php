@@ -67,7 +67,7 @@
     $address = $_POST["address"];
 
     $select_query = "select user_username, user_email from `tbusers`";
-    $query_result = $conn->execute_query($select_query);
+    $query_result = $conn->query($select_query);
 
     $user_duplicate = false;
     $email_duplicate = false;
@@ -88,9 +88,10 @@
 
     if (!$user_duplicate && !$email_duplicate) {
       if ($password == $confirm_password) {
-        $insert_query = "insert into tbusers (`user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`) values ('$full_name','$username','$password','$email','$contact_number','$address')";
+        $insert_query = "insert into tbusers (`user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`,`acc_type`) values ('$full_name','$username','$password','$email','$contact_number','$address', 'customer')";
         if ($conn->query($insert_query) === TRUE) {
           echo ("<script>alert('Sign up Successful!');</script>");
+          header('location: login.php');
         } else {
           echo ("<script>alert('Sign up Failed!');</script>");
         }
