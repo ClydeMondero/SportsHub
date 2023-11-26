@@ -20,6 +20,7 @@
                         <label for="txt-product-name">Product Name: <input type="text" name="txt-product-name" id="txt-product-name"></label>
                         <label for="file-image">Image: <input type="file" name="file-image" id="file-image"></label>
                         <label for="txt-brand">Brand: <input type="text" name="txt-brand" id="txt-brand"></label>
+                        <label for="txt-sports">Sports: <input type="text" name="txt-sports" id="txt-sports"></label>
                     </div>
                     <div class="form-labels-two">
                         <label for="txt-size">Size: <input type="text" name="txt-size" id="txt-size"></label>
@@ -33,6 +34,33 @@
                     <span>PRODUCT</span>
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="search" placeholder="Search Items...">
+                </div>
+                <!--Table-->
+                <div class="product-table">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Action</th>
+                            <th>Product Code</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Sports</th>
+                            <th>Total</th>
+                            <th>Edit</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="" id=""></td>
+                            <td>1</td>
+                            <td><img src="../assets/imgs/sweater.jpg" alt="" width="150" height="150"></td>
+                            <td>Sweater Nike</td>
+                            <td>Nike</td>
+                            <td>Sweater</td>
+                            <td>Casual Wear</td>
+                            <td>2,300</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
     </div>
