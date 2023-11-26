@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +21,17 @@
             <form method="POST" class="form">
                 <h1>ADD PRODUCTS</h1>
                     <div class="form-labels-one">
-                        <label for="txt-product-name">Product Name: <input type="text" name="txt-product-name" id="txt-product-name"></label>
-                        <label for="file-image">Image: <input type="file" name="file-image" id="file-image"></label>
-                        <label for="txt-brand">Brand: <input type="text" name="txt-brand" id="txt-brand"></label>
+                        <label for="txt-product-name">Product Name: <input type="text" name="txt-product-name" id="txt-product-name" required></label>
+                        <label for="file-image">Image: <input type="file" name="file-image" id="file-image" required></label>
+                        <label for="txt-brand">Brand: <input type="text" name="txt-brand" id="txt-brand" required></label>
                     </div>
                     <div class="form-labels-two">
-                        <label for="txt-size">Size: <input type="text" name="txt-size" id="txt-size"></label>
-                        <label for="txt-category">Category: <input type="text" name="txt-category" id="txt-category"></label>
-                        <label for="txt-quantity">Quantity: <input type="text" name="txt-quantity" id="txt-quantity"></label>
-                        <label for="txt-price">Price: <input type="text" name="txt-price" id="txt-price"></label>
+                        <label for="txt-size">Size: <input type="text" name="txt-size" id="txt-size" required></label>
+                        <label for="txt-category">Category: <input type="text" name="txt-category" id="txt-category" required></label>
+                        <label for="txt-quantity">Quantity: <input type="text" name="txt-quantity" id="txt-quantity" required></label>
+                        <label for="txt-price">Price: <input type="text" name="txt-price" id="txt-price" required></label>
                     </div>
-                        <input type="submit" class="add-btn" value="Add Product">
+                        <input type="submit" class="add-btn" value="Add Product" name="btnAdd">
             </form>
                 <div class="product-search">
                     <span>PRODUCT</span>
@@ -37,4 +41,41 @@
             </div>
     </div>
 </body>
+
+<?php
+    include('conn.php');
+
+    if(isset($_POST["btnAdd"])){
+        $product_name = $_POST['txt-product-name'];
+        $product_image = $_POST['file-image'];
+        $product_brand = $_POST['txt-brand'];
+        $product_size = $_POST['txt-size'];
+        $product_category = $_POST['txt-category'];
+        $product_quantity = $_POST['txt-quantity'];
+        $product_price = $_POST['txt-price'];
+
+        $select_query = "select product_name from `tbproducts`";
+        $query_result = $conn->query($select_query);
+
+        $product_duplicate = false;
+
+        foreach($query_result as $row){
+            if($row['product_name'] == $product_name){
+                echo ("<script>alert('Product already in the store!');</script>");
+                $product_duplicate = true;
+            }
+        }
+
+         if(!$product_duplicate){
+            $insert_query = "insert into `tbproducts`(`product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_category','$product_sport','$product_size','$product_quantity','$product_image','$product_brand','$product_price')";
+            if($conn->query($insert_query) === TRUE){
+                echo ("<script>alert('Product Added!');</script>");
+            }else{
+                echo ("<script>alert('Product not Added!');</script>");
+            }
+         }
+    }
+
+?>
+
 </html>
