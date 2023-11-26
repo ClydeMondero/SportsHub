@@ -3,13 +3,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.content {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 8rem;
-  background-color: #2e1f1f;
+  height: 6rem;
+  background-color: #000000;
+  padding: 2rem 2.5rem;
 }
 .logo-and-title {
   display: flex;
@@ -18,9 +24,10 @@
   gap: 1rem;
 }
 .logo-and-title img {
-  width: 85px;
-  height: 85px;
+  width: 75px;
+  height: 75px;
 }
+
 .logo-and-title span {
   font-size: 4.7rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -28,32 +35,35 @@
   letter-spacing: 0.2rem;
   color: #ffffff;
 }
-.search-bar {
-  position: relative;
-  right: 2%;
-  margin-left: 0.4rem;
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
 }
+
+.search-bar {
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+
 .search-bar i {
   position: relative;
-  top: 0.3rem;
-  left: 3rem;
+  left: 2.5rem;
   font-size: 2rem;
   color: #000000;
 }
 .search-bar input {
-  width: 60rem;
-  height: 2.7rem;
+  width: 100%;
+  padding: 0.5rem 0rem 0.5rem 3rem;
   border: none;
   border-radius: 3rem;
-}
-.search-bar input[type="search"] {
-  padding-left: 3.5rem;
   font-size: 1.5rem;
 }
 .add-to-cart {
-  position: relative;
-  bottom: 0.3rem;
-  right: 1%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,13 +79,9 @@
   color: #f4bf96;
 }
 .login-and-signup {
-  position: relative;
-  left: 5rem;
-  bottom: 0.3rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-direction: row;
   width: 20rem;
 }
 .login-and-signup p {
@@ -125,7 +131,6 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
-  height: 30vh;
 }
 .product-title {
   padding-left: 2rem;
@@ -154,14 +159,12 @@
 .event {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   width: 100%;
-  height: 70vh;
-  margin-top: 20rem;
   background-color: #fcf5ed;
+  padding: 1rem 0;
 }
-.event-title {
-  padding: 2rem;
-}
+
 .event-title h1 {
   text-align: center;
   font-size: 3rem;
@@ -183,10 +186,13 @@
 }
 .trending {
   width: 100%;
-  height: 120vh;
-  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 .trending-title {
+  align-self: flex-start;
   padding-left: 2rem;
   font-size: 2.4rem;
 }
@@ -196,18 +202,15 @@
   width: 10rem;
 }
 .trending-image {
-  margin: 3rem auto 0 auto;
-  height: 85vh;
-  width: 95vw;
-  background-color: aqua;
+  border: 1px solid red;
+  height: 50%;
+  width: 90%;
 }
 .trending-image img {
-  height: 85vh;
-  width: 95vw;
-  object-fit: cover;
+  width: 100%;
 }
 .trending-details {
-  margin-top: 1rem;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,8 +237,6 @@
 }
 .services {
   width: 100%;
-  height: 90vh;
-  margin-top: 10rem;
 }
 .services-title {
   padding-left: 2rem;
@@ -251,14 +252,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90vh;
   gap: 3.5rem;
 }
 .service {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 85vh;
   margin-top: 6rem;
 }
 .service i {
@@ -278,7 +277,6 @@
 }
 .contacts {
   width: 100%;
-  height: 15vh;
 }
 .contact-title {
   width: 100%;
@@ -297,21 +295,25 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  height: 5vh;
 }
 .soc-meds i {
   margin-top: 1rem;
   font-size: 2.4rem;
 }
 footer {
-  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  height: 15rem;
   width: 100%;
-  height: 30vh;
   background-color: #191919;
 }
 .footer-container {
+  width: 75%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-evenly;
 }
 .information {
@@ -342,12 +344,11 @@ footer {
   color: #ffffff;
 }
 .footer-navigation {
+  width: 75%;
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
 }
 .left-content {
-  margin-top: 7.6rem;
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -356,7 +357,6 @@ footer {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .right-content {
-  margin-top: 7.6rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;

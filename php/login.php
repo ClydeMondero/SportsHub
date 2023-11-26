@@ -31,3 +31,44 @@
       <p>Don't have an account? <a href="register.php">Sign Up now</a></p>
     </form>
   </div>
+
+  <?php
+    include("conn.php");
+    
+    session_start();
+
+    if(!isset($_POST['email'], $_POST['password'])){
+      exit("Please enter your Email and Password");
+    }
+
+    if($stmt = $conn->prepare('select user_id, user_password from tbusers where user_email = ?')){
+      $stmt->bind_param('s', $_POST['email']);
+      $stmt->execute();
+      $stmt->store_result();
+
+      if($stmt->num_rows() > 0){
+        $stmt->bind_result($id, $password);
+        $stmt->fetch();
+
+        if($_POST['password'] === $password){
+          session_regenerate_id();
+          $_SESSION['loggedin'] = true;
+          $_SESSION['name'] = $_POST['email'];
+          $_SESSION['id'] = $id;
+          header('Location: landing-page.php');
+
+        }else{
+          echo 'Incorrect password!';
+        }
+
+      }else{
+        echo 'Incorrect Email';
+      }
+
+      $stmt->close();
+
+    }
+
+  ?>
+
+</html>
