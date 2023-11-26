@@ -15,7 +15,7 @@
         $fileSize = $_FILES["image"]["size"];
         $tmpName = $_FILES["image"]["tmp_name"];
         
-        $validImageExtension = ['jpg', 'jpeg', 'png'];
+        $validImageExtension = ['png','jpg'];
         $imageExtension = explode('.', $fileName);
         $imageExtension = strtolower(end($imageExtension));
         if (!in_array($imageExtension, $validImageExtension)) {
@@ -28,28 +28,28 @@
             $destinationPath = '../products/' . $newImageName;
             $res = move_uploaded_file($tmpName, $destinationPath);
             
-        }
-        
-        $select_query = "select product_name from `tbproducts`";
-        $query_result = $conn->query($select_query);
-
-        $product_duplicate = false;
-
-        foreach($query_result as $row){
-            if($row['product_name'] == $product_name){
-                echo ("<script>alert('Product already in the store!');</script>");
-                $product_duplicate = true;
+            $select_query = "select product_name from `tbproducts`";
+            $query_result = $conn->query($select_query);
+    
+            $product_duplicate = false;
+    
+            foreach($query_result as $row){
+                if($row['product_name'] == $product_name){
+                    echo ("<script>alert('Product already in the store!');</script>");
+                    $product_duplicate = true;
+                }
             }
-        }
-
-         if(!$product_duplicate){
-            $insert_query = "insert into `tbproducts`(`product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_category','$product_sport','$product_size','$product_quantity','$newImageName','$product_brand','$product_price')";
-            if($conn->query($insert_query) === TRUE){
-                echo ("<script>alert('Product Added!');</script>");
-            }else{
-                echo ("<script>alert('Product not Added!');</script>");
+    
+            if(!$product_duplicate){
+                $insert_query = "insert into `tbproducts`(`product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_category','$product_sport','$product_size','$product_quantity','$newImageName','$product_brand','$product_price')";
+                if($conn->query($insert_query) === TRUE){
+                    echo ("<script>alert('Product Added!');</script>");
+                }else{
+                    echo ("<script>alert('Product not Added!');</script>");
+                }
             }
-         }
+
+        }
     }
 ?>
 
@@ -114,7 +114,7 @@
                                 echo "<tr>";
                                 echo "<td><input type = 'checkbox' name = '' id = ''></td>";
                                 echo "<td>" . $row["product_id"] . "</td>";
-                                echo "<td><img src='../products/" . $row["product_image"] . "'></td>";
+                                echo "<td><img src='../products/" . $row["product_image"] . "' width='200'></td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
                                 echo "<td>" . $row["product_brand"] . "</td>";
                                 echo "<td>" . $row["product_category"] . "</td>";
