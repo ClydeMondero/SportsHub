@@ -9,28 +9,29 @@
     <title>VULCAN</title>
 </head>
 <body>
-    <!--Header Contents-->
-    <header>
-        <div class="header-contents">
-            <div class="logo-and-title">
-                <img src="../assets/imgs/Vulcan Logo.png" alt="">
-                <span>VULCAN</span>
-            </div>
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" placeholder="Search...">
-            </div>
-            <div class="add-to-cart">
-                <p class="cart-count">0</p>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-            <div class="login-and-signup">
-                <a href="login.php"><p>Sign In</p></a>
-                <div class="line"></div>
-                <a href="login.php"><p>Sign Up</p></a>
-            </div>
+    <!--Header-->
+    <div class="header">
+        <div class="logo-and-title">
+            <img src="../assets/imgs/Vulcan Logo.png" alt="">
+            <span>VULCAN</span>
         </div>
-    </header>
+
+        <!-- <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search...">
+        </div>
+
+        <div class="add-to-cart">
+            <p class="cart-count">0</p>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <div class="login-and-signup">
+            <a href="login.php"><p>Sign In</p></a>
+            <div class="line"></div>
+            <a href="login.php"><p>Sign Up</p></a>
+        </div> -->
+    </div>    
 
     <!--Hero Content-->
     <div class="hero">
