@@ -42,8 +42,8 @@
             </div>
         </div>
         <div class="sign-out">
-            <span>SIGN OUT</span>
-            <i class="fa-solid fa-right-from-bracket"></i>
+            <a href="logout.php"><span>SIGN OUT</span>
+            <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
 </body>

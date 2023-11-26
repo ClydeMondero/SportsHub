@@ -4,7 +4,7 @@
 <div class="header">
         <div class="logo-and-title">
             <img src="../assets/imgs/Vulcan Logo.png" alt="">
-            <span>VULCAN</span>
+            <a href="landing-page.php"><span>VULCAN</span></a>
         </div>
 
         <div class="center">
