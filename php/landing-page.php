@@ -67,18 +67,23 @@
         ?>
 
     </div>    
-
-    <!--Hero Content-->
-    <div class="hero content">
-        <div class="hero-text">
-            <h1>VULCAN</h1>
-            <h2>"Made for the Gods"</h2>
-            <h3>Vulcan Sports Hub brings you closer to the action. </h3>
+    
+        <!-- Latest -->
+        <div class="trending content">
+        <div class="trending-title">
+            <span>Latest</span>            
         </div>
-        <div class="hero-img">
-            <img src="../assets/imgs/img1.jpg" alt="">
+        <div class="trending-image">
+            <img src="..\assets\imgs\latest.jpg" alt="Nike Trending">
+        </div>
+        <div class="trending-details">
+            <p class="trending-caption">Speed Beyond Your Wildest Dreams</p>
+            <p class="description">Make it real with Mercurial Dream Speed 7.
+            </p>
+            <button>Shop</button>
         </div>
     </div>
+
 
     <!--Product Details-->
     <div class="popular-products content">
@@ -120,7 +125,7 @@
             <p class="description">Made from at least 20% recycled content by weight, 
                 it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout.
             </p>
-            <button type="submit">Shop Now</button>
+            <button type="submit">Shop</button>
         </div>
     </div>
 
