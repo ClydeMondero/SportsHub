@@ -50,8 +50,7 @@
     <!--Product Details-->
     <div class="popular-products content">
         <div class="product-title">
-            <span>Popular Products</span>
-            <hr>
+            <span>Popular Products</span>            
         </div>
         <div class="products-container">
                 <img src="../assets/imgs/ball.jpg"class="product" alt="">
@@ -78,8 +77,7 @@
     <!-- Trending -->
     <div class="trending content">
         <div class="trending-title">
-            <span>Trending</span>
-            <hr>
+            <span>Trending</span>            
         </div>
         <div class="trending-image">
             <img src="..\assets\imgs\poster-img.jpg" alt="Nike Trending">
@@ -96,8 +94,7 @@
     <!-- Services -->
     <div class="services content">
         <div class="services-title">
-            <span>Services</span>
-            <hr>
+            <span>Services</span>            
         </div>
 
         <div class="services-details">
@@ -120,7 +117,7 @@
     </div>
 
     <!--Contact Us -->
-    <div class="contacts">
+    <div class="contacts content">
         <div class="contact-title">
             <span>Contact Us</span>
             <p class="contact-description">Your satisfaction is our mission, and we're here to make your online experience extraordinary.</p>
