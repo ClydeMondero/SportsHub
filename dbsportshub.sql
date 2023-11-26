@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 09:56 AM
+-- Generation Time: Nov 26, 2023 at 03:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -31,12 +31,21 @@ CREATE TABLE `tbproducts` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
   `product_category` varchar(255) NOT NULL,
+  `product_sport` varchar(255) NOT NULL,
   `product_size` varchar(255) NOT NULL,
   `product_stocks` int(11) NOT NULL,
-  `product_image` longblob NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `product_brand` varchar(255) NOT NULL,
   `product_price` int(11) NOT NULL,
   `date_added` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbproducts`
+--
+
+INSERT INTO `tbproducts` (`product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added`) VALUES
+(22, 'Markjames', 'Shoes', 'Basketball', '11', 5, '', 'Nike', 1500, '2023-11-26');
 
 -- --------------------------------------------------------
 
@@ -89,7 +98,7 @@ ALTER TABLE `tbusers`
 -- AUTO_INCREMENT for table `tbproducts`
 --
 ALTER TABLE `tbproducts`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbusers`
