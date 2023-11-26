@@ -16,25 +16,27 @@
             <span>VULCAN</span>
         </div>
 
-        <!-- <div class="search-bar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search...">
-        </div>
+        <div class="center">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" placeholder="Search...">
+            </div>
 
-        <div class="add-to-cart">
-            <p class="cart-count">0</p>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="add-to-cart">
+                <p class="cart-count">0</p>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
         </div>
-
+       
         <div class="login-and-signup">
             <a href="login.php"><p>Sign In</p></a>
             <div class="line"></div>
             <a href="login.php"><p>Sign Up</p></a>
-        </div> -->
+        </div>
     </div>    
 
     <!--Hero Content-->
-    <div class="hero">
+    <div class="hero content">
         <div class="hero-text">
             <h1>VULCAN</h1>
             <h2>"Made for the Gods"</h2>
@@ -46,9 +48,9 @@
     </div>
 
     <!--Product Details-->
-    <div class="popular-products">
+    <div class="popular-products content">
         <div class="product-title">
-            <span>Product Details</span>
+            <span>Popular Products</span>
             <hr>
         </div>
         <div class="products-container">
@@ -61,9 +63,9 @@
     </div>
 
     <!-- Event -->
-    <div class="event">
+    <div class="event content">
         <div class="event-title">
-            <h1>CYBER WEEK IS HERE</h1>
+            <h1>Christmass Sale is Coming!</h1>
             <p class="event-sub-text">The best gifts is keep giving</p>
         </div>
         <div class="event-container">
@@ -74,7 +76,7 @@
     </div>
 
     <!-- Trending -->
-    <div class="trending">
+    <div class="trending content">
         <div class="trending-title">
             <span>Trending</span>
             <hr>
@@ -92,7 +94,7 @@
     </div>
 
     <!-- Services -->
-    <div class="services">
+    <div class="services content">
         <div class="services-title">
             <span>Services</span>
             <hr>
