@@ -24,6 +24,7 @@
                         <label for="txt-product-name">Product Name: <input type="text" name="txt-product-name" id="txt-product-name" required></label>
                         <label for="file-image">Image: <input type="file" name="file-image" id="file-image" required></label>
                         <label for="txt-brand">Brand: <input type="text" name="txt-brand" id="txt-brand" required></label>
+                        <label for="txt-sports">Sports: <input type="text" name="txt-sports" id="txt-sports" required></label>
                     </div>
                     <div class="form-labels-two">
                         <label for="txt-size">Size: <input type="text" name="txt-size" id="txt-size" required></label>
