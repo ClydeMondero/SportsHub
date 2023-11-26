@@ -8,7 +8,7 @@
   align-items: center;
 }
 .form-container {
-  margin-bottom: 12rem;
+  margin-bottom: 5rem;
   width: 75%;
 }
 .form {
@@ -103,11 +103,15 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 2px solid black;
-  padding: 1rem;
+  border: 3px solid black;
+  padding: 0.4rem;
   text-align: center;
 }
+table {
+  width: 100%;
+}
 th {
+  padding: 1rem;
   font-size: 1rem;
   color: #ffffff;
   background-color: #191919;
@@ -115,5 +119,10 @@ th {
 }
 td {
   font-size: 1.3rem;
-  font-weight: bold;
+  font-family: "poppines", sans-serif;
+}
+img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
 }

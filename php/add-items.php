@@ -92,7 +92,7 @@
                 </div>
                 <!--Table-->
                 <div class="product-table">
-                    <table style="width:100%">
+                    <table>
                         <tr>
                             <th>Action</th>
                             <th>Product ID</th>

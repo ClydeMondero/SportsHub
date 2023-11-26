@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 .dashboard-content {
+  top: 5%;
+  position: sticky;
   width: 20%;
   height: 56rem;
   margin: 2rem;
