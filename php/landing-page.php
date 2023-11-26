@@ -33,6 +33,12 @@
             <div class="line"></div>
             <a href="login.php"><p>Sign Up</p></a>
         </div>
+
+        <div class="profile-and-logout">
+            <a href="login.php"><p>Profile</p></a>
+            <div class="line"></div>
+            <a href="login.php"><p>Logout</p></a>
+        </div>
     </div>    
 
     <!--Hero Content-->
