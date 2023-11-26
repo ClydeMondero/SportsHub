@@ -58,11 +58,11 @@
           header('Location: landing-page.php');
 
         }else{
-          echo 'Incorrect password!';
+          echo ("<script>alert('Incorrect username and/or password');</script>");
         }
 
       }else{
-        echo 'Incorrect Email';
+        echo ("<script>alert('Incorrect username and/or password');</script>");
       }
 
       $stmt->close();
