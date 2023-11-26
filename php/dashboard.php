@@ -20,14 +20,14 @@
             <div class="admin-tools-label">
                 <p>Admin Tools</p>
             </div>
-            <div class="dashboard-features">
+            <a href="dashboard-page.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-brands fa-dashcube"></i>
                 <span class="">DASHBOARD</span>
-            </div>
-            <div class="dashboard-features">
+            </div></a>
+            <a href="add-items.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-brands fa-product-hunt"></i>
                 <span class="">ADD ITEMS</span>
-            </div>
+            </div></a>
             <div class="dashboard-features">
                 <i class="fa-solid fa-sitemap"></i>
                 <span class="">CATEGORY</span>
@@ -42,8 +42,7 @@
             </div>
         </div>
         <div class="sign-out">
-            <a href="logout.php"><span>SIGN OUT</span>
-            <i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="logout.php" style="text-decoration:none;"><span>SIGN OUT</span><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
 </body>

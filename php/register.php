@@ -15,6 +15,7 @@
 <body>
   <div class="form-container">
     <h1><img src="../assets/imgs/Vulcan Logo.png" alt="" height="50" width="50"> SIGN UP</h1>
+    
     <form method="POST" class="form">
       <div class="form-input">
         <label>Full Name:</label>
