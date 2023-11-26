@@ -1,3 +1,9 @@
+
+<?php
+    session_start();
+    $loggedIn = isset($_SESSION['loggedin']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,14 +37,35 @@
         <div class="login-and-signup">
             <a href="login.php"><p>Sign In</p></a>
             <div class="line"></div>
-            <a href="login.php"><p>Sign Up</p></a>
+            <a href="register.php"><p>Sign Up</p></a>
         </div>
 
         <div class="profile-and-logout">
             <a href="login.php"><p>Profile</p></a>
             <div class="line"></div>
-            <a href="login.php"><p>Logout</p></a>
+            <a href="logout.php"><p>Logout</p></a>
         </div>
+
+        <?php
+            if($loggedIn){
+                echo '<style>
+                    .login-and-signup{display: none !important;}
+                </style>';
+
+                echo '<style>
+                    .profile-and-logout{display: flex !important;}
+                </style>';
+            } else{
+                echo '<style>
+                    .login-and-signup{display: flex !important;}
+                </style>';
+
+                echo '<style>
+                    .profile-and-logout{display: none !important;}
+                </style>';
+            }
+        ?>
+
     </div>    
     
         <!-- Latest -->
@@ -177,17 +204,4 @@
         </div>
     </footer>
 </body>
-
-
-<?php
-    include("conn.php");
-    
-    session_start();
-
-    if(isset($_SESSION['loggedin'])){
-        
-    }
-
-?>
-
 </html>
