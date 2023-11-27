@@ -14,7 +14,7 @@
 
 <body>       
   
-  <div class="back">
+<div class="back">
     <a href="landing-page.php"><i class="fa-solid fa-chevron-left"><span> Back</span></i></a>
   </div>
   <div class="form-container">
@@ -34,7 +34,7 @@
         <input type="password" name="password" placeholder="***************" required min="8" max="16" />
       </div>
       <input type="submit" class="login-btn" name="btnLogin" value="SIGN IN" />
-      <p>Forgot password?</p>
+      <p class="forgot-pass-text">Forgot password?</p>
       <p>Don't have an account? <a href="register.php">Sign Up now</a></p>
     </form>
   </div>

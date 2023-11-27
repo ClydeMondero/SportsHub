@@ -1,8 +1,21 @@
 <?php
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
+    $test = "CLYDE";
+    include('conn.php');
 ?>
 
+<?php 
+    if(isset($_GET['id'])){
+        $productID = $_GET['id'];
+        $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = ".$productID;
+    }
+
+    
+
+    
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +34,64 @@
     <div class="product-container">
         <div class="back">
             <a href="./shopping-page.php">
-                <i class="fa-solid fa-chevron-left"></i>     
+                <i class="fa-solid fa-chevron-left"></i>                     
                 <span>Back</span>
             </a>
         </div>        
+        <?php
+            $query_result = $conn->query($product_query);
+            foreach($query_result as $row){
+                $image = $row["product_image"];
+                $name = $row["product_name"];
+                $category = $row["product_category"];
+                $sport = $row["product_sport"];
+                $price = $row["product_price"];
+                $desc = $row["product_description"];
+                $brand = $row["product_brand"];
+                $stock = $row["product_stocks"];
+            }
+            echo '<div class ="product">';
+                echo '<img src="../products/' . $image . '" alt="' . $row['product_name'] . '">';
+                echo '<div class="product-details">';
 
-        <div class="product">
+                    echo '<div>';
+                        echo '<p class="product-name">'.$name.'</p>';
+                        echo '<p class="product-price">₱'.$price.'</p>';
+                    echo '</div>';
+            
+                    echo '<div>';
+                        echo '<p class="product-description">'.$desc.'</p>';
+                        echo '<div class="product-tags">';
+                            echo '<p>'.$category.'</p>';
+                            echo '<p>'.$brand.'</p>';
+                            echo '<p>'.$sport.'</p>';
+                    echo '</div>';
+
+                    echo '<civ>';
+                        echo '<p class="product-stock">Stock: <span>'.$stock.'</span></p>';
+                        echo '<div class="buttons">';
+                            echo '<button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
+                            echo '<button class="buy-btn">Buy Now</button>';
+                        echo '</div>';
+                    echo '</div>';
+
+                echo '</div>'; 
+
+            echo '</div>';
+        ?>
+    </div>        
+
+    <?php include "footer.php" ?>
+</body>
+</html>
+
+
+<!--<div class="product">                        
             <img src="../products\65641e8ce04fb.png" alt="">
 
             <div class="product-details">
                 <div>
-                    <p class="product-name">Nike Air Force 1</p>
+                    <p class="product-name">Nike</p>
                     <p class="product-price">₱6, 195</p>
                 </div>                
                 <div>
@@ -55,9 +115,4 @@
                     </div>
                 </div>             
             </div>            
-        </div>
-    </div>          
-
-    <?php include "footer.php" ?>
-</body>
-</html>
+        </div>-->
