@@ -13,9 +13,14 @@
 </head>
 
 <body>
+  <div class="back">
+    <a href="landing-page.php"><i class="fa-solid fa-chevron-left"><span> Back</span></i></a>
+  </div>
   <div class="form-container">
-    <h1><img src="../assets/imgs/Vulcan Logo.png" alt="" height="50" width="50"> SIGN UP</h1>
-    
+  <div class ="row-title-and-exit">
+    <img src="../assets/imgs/Vulcan Logo.png" alt="" height="100px" width="100px">
+        <h1>SIGN UP</h1>
+    </div>
     <form method="POST" class="form">
       <div class="form-input">
         <label>Full Name:</label>

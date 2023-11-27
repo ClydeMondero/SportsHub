@@ -1,10 +1,13 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
 }
-
+body {
+  background-image: url("../assets/imgs/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .form-container {
   width: max-content;
   margin-top: 15vh;
@@ -13,7 +16,7 @@
 }
 .form {
   background-color: #1f1717;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+  box-shadow: rgba(108, 107, 107, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   display: flex;
   align-items: center;
@@ -29,14 +32,12 @@ h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .form-input {
   width: 370px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .form-input input {
   border: none;
   padding: 0.6rem 1rem;
@@ -48,7 +49,6 @@ h1 {
   color: #ffffff;
   font-weight: bold;
 }
-
 .login-btn {
   background-color: #fcf5ed;
   letter-spacing: 1px;
@@ -68,14 +68,14 @@ h1 {
   background-color: #ce5a67;
 }
 
-span {
+.login-btn span {
   color: #ffffff;
   font-size: 0.9rem;
   margin-top: 0.3rem;
   margin-right: 15rem;
   transition: 0.1s;
 }
-span:hover {
+.login-btn span:hover {
   color: #ce5a67;
   cursor: pointer;
 }
@@ -87,4 +87,36 @@ p {
 p a {
   color: #ce5a67;
   cursor: pointer;
+}
+.row-title-and-exit {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.row-title-and-exit h1 {
+  padding-top: 2rem;
+  color: #ffffff;
+  font-family: "poppins", sans-serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px rgb(103, 102, 102);
+}
+.back {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  max-width: max-content;
+}
+.back i {
+  color: #ffffff;
+  font-size: 2rem;
+  transition: 0.2s;
+}
+.back span {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-family: "poppins", sans-serif;
+}
+.back i:hover {
+  cursor: pointer;
+  color: #ce5a67;
 }
