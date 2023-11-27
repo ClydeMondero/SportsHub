@@ -1,4 +1,5 @@
 <?php
+    include("conn.php");
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
 ?>
@@ -54,6 +55,6 @@
         </div>                                      
     </div>
     
-    <?php include "footer.php"?>     
+    <?php include "footer.php"  ?>     
 </body>
 </html>

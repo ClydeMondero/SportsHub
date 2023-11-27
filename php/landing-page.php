@@ -51,7 +51,7 @@
     <!-- Event -->
     <div class="event content">
         <div class="event-title">
-            <h1>Christmass Sale is Coming!</h1>
+            <h1>Christmas Sale is Coming!</h1>
             <p class="event-sub-text">The best gifts is keep giving</p>
         </div>
         <div class="event-container">
@@ -87,17 +87,17 @@
         <div class="services-details">
             <div class="service">
                 <i class="fa-solid fa-truck-fast" style="color: #000000;"></i>
-                <span>Online Shopping and Delivery</span>
+                <h1>Online Shopping and Delivery</h1>
                 <p>Allowing customers to browse and purchase products from the comfort of their homes. </p>
             </div>
             <div class="service">
                 <i class="fa-solid fa-comments" style="color: #000000;"></i>
-                <span>Expert Advice and Consultation</span>
+                <h1>Expert Advice and Consultation</h1>
                 <p>Knowledgeable staff can provide advice and recommendations on the right equipment.</p>
             </div>
             <div class="service">
                 <i class="fa-regular fa-money-bill-1" style="color: #000000;"></i>
-                <span>Equipment Sales</span>
+                <h1>Equipment Sales</h1>
                 <p>This includes items such as sports apparel, footwear, sports gear, and accessories.</p>
             </div>
         </div>

@@ -3,7 +3,7 @@
 
 <div class="header">
     <div class="logo-and-title">
-        <img src="../assets/imgs/Vulcan Logo.png" alt="">
+        <a href="landing-page.php"><img src="../assets/imgs/Vulcan Logo.png" alt=""></a>
         <a href="landing-page.php"><span>VULCAN</span></a>
     </div>
 
