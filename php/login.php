@@ -14,7 +14,7 @@
 
 <body>       
   
-  <div class="back">
+<div class="back">
     <a href="landing-page.php"><i class="fa-solid fa-chevron-left"><span> Back</span></i></a>
   </div>
   <div class="form-container">
