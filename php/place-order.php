@@ -1,6 +1,31 @@
 <?php
+    include('conn.php');
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
+?>
+
+<?php
+     if(isset($_GET['id'])){
+        $productID = $_GET['id'];
+        $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = ".$productID;
+        
+        $query_result = $conn->query($product_query);
+        foreach($query_result as $row){
+            $image = $row["product_image"];
+            $name = $row["product_name"];
+            $category = $row["product_category"];
+            $sport = $row["product_sport"];
+            $price = $row["product_price"];
+            $desc = $row["product_description"];
+            $brand = $row["product_brand"];
+            $stock = $row["product_stocks"];
+        }
+        
+        $GLOBALS['productName'] = $name;
+        $GLOBALS['productImage'] = $image;
+        $GLOBALS['productPrice'] = $price;
+        $GLOBALS['productStocks'] = $stock;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,38 +99,33 @@
                 <div class="cream">
                     <div class="products">
                         <div class="product">
-                            <img src="../products/65641e8ce04fb.png" alt="">
+                            <?php echo '<img src="../products/' . $image . '" alt="' . $row['product_name'] . '">';?>
                             <div class="product-details">
                                 <div>
-                                    <h3 class="product-name">Nike Airforce 1</h3>
-                                    <p class="product-price">₱6, 195</p>
+                                    <h3 class="product-name"><?php echo $productName ?></h3>
+                                    <p class="product-price">₱<?php echo $productPrice ?></p>
                                 </div>                                
                                 <p class="product-quantity">1 pc</p>
                             </div>                            
-                        </div>
-                        <hr>
-                        <div class="product">
-                            <img src="../products/65641e8ce04fb.png" alt="">
-                            <div class="product-details">
-                                <div>
-                                    <h3 class="product-name">Nike Airforce 1</h3>
-                                    <p class="product-price">₱6, 195</p>
-                                </div>
-                               
-                                <p class="product-quantity">1 pc</p>
-                            </div>
-                        </div>                        
+                        </div>                       
                     </div>
                    
                     <div class="line"></div>
 
                     <div class="total">
                         <p>Total: </p>
-                        <p>₱6, 195</p>
+                        <p>₱<?php echo $productPrice ?></p>
                     </div>
                 </div>
-
-                <button class="order">Place Order</button>
+                <?php
+               echo '<a href = "./place-order.php?id='. $row["product_id"].'&quantity=1">';
+               echo '<button class="order">Place Order</button></a>'; 
+                    if(isset($_GET['quantity'])){
+                        echo ("<script>alert('Purchase Successful');</script>");
+                        $minus_query = "update tbproducts set product_stocks = product_stocks - ".$_GET['quantity']." where product_id = ". $_GET['id'];
+                        $conn->query($minus_query);
+                    }
+                ?>
             </div>
         </div>
 
