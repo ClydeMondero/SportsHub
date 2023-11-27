@@ -15,9 +15,9 @@ body {
   margin-right: auto;
 }
 .form {
-  background-color: #1f1717;
-  box-shadow: rgba(108, 107, 107, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background-color: #f4bf96;
+  box-shadow: rgba(154, 148, 148, 0.25) 0px 14px 28px,
+    rgba(100, 98, 98, 0.22) 0px 10px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,11 +46,13 @@ h1 {
   width: 260px;
 }
 .form-input label {
-  color: #ffffff;
-  font-weight: bold;
+  color: #000000;
+  font-size: 1.2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .login-btn {
-  background-color: #fcf5ed;
+  background-color: #ce5a67;
+  color: #ffffff;
   letter-spacing: 1px;
   font-size: 1rem;
   font-weight: bold;
@@ -64,8 +66,8 @@ h1 {
 }
 
 .login-btn:hover {
-  color: #ffffff;
-  background-color: #ce5a67;
+  color: #000000;
+  background-color: #fcf5ed;
 }
 
 .login-btn span {
@@ -79,10 +81,15 @@ h1 {
   color: #ce5a67;
   cursor: pointer;
 }
+.forgot-pass-text {
+  align-self: self-start;
+}
 p {
-  color: #ffffff;
+  color: #000000;
+  font-family: "poppins", sans-serif;
   margin-top: 2rem;
   font-size: 1rem;
+  font-weight: 500;
 }
 p a {
   color: #ce5a67;
