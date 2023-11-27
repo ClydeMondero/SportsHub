@@ -4,18 +4,18 @@
 <footer>
     <div class="footer-container">
         <div class="information">
-            <span>ABOUT US</span>
+            <h1>ABOUT US</h1>
             <p>Welcome to Vulcan Sports Hub, where passion meets performance. 
                 At Vulcan, we've crafted more than just a sports store; we've built a hub for enthusiasts, 
                 athletes, and anyone embracing an active lifestyle.
             </p>
         </div>
         <div class="information">
-            <span>LOCATION</span>
+            <h1>LOCATION</h1>
             <p>213 New York St. Cubao, Metro, Manila Philippines</p>
         </div>
         <div class="information">
-            <span>TALK TO PROFESSIONALS</span>
+            <h1>TALK TO PROFESSIONALS</h1>
             <div class="professionals-gmail">
                 <div class="gmails"><i class="fa-solid fa-envelope"></i> Clyde Reyniel C. Mondero</div>
                 <div class="gmails"><i class="fa-solid fa-envelope"></i> Andrei John D. Poma</div>
