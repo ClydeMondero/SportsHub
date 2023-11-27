@@ -8,12 +8,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.admin {
-  display: flex;
-}
-.admin-container {
+
+.admin .admin-container {
   width: 45%;
-  margin: 5% 10% 0 15%;
 }
 .admin-title {
   font-size: 4.6rem;

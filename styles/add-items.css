@@ -5,17 +5,23 @@
 }
 .add-item-container {
   display: flex;
+}
+#data {
+  display: flex;
   align-items: center;
+  justify-content: space-evenly;
+}
+#image {
+  color: #ffffff;
 }
 .form-container {
-  margin-bottom: 5rem;
   width: 75%;
 }
 .form {
   background-color: #191919;
   border-radius: 0.6rem;
   padding: 2.2rem 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 .form h1 {
   color: #ffffff;
@@ -24,20 +30,27 @@
 }
 .form-labels-one {
   display: flex;
-  flex-direction: row;
   gap: 2rem;
   margin: 1.3rem 2rem 0 2rem;
 }
 .form-labels-one input {
   border: none;
-  padding: 0.4rem 1rem;
-  margin: 0.3rem 0;
+  padding: 0.5rem 0;
+  margin: 0.4rem 0;
   border-radius: 0.2rem;
 }
 .form-labels-one label {
   color: #ffffff;
   font-size: 1.2rem;
+  padding: 0.5rem 0;
   font-family: "poppins", sans-serif;
+}
+.labels label,
+.inputs input {
+  display: block;
+}
+.inputs input {
+  width: 25rem;
 }
 .form-labels-two {
   display: flex;
@@ -47,13 +60,14 @@
 }
 .form-labels-two input {
   border: none;
-  padding: 0.4rem 1rem;
-  margin: 0.3rem 0;
+  padding: 0.5rem 0;
+  margin: 0.4rem 0;
   border-radius: 0.2rem;
 }
 .form-labels-two label {
   color: #ffffff;
   font-size: 1.2rem;
+  padding: 0.5rem 0;
   font-family: "poppins", sans-serif;
 }
 .add-btn {
