@@ -10,10 +10,16 @@ body {
 }
 .admin {
   display: flex;
+  align-items: center;
 }
 .admin-container {
-  width: 45%;
-  margin: 5% 10% 0 15%;
+  width: 50%;
+  margin-left: 13%;
+}
+.admin-container span {
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: "poppins", sans-serif;
 }
 .admin-title {
   font-size: 4.6rem;

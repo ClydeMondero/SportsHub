@@ -18,13 +18,16 @@ a {
 .container {
   display: flex;
   gap: 4.5rem;
-  position: absolute;
-  top: 25%;
+  margin: 15rem 0;
   width: 100%;
   padding: 0 4.5rem;
 }
 
 .categories {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
