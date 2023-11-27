@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $loggedIn = isset($_SESSION['loggedin']);    
+    $loggedIn = isset($_SESSION['loggedin']);
     include('conn.php');
 ?>
 
@@ -65,7 +65,13 @@
                         echo '<p class="product-stock">Stock: <span>'.$stock.'</span></p>';
                         echo '<div class="buttons">';
                             echo '<button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
-                            echo '<button class="buy-btn">Buy Now</button>';
+                            if(!$loggedIn){
+                                echo '<button class="buy-btn" onClick = "handleClick()">Buy Now</button>';
+                            }else{
+                                echo '<a href = "./place-order.php?id='. $row["product_id"].'">';
+                                echo '<button class="buy-btn">Buy Now</button></a>';
+                            }
+                            
                         echo '</div>';
                     echo '</div>';
 
@@ -76,37 +82,11 @@
     </div>        
 
     <?php include "footer.php" ?>
+    <script>
+       function handleClick(){
+            alert("Please Login First.");
+            window.location.href = "./login.php";
+        }
+    </script>
 </body>
 </html>
-
-
-<!--<div class="product">                        
-            <img src="../products\65641e8ce04fb.png" alt="">
-
-            <div class="product-details">
-                <div>
-                    <p class="product-name">Nike</p>
-                    <p class="product-price">₱6, 195</p>
-                </div>                
-                <div>
-                    <p class="product-description">
-                        The radiance lives on in the Nike Air Force 1 '07, 
-                        the b-ball icon that puts a fresh spin on what you know best: 
-                        leather, bold colours and the perfect amount of flash to make you shine.
-                    </p>
-                    <div class="product-tags">                    
-                        <p>Shoes</p>
-                        <p>Nike</p>
-                        <p>Casual</p>
-                    </div>  
-                </div>
-                 
-                <div>
-                    <p class="product-stock">Stock: <span>50</span></p>
-                    <div class="buttons">
-                        <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
-                        <button class="buy-btn">Buy Now</button>
-                    </div>
-                </div>             
-            </div>            
-        </div>-->

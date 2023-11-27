@@ -56,7 +56,7 @@
         <input type="text" name="address" required />
       </div>
       <input type="submit" class="submit-btn" name="btnSubmit" value="SIGN UP" />
-      <p class="have-account">Have already an account? <a href="login.php">Login here</a></p>      
+      <p class="have-account">Already have an account? <a href="login.php">Login here</a></p>      
     </form>
   </div>
 
