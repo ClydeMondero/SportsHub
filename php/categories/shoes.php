@@ -12,10 +12,12 @@
         $price = $row["product_price"];
         
         
-        echo '<div class="product">';        
+        echo '<div class="product">';
+        echo '<a href = "./product-page.php?id='. $row["product_id"].'">';        
         echo '<img src="../products/' . $image . '" alt="' . $row['product_name'] . '">';
         echo '<div class="product-details">';
         echo '<p class="product-name">'.$name.'</p>';
+        echo '</a>';
         echo '<p class="product-tags">'.$category.'</p>';
         echo '<p class="product-tags">'.$sport.'</p>';
         echo '<p>₱'.$price.'</p>';
