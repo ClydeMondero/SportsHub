@@ -1,7 +1,6 @@
 <?php
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
-    $test = "CLYDE";
     include('conn.php');
 ?>
 
@@ -10,11 +9,6 @@
         $productID = $_GET['id'];
         $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = ".$productID;
     }
-
-    
-
-    
-
 ?>
 
 <!DOCTYPE html>
