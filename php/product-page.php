@@ -2,6 +2,8 @@
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
