@@ -8,9 +8,18 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.admin .admin-container {
-  width: 45%;
+.admin {
+  display: flex;
+  align-items: center;
+}
+.admin-container {
+  width: 50%;
+  margin-left: 13%;
+}
+.admin-container span {
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: "poppins", sans-serif;
 }
 .admin-title {
   font-size: 4.6rem;

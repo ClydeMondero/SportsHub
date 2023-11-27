@@ -10,8 +10,7 @@
 <body>
     <div class="admin">
         <?php
-            include("../php/dashboard.php");
-        ?>
+            include("../php/dashboard.php");?>
         <div class="admin-container">
                 <span>ADMIN PAGE</span>
             <div class="first-row-container">
