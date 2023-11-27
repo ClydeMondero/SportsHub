@@ -12,7 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/place-order.css">   
-    <title>Place Order</title>
+    <title>Vulcan - Place Order Page</title>
 </head>
 <body>
     <?php include "./header.php" ?>

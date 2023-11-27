@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $loggedIn = isset($_SESSION['loggedin']);
-    $test = "CLYDE";
+    $loggedIn = isset($_SESSION['loggedin']);    
     include('conn.php');
 ?>
 
@@ -10,11 +9,6 @@
         $productID = $_GET['id'];
         $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = ".$productID;
     }
-
-    
-
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +20,7 @@
     <link rel="stylesheet" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/product-page.css">   
-    <title>Product</title>
+    <title>Vulcan - Product Page</title>
 </head>
 <body>
     <?php include "header.php" ?>
