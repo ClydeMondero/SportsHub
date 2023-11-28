@@ -117,7 +117,7 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 3px solid black;
+  border: 3px solid #000000;
   padding: 0.4rem;
   text-align: center;
 }
@@ -139,4 +139,20 @@ img {
   height: 120px;
   width: 120px;
   object-fit: cover;
+}
+.check input[type="checkbox"] {
+  line-height: normal;
+  width: 20px;
+  height: 20px;
+}
+.actions i {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 0.7rem;
+}
+.fa-trash:hover {
+  color: #ce5a67;
+}
+.fa-pen-to-square:hover {
+  color: #f4bf96;
 }

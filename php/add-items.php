@@ -115,16 +115,16 @@
                 <div class="product-table">
                     <table>
                         <tr>
-                            <th>Action</th>
+                            <th>Select</th>
                             <th>Product ID</th>
                             <th>Image</th>
                             <th>Product Name</th>
                             <th>Brand</th>
                             <th>Category</th>
                             <th>Sports</th>
-                            <th>Total</th>
+                            <th>Qty</th>
                             <th>Price per Item</th>
-                            <th>Edit</th>
+                            <th>Action</th>
                         </tr>
 
                         <?php
@@ -133,7 +133,7 @@
                     
                             while($row = $result->fetch_assoc()){
                                 echo "<tr>";
-                                echo "<td><input type = 'checkbox' name = '' id = ''></td>";
+                                echo "<td class='check'><input type = 'checkbox' name = '' id = ''></td>";
                                 echo "<td>" . $row["product_id"] . "</td>";
                                 echo "<td><img src='../products/" . $row["product_image"] . "' width='200'></td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
@@ -142,7 +142,7 @@
                                 echo "<td>" . $row["product_sport"] . "</td>";
                                 echo "<td>" . $row["product_stocks"] . "</td>";
                                 echo "<td>" . $row["product_price"] . "</td>";
-                                echo "<td><i class = 'fa-solid fa-pen-to-square'></i></td>";
+                                echo "<td class='actions'><i class='fa-solid fa-pen-to-square'></i><i class='fa-solid fa-trash'></i></td>";
                                 echo "</tr>";
                             }
                         ?>
