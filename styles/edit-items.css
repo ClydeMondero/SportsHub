@@ -40,14 +40,14 @@ body {
 }
 .form-labels-one input {
   border: none;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   margin: 0.4rem 0;
   border-radius: 0.2rem;
 }
 .form-labels-one label {
   color: #ffffff;
   font-size: 1.2rem;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   font-family: "poppins", sans-serif;
 }
 .labels label,
@@ -107,4 +107,30 @@ body {
   font-size: 4.1rem;
   color: #393939;
   text-shadow: 3px 3px 3px rgb(69, 66, 66);
+}
+.img-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cancel-btn {
+  background-color: #fcf5ed;
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 1.4rem 2rem 0 2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.2rem;
+  border: none;
+  width: 200px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  color: #ffffff;
+  background-color: #ce5a67;
 }
