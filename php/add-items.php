@@ -10,6 +10,7 @@
         $product_quantity = $_POST['txt-quantity'];
         $product_price = $_POST['txt-price'];
         $product_sport = $_POST['txt-sports'];
+        $product_description = $_POST['txt-product-description'];
 
         $fileName = $_FILES["image"]["name"];
         $fileSize = $_FILES["image"]["size"];
@@ -41,7 +42,7 @@
             }
     
             if(!$product_duplicate){
-                $insert_query = "insert into `tbproducts`(`product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_category','$product_sport','$product_size','$product_quantity','$newImageName','$product_brand','$product_price')";
+                $insert_query = "insert into `tbproducts`(`product_name`, `product_description` ,`product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_description','$product_category','$product_sport','$product_size','$product_quantity','$newImageName','$product_brand','$product_price')";
                 if($conn->query($insert_query) === TRUE){
                     echo ("<script>alert('Product Added!');</script>");
                 }else{
@@ -71,7 +72,7 @@
         ?>
         <div class="form-container">
             <form method="POST" class="form" enctype="multipart/form-data">
-                <h1>ADD PRODUCTS</h1>
+                <h1>Add Product</h1>
                  <div id="data">
                     
                  <div class="form-labels-one">
@@ -106,17 +107,19 @@
                         </div>
                     </div>
                  </div>
-                    <input type="submit" class="add-btn" value="ADD PRODUCT" name="btnAdd">
+                    <input type="submit" class="add-btn" value="Add Product" name="btnAdd">  
+                    <button onclick="cancel()">cancel</button>                  
             </form>
                 <div class="table-actions">
                     <div class="delete-container">
                         <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span> Delete</span></i></button>
                     </div>
 
-                    <div class="product-search">
-                        <span>PRODUCT</span>
+                    <div class="product-search">                        
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" placeholder="Search Items...">
+                        <form method="GET" action="" id="searchForm">
+                            <input type="search" name="search" placeholder="Search Items..."  value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">                            
+                        </form>
                     </div>                   
                 </div>
 
@@ -140,10 +143,10 @@
 
                         <?php
                             include('conn.php');
-                            
-                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` order by product_stocks desc";
+                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` where `product_name` like '%$searchTerm%' order by product_stocks desc";
                             $result = $conn->query($sql);
-                        
+                            
                             while($row = $result->fetch_assoc()){
                                 if($row["product_stocks"] == 0){
                                     echo "<tr class='archived'>";
@@ -161,7 +164,9 @@
                                 echo "<td>" . $row["product_stocks"] . "</td>";
                                 echo "<td>" . $row["product_price"] . "</td>";
                                 echo "<td class='actions'>";                                
-                                echo "<i class='fa-solid fa-pen-to-square'></i>";                                
+                                echo '<a href = "./edit-items.php?id='. $row["product_id"].'">';
+                                echo "<i class='fa-solid fa-pen-to-square'></i></a>";                                
+                                echo "</a>";
                                 echo "</td>";
                                 echo "</tr>";
                             }                                 
@@ -189,6 +194,23 @@
                 }
             }
         }
+
+        function cancel() {
+            // Get the form element
+            let form = document.getElementById("form");
+
+            // Reset the form, which clears all input fields
+            form.reset();
+
+            // Clear the file input (set its value to an empty string)
+            document.getElementById("image").value = "";
+        }
+
+        document.querySelector('input[name="search"]').addEventListener('keydown', (event) =>{
+                if(event.keyCode === 13){
+                    document.getElementById("searchForm").submit();
+                }
+            })        
     </script>
 </body>
 </html>
