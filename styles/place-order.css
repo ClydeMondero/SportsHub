@@ -96,8 +96,16 @@ a {
   font-size: 1.5rem;
   border: none;
   color: #fff;
-  background-color: #ce5a67;
+  background-color: #191919;
+  border-radius: 0.3rem;
+  color: #ffffff;
   width: 50%;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #ce5a67;
+  color: #ffffff;
 }
 
 .check-out {
@@ -107,6 +115,7 @@ a {
 .black {
   height: 100%;
   background-color: black;
+  border-radius: 0.5rem;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -173,7 +182,16 @@ hr {
 .order {
   margin: 1rem auto;
   font-size: 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   padding: 0.5rem 1rem;
-  background-color: #ffffff;
+  font-weight: bold;
+  background-color: #ce5a67;
+  color: #ffffff;
+  transition: 0.2s;
+  border: none;
+}
+.order:hover {
+  cursor: pointer;
+  background-color: #f4bf96;
+  color: #191919;
 }

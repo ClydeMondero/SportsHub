@@ -62,7 +62,7 @@
     <link rel="stylesheet" href="../styles/add-items.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Vulcan Add Items</title>
+    <title>Vulcan - Add Items</title>
 </head>
 <body>
     <div class="add-item-container">
@@ -80,12 +80,14 @@
                             <label for="image">Image: </label>
                             <label for="txt-brand">Brand:</label>
                             <label for="txt-sports">Sports: </label>
+                            <label for="txt-description">Description: </label>
                         </div>
                         <div class="inputs">
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
                             <input type="file" name="image" id="image" required>
                             <input type="text" name="txt-brand" id="txt-brand" required>
                             <input type="text" name="txt-sports" id="txt-sports" required>
+                            <input type="text" name="txt-product-description" id="txt-product-description" required>
                         </div>
        
                     </div>
@@ -104,7 +106,7 @@
                         </div>
                     </div>
                  </div>
-                    <input type="submit" class="add-btn" value="Add Product" name="btnAdd">
+                    <input type="submit" class="add-btn" value="ADD PRODUCT" name="btnAdd">
             </form>
                 <div class="table-actions">
                     <div class="delete-container">
