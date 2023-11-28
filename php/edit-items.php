@@ -27,12 +27,14 @@
                             <label for="image">Image: </label>
                             <label for="txt-brand">Brand:</label>
                             <label for="txt-sports">Sports: </label>
+                            <label for="txt-description">Description: </label>
                         </div>
                         <div class="inputs">
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
                             <input type="file" name="image" id="image" required>
                             <input type="text" name="txt-brand" id="txt-brand" required>
                             <input type="text" name="txt-sports" id="txt-sports" required>
+                            <input type="text" name="txt-product-description" id="txt-product-description" required>
                         </div>
        
                     </div>
