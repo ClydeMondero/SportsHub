@@ -1,7 +1,7 @@
 <?php
     include("conn.php");
     
-    $select_query = 'select `product_id`, `product_name`, `product_category`, `product_sport`, `product_image`,`product_price` from `tbproducts` where product_category = "Shoes"';
+    $select_query = 'select `product_id`, `product_name`, `product_category`, `product_sport`, `product_image`,`product_price` from `tbproducts` where product_category = "Shoes" and product_stocks != 0';
     $query_result = $conn->query($select_query);
 
     foreach ($query_result as $row) {

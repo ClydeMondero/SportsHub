@@ -15,6 +15,8 @@
   color: #ffffff;
 }
 .form-container {
+  display: flex;
+  flex-direction: column;
   width: 75%;
 }
 .form {
@@ -87,10 +89,8 @@
   color: #ffffff;
   background-color: #ce5a67;
 }
-.product-search {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: end;
+.product-search {  
+  display: flex;    
 }
 .product-search i {
   position: relative;
@@ -109,8 +109,7 @@
   font-size: 1rem;
   width: 20rem;
 }
-.product-table {
-  margin-top: 5%;
+.product-table {  
   background-color: #ffffff;
 }
 table,
@@ -150,9 +149,40 @@ img {
   font-size: 1.5rem;
   margin: 0 0.7rem;
 }
-.fa-trash:hover {
+
+.delete-container{
+  width: 100%;
+  display: flex;
+  align-items: center;    
+}
+
+.delete-container button{
+  border: none;
+  background-color: white;
+}
+
+.delete-container span{  
+  font-size: 1.5rem;
+}
+
+.table-actions{  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem 0 1rem 0;
+}
+
+.fa-trash{
+  font-size: 1.8rem;
+}
+
+.fa-trash:hover {  
   color: #ce5a67;
 }
 .fa-pen-to-square:hover {
   color: #f4bf96;
+}
+
+.archived{
+  opacity: 50%;
 }

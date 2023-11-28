@@ -106,13 +106,22 @@
                  </div>
                     <input type="submit" class="add-btn" value="Add Product" name="btnAdd">
             </form>
-                <div class="product-search">
-                    <span>PRODUCT</span>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search" placeholder="Search Items...">
+                <div class="table-actions">
+                    <div class="delete-container">
+                        <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span> Delete</span></i></button>
+                    </div>
+
+                    <div class="product-search">
+                        <span>PRODUCT</span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Search Items...">
+                    </div>                   
                 </div>
+
                 <!--Table-->
                 <div class="product-table">
+                    
+                    <form method = 'POST' action='./delete-items.php' id="productsForm">
                     <table>
                         <tr>
                             <th>Select</th>
@@ -128,12 +137,19 @@
                         </tr>
 
                         <?php
-                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts`";
+                            include('conn.php');
+                            
+                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` order by product_stocks desc";
                             $result = $conn->query($sql);
-                    
+                        
                             while($row = $result->fetch_assoc()){
-                                echo "<tr>";
-                                echo "<td class='check'><input type = 'checkbox' name = '' id = ''></td>";
+                                if($row["product_stocks"] == 0){
+                                    echo "<tr class='archived'>";
+                                    echo "<td class='check'><input type = 'checkbox' name = 'product_ids[]' value = '".$row['product_id']."' disabled></td>";
+                                }else{
+                                    echo "<tr>";
+                                    echo "<td class='check'><input type = 'checkbox' name = 'product_ids[]' value = '".$row['product_id']."'></td>";
+                                }
                                 echo "<td>" . $row["product_id"] . "</td>";
                                 echo "<td><img src='../products/" . $row["product_image"] . "' width='200'></td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
@@ -142,14 +158,35 @@
                                 echo "<td>" . $row["product_sport"] . "</td>";
                                 echo "<td>" . $row["product_stocks"] . "</td>";
                                 echo "<td>" . $row["product_price"] . "</td>";
-                                echo "<td class='actions'><i class='fa-solid fa-pen-to-square'></i><i class='fa-solid fa-trash'></i></td>";
+                                echo "<td class='actions'>";                                
+                                echo "<i class='fa-solid fa-pen-to-square'></i>";                                
+                                echo "</td>";
                                 echo "</tr>";
-                            }
+                            }                                 
                         ?>
-
                     </table>
+                    </form>
                 </div>
             </div>
-    </div>
+    </div>  
+    <script>        
+        function handleDelete(){
+            let form = document.getElementById("productsForm");
+            let checkboxes = form.querySelectorAll('input[name="product_ids[]"]:checked');
+
+            if (checkboxes.length === 0) {
+                alert("Please select at least one product to delete.");
+            }else{
+                if (confirm("Are you sure you want to put the product off sale?") == true) { 
+                    form.submit();  
+                } else {                   
+                    checkboxes.forEach((checkbox) => {
+                        checkbox.checked = false;
+                    });      
+                    alert("Action Cancelled");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
