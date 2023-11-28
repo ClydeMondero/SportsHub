@@ -25,16 +25,12 @@
                 <span class="">DASHBOARD</span>
             </div></a>
             <a href="add-items.php" style="text-decoration:none;"><div class="dashboard-features">
-                <i class="fa-brands fa-product-hunt"></i>
-                <span class="">ADD ITEMS</span>
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span class="">PRODUCTS</span>
             </div></a>
             <div class="dashboard-features">
                 <i class="fa-solid fa-sitemap"></i>
                 <span class="">CATEGORY</span>
-            </div>
-            <div class="dashboard-features">
-                <i class="fa-solid fa-boxes-stacked"></i>
-                <span class="">INVENTORY</span>
             </div>
             <div class="dashboard-features">
                <i class="fa-solid fa-list-check"></i>
