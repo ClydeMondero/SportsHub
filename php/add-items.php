@@ -104,7 +104,7 @@
                         </div>
                     </div>
                  </div>
-                    <input type="submit" class="add-btn" value="Add Product" name="btnAdd">
+                    <input type="submit" class="add-btn" value="ADD PRODUCT" name="btnAdd">
             </form>
                 <div class="product-search">
                     <span>PRODUCT</span>
@@ -146,7 +146,6 @@
                                 echo "</tr>";
                             }
                         ?>
-
                     </table>
                 </div>
             </div>
