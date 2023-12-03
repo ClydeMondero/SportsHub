@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 02:18 PM
+-- Generation Time: Dec 03, 2023 at 02:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbsportshub`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbcarts`
+--
+
+CREATE TABLE `tbcarts` (
+  `cart_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `cart_quantity` int(11) DEFAULT NULL,
+  `cart_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,10 +82,10 @@ CREATE TABLE `tbproducts` (
 --
 
 INSERT INTO `tbproducts` (`product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added`) VALUES
-(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'Casual', '12', 1, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
-(52, 'Nike Air Force 1 07 LV8', 'The radiance lives on in the Air Force 1 07 LV8. This b-ball original puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine. This winter-ready version helps keep you warm and has traction to beat the elements.', 'Shoes', 'Casual', '12', 5, '65641fbde3eb7.png', 'Nike', 6895, '2023-11-27'),
-(53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Soccer', '10', 10, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
-(54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'Shoes', 'Basketball', '11', 14, '65642124cc18a.png', 'Nike', 2995, '2023-11-27');
+(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'Casual', '12', 0, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
+(52, 'Nike Air Force 1 07 LV8', 'The radiance lives on in the Air Force 1 07 LV8. This b-ball original puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine. This winter-ready version helps keep you warm and has traction to beat the elements.', 'Nike Air Force 1 07 LV8', 'Casual', '12', 0, '6565f17cc7302.png', 'Nike', 6895, '2023-11-27'),
+(53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Soccer', '10', 0, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
+(54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'Shoes', 'Basketball', '11', 0, '65642124cc18a.png', 'Nike', 2995, '2023-11-27');
 
 -- --------------------------------------------------------
 
@@ -105,6 +119,14 @@ INSERT INTO `tbusers` (`user_id`, `user_fullName`, `user_username`, `user_passwo
 --
 
 --
+-- Indexes for table `tbcarts`
+--
+ALTER TABLE `tbcarts`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `tborders`
 --
 ALTER TABLE `tborders`
@@ -129,6 +151,12 @@ ALTER TABLE `tbusers`
 --
 
 --
+-- AUTO_INCREMENT for table `tbcarts`
+--
+ALTER TABLE `tbcarts`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tborders`
 --
 ALTER TABLE `tborders`
@@ -138,7 +166,7 @@ ALTER TABLE `tborders`
 -- AUTO_INCREMENT for table `tbproducts`
 --
 ALTER TABLE `tbproducts`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `tbusers`
@@ -149,6 +177,13 @@ ALTER TABLE `tbusers`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tbcarts`
+--
+ALTER TABLE `tbcarts`
+  ADD CONSTRAINT `tbcarts_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `tbproducts` (`product_id`),
+  ADD CONSTRAINT `tbcarts_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tbusers` (`user_id`);
 
 --
 -- Constraints for table `tborders`
