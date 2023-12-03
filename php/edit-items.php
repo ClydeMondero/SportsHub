@@ -156,8 +156,8 @@
 
                             <!-- Edit This MJ -->
 
-                            <div>
-                                <img src="../products/<?php echo $productImage; ?>" width="150px" height="150px" alt="">
+                            <div class="img-container">
+                                <img src="../products/<?php echo $productImage; ?>" width="60px" height="60px" alt="">
                                 <input type="file" name="image" id="image">
                             </div>                           
 
@@ -183,8 +183,10 @@
                         </div>
                     </div>
                  </div>
-                    <input type="submit" class="edit-btn" value="SAVE" name="btnEdit">
-                    <button onclick="cancel()">Cancel</button>                  
+                 <div class="action">
+                 <input type="submit" class="edit-btn" value="SAVE" name="btnEdit">
+                    <button onclick="cancel()" class="cancel-btn">Cancel</button>  
+                 </div>                
             </form>
             </div>
     </div>

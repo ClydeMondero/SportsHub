@@ -107,12 +107,14 @@
                         </div>
                     </div>
                  </div>
+                 <div class="action">
                     <input type="submit" class="add-btn" value="Add Product" name="btnAdd">  
-                    <button onclick="cancel()">cancel</button>                  
+                    <button onclick="cancel()" class="cancel-btn">Cancel</button>      
+                 </div>                
             </form>
                 <div class="table-actions">
                     <div class="delete-container">
-                        <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span> Delete</span></i></button>
+                        <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
                     </div>
 
                     <div class="product-search">                        

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
@@ -87,7 +87,7 @@ a{
   padding: 0.8rem 1rem;
   border-radius: 0.2rem;
   border: none;
-  width: 200px;
+  width: 250px;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -95,8 +95,8 @@ a{
   color: #ffffff;
   background-color: #ce5a67;
 }
-.product-search {  
-  display: flex;    
+.product-search {
+  display: flex;
   align-items: center;
 }
 .product-search i {
@@ -117,7 +117,7 @@ a{
   height: 2.5rem;
   width: 20rem;
 }
-.product-table {  
+.product-table {
   background-color: #ffffff;
 }
 table,
@@ -158,39 +158,68 @@ img {
   margin: 0 0.7rem;
 }
 
-.delete-container{
+.delete-container {
   width: 100%;
   display: flex;
-  align-items: center;    
+  align-items: center;
 }
 
-.delete-container button{
+.delete-container button {
   border: none;
   background-color: white;
 }
 
-.delete-container span{  
+.delete-container span {
   font-size: 1.5rem;
 }
 
-.table-actions{  
+.table-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 2.5rem 0 1rem 0;
 }
 
-.fa-trash{
-  font-size: 1.8rem;
+.fa-trash {
+  font-size: 1.4rem;
 }
 
-.fa-trash:hover {  
+.fa-trash:hover {
   color: #ce5a67;
 }
 .fa-pen-to-square:hover {
   color: #f4bf96;
 }
 
-.archived{
+.archived {
   opacity: 50%;
+}
+
+.cancel-btn {
+  background-color: #fcf5ed;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 1.4rem 2rem 0 2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.2rem;
+  border: none;
+  width: 250px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  color: #ffffff;
+  background-color: #ce5a67;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete {
+  font-family: "poppins", sans-serif;
+  font-weight: 100;
 }
