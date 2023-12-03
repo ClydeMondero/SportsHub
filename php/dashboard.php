@@ -18,7 +18,7 @@
         <hr class="line">
         <div class="admin-tools">
             <div class="admin-tools-label">
-                <p>Admin Tools</p>
+                <p>Seller Tools</p>
             </div>
             <a href="dashboard-page.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-brands fa-dashcube"></i>
