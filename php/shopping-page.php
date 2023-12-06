@@ -22,7 +22,8 @@
     <div class="container">
         <div class="column-category">
             <div class=" dropdown categories-dropdown">
-                <h1 onclick="toggleDropdown('categories')">Category</h1>
+                <h1 onclick="toggleDropdown('categories')">Category
+                &#9662;</h1>
                 <ul class="pages selected">
                     <li><a href="shopping-page.php?page=shoes" >Shoes</a></li>           
                     <li><a href="shopping-page.php?page=topsandtees">Tops & T-Shirts</a></li>
@@ -33,7 +34,8 @@
             </div>
 
             <div class="dropdown sports-dropdown">
-                <h1 onclick="toggleDropdown('sports')">Sports</h1>
+                <h1 onclick="toggleDropdown('sports')">Sports
+                &#9662;</h1>
                 <ul class="pages">
                     <li><a href="shopping-page.php?page=general" >General</a></li>  
                     <li><a href="shopping-page.php?page=football" >Football</a></li>
@@ -48,7 +50,8 @@
             </div>
 
             <div class="dropdown brands-dropdown">
-                <h1 onclick="toggleDropdown('brands')">Brands</h1>
+                <h1 onclick="toggleDropdown('brands')">Brands
+                &#9662;</h1>
                 <ul class="pages">
                     <li><a href="shopping-page.php?page=nike">Nike</a></li>
                     <li><a href="shopping-page.php?page=adidas">Adidas</a></li>
