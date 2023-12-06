@@ -28,6 +28,19 @@ body {
   padding: 2.2rem 1rem;
   margin-top: 2.7rem;
 }
+#txt-size {
+  width: 25rem;
+  padding: 0.5rem 0;
+}
+#txt-category {
+  margin-top: 0.3rem;
+  width: 25rem;
+  padding: 0.5rem 0;
+}
+#txt-sports {
+  width: 25rem;
+  padding: 0.5rem 0;
+}
 .form h1 {
   color: #ffffff;
   font-size: 3rem;

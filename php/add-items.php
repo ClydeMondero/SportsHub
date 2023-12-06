@@ -87,7 +87,11 @@
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
                             <input type="file" name="image" id="image" required>
                             <input type="text" name="txt-brand" id="txt-brand" required>
-                            <input type="text" name="txt-sports" id="txt-sports" required>
+                            <select name="txt-sports" id="txt-sports" required>
+                                <option value="football">Football</option>
+                                <option value="basketball">Basketball</option>
+                                <option value="tennis">Tennis</option>
+                            </select>
                             <input type="text" name="txt-product-description" id="txt-product-description" required>
                         </div>
        
@@ -100,8 +104,16 @@
                             <label for="txt-price">Price: </label>
                         </div>
                         <div class="inputs">
-                            <input type="text" name="txt-size" id="txt-size" required>
-                            <input type="text" name="txt-category" id="txt-category" required>
+                            <select name="txt-size" id="txt-size" required>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                                <select name="txt-category" id="txt-category" required>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="shoes">Shoes</option>
+                                    <option value="accessories">Accessories</option>
+                            </select>
                             <input type="text" name="txt-quantity" id="txt-quantity" required>
                             <input type="text" name="txt-price" id="txt-price" required>
                         </div>
