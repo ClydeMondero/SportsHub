@@ -51,8 +51,9 @@
         if($stmt->num_rows() > 0){
           $stmt->bind_result($id, $password,$accType);
           $stmt->fetch();
-  
-          if($_POST['password'] === $password){
+          
+          $verify = password_verify($_POST['password'], $password);
+          if($verify){
             session_regenerate_id();
             $_SESSION['loggedin'] = true;
             $_SESSION['name'] = $_POST['email'];

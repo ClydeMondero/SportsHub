@@ -94,7 +94,9 @@
 
     if (!$user_duplicate && !$email_duplicate) {
       if ($password == $confirm_password) {
-        $insert_query = "insert into tbusers (`user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`,`acc_type`) values ('$full_name','$username','$password','$email','$contact_number','$address', 'customer')";
+        
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $insert_query = "insert into tbusers (`user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`,`acc_type`) values ('$full_name','$username','$hashedPassword','$email','$contact_number','$address', 'customer')";
         if ($conn->query($insert_query) === TRUE) {
           echo ("<script>alert('Sign up Successful!');</script>");
           header('location: login.php');
