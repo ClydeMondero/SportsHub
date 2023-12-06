@@ -28,10 +28,10 @@
                 <i class="fa-solid fa-boxes-stacked"></i>
                 <span class="">PRODUCTS</span>
             </div></a>
-            <div class="dashboard-features">
+            <a href="seller-account.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-solid fa-sitemap"></i>
-                <span class="">CATEGORY</span>
-            </div>
+                <span class="">SELLER ACCOUNT</span>
+            </div></a>
             <div class="dashboard-features">
                <i class="fa-solid fa-list-check"></i>
                <span class="">SALES</span>

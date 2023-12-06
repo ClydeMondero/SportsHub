@@ -29,8 +29,10 @@ body {
   margin-top: 2.7rem;
 }
 #txt-size {
+  margin-top: 0.3rem;
   width: 25rem;
   padding: 0.5rem 0;
+  border-radius: 0.2rem;
 }
 #txt-category {
   margin-top: 0.3rem;
@@ -38,8 +40,20 @@ body {
   padding: 0.5rem 0;
 }
 #txt-sports {
+  margin-top: 0.3rem;
   width: 25rem;
   padding: 0.5rem 0;
+  border-radius: 0.2rem;
+}
+#txt-brands {
+  width: 25rem;
+  padding: 0.5rem 0;
+  border-radius: 0.2rem;
+}
+#clothing-sizes {
+  width: 25rem;
+  padding: 0.5rem 0;
+  border-radius: 0.2rem;
 }
 .form h1 {
   color: #ffffff;
@@ -53,14 +67,14 @@ body {
 }
 .form-labels-one input {
   border: none;
-  padding: 0.6rem 0;
-  margin: 0.4rem 0;
+  padding: 0.4rem 0;
+  margin: 0.7rem 0;
   border-radius: 0.2rem;
 }
 .form-labels-one label {
   color: #ffffff;
   font-size: 1.2rem;
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
   font-family: "poppins", sans-serif;
 }
 .labels label,
@@ -74,11 +88,11 @@ body {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  margin: 0.4rem 2rem 0 2rem;
+  margin: 0.6rem 2rem 0 2rem;
 }
 .form-labels-two input {
   border: none;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   margin: 0.4rem 0;
   border-radius: 0.2rem;
 }

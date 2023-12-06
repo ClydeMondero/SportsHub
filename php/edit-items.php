@@ -138,70 +138,99 @@
          <div class="back">
          <a href="add-items.php"><i class="fa-solid fa-left-long"></i></a>
          </div>
-            <form method="POST" class="form" enctype="multipart/form-data">
+         <form method="POST" class="form" enctype="multipart/form-data">
                 <h1>Update Product</h1>
                  <div id="data">
+                    
                  <div class="form-labels-one">
-    <div class="labels">
-        <label for="txt-product-name">Product Name:</label>
-        <label for="image">Image: </label>
-        <label for="txt-brand">Brand:</label>
-        <label for="txt-sports">Sports: </label>
-        <label for="txt-description">Description: </label>
-    </div>
-    <div class="inputs">
-        <input type="text" name="txt-product-name" id="txt-product-name" value="<?php echo $productName; ?>" required>
+                        <div class="labels">
+                            <label for="txt-product-name">Product Name:</label>
+                            <label for="image">Image: </label>
+                            <label for="txt-brand">Brand:</label>
+                            <label for="txt-sports">Sports: </label>
+                            <label for="txt-description">Description: </label>
+                        </div>
+                        <div class="inputs">
+                            <input type="text" name="txt-product-name" id="txt-product-name" required>
+                            <input type="file" name="image" id="image" required>
+                            <select name="txt-brand" id="txt-brands" required>
+                                <option value="Adidas">Adidas</option>
+                                <option value="Asics">Asics</option>
+                                <option value="Mikasa">Mikasa</option>
+                                <option value="Molten">Molten</option>
+                                <option value="Nike">Nike</option>
+                                <option value="Puma">Puma</option>
+                                <option value="Speedo">Speedo</option>
+                                <option value="Yonex">Yonex</option>
+                            </select>
+                            <select name="txt-sports" id="txt-sports" required>
+                                <option value="General">General</option>
+                                <option value="Football">Football</option>
+                                <option value="Basketball">Basketball</option>
+                                <option value="Tennis">Tennis</option>
+                                <option value="Football">Badminton</option>
+                                <option value="Football">Baseball</option>
+                                <option value="Basketball">Swimming</option>
+                                <option value="Tennis">Volleyball</option>
+                            </select>
+                            <input type="text" name="txt-product-description" id="txt-product-description" required>
+                        </div>
+       
+                    </div>
+                    <div class="form-labels-two">
+                        <div class="labels">
+                            <label for="txt-category">Category: </label>
+                            <label for="txt-size">Size: </label>
+                            <label for="txt-quantity">Quantity: </label>
+                            <label for="txt-price">Price: </label>
+                        </div>
+                        <div class="inputs">
 
-        <!-- Edit This MJ -->
+                            <select name="txt-category" id="txt-category" onchange="changeSize()" required>
+                                <option value="Tops">Tops</option>
+                                <option value="Shoes">Shoes</option>
+                                <option value="Accessories and Equipment">Accessories and Equipment</option>
+                                <option value="Bottoms">Bottoms</option>
+                                <option value="Innerwear">Innerwears</option>
+                            </select>
 
-        <div class="img-container">
-            <img src="../products/<?php echo $productImage; ?>" width="60px" height="60px" alt="">
-            <input type="file" name="image" id="image">
-        </div>
+                            <select name="txt-size" class="txt-size" id="clothing-sizes"  required>
+                                <option value="X-Small">X-Small</option>
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                                <option value="X-Large">X-Large</option>
+                                <option value="XX-Large">XX-Large</option>
+                            </select>
 
-        <input type="text" name="txt-brand" id="txt-brand" value="<?php echo $productBrand; ?>" required>
-        <select name="txt-sports" id="txt-sports" required>
-            <option value="football" <?php echo ($productSport == 'football') ? 'selected' : ''; ?>>Football</option>
-            <option value="basketball" <?php echo ($productSport == 'basketball') ? 'selected' : ''; ?>>Basketball</option>
-            <option value="tennis" <?php echo ($productSport == 'tennis') ? 'selected' : ''; ?>>Tennis</option>
-        </select>
-        <input type="text" name="txt-product-description" id="txt-product-description" value="<?php echo $productDescription; ?>" required>
-    </div>
-</div>
+                            <select name="txt-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
 
-<div class="form-labels-two">
-    <div class="labels">
-        <label for="txt-size">Size: </label>
-        <label for="txt-category">Category: </label>
-        <label for="txt-quantity">Quantity: </label>
-        <label for="txt-price">Price: </label>
-    </div>
-    <div class="inputs">
-        <select name="txt-size" id="txt-size" required>
-            <option value="small" <?php echo ($productSize == 'small') ? 'selected' : ''; ?>>Small</option>
-            <option value="medium" <?php echo ($productSize == 'medium') ? 'selected' : ''; ?>>Medium</option>
-            <option value="large" <?php echo ($productSize == 'large') ? 'selected' : ''; ?>>Large</option>
-        </select>
-        <select name="txt-category" id="txt-category" required>
-            <option value="clothing" <?php echo ($productCategory == 'clothing') ? 'selected' : ''; ?>>Clothing</option>
-            <option value="shoes" <?php echo ($productCategory == 'shoes') ? 'selected' : ''; ?>>Shoes</option>
-            <option value="accessories" <?php echo ($productCategory == 'accessories') ? 'selected' : ''; ?>>Accessories</option>
-        </select>
-        <input type="text" name="txt-quantity" id="txt-quantity" value="<?php echo $productStocks; ?>" required>
-        <input type="text" name="txt-price" id="txt-price" value="<?php echo $productPrice; ?>" required>
-    </div>
-</div>
+                            <select name="txt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
+                                <option value="N/A">N/A</option>
+                            </select>
+                            
+                            <input type="text" name="txt-quantity" id="txt-quantity" required>
+                            <input type="text" name="txt-price" id="txt-price" required>
+                        </div>
+                    </div>
                  </div>
                  <div class="action">
-                 <input type="submit" class="edit-btn" value="SAVE" name="btnEdit">
-                    <button onclick="cancel()" class="cancel-btn">Cancel</button>  
+                    <input type="submit" class="edit-btn" value="Edit Product" name="btnEdit">  
+                    <button onclick="cancel()" class="cancel-btn">Cancel</button>      
                  </div>                
             </form>
-            </div>
+        </div>
     </div>
 
     <script>
-         function cancel() {
+        function cancel() {
             // Get the form element
             let form = document.getElementById("form");
 
@@ -210,6 +239,22 @@
 
             // Clear the file input (set its value to an empty string)
             document.getElementById("image").value = "";
+        }
+
+        function changeSize(){
+            if(document.getElementById("txt-category").value == "Tops" || document.getElementById("txt-category").value == "Bottoms" || document.getElementById("txt-category").value == "Innerwears"){
+                document.getElementById("clothing-sizes").style.display = "flex";
+                document.getElementById("shoes-sizes").style.display = "none";
+                document.getElementById("acseqpmnt-sizes").style.display = "none";
+            }else if(document.getElementById("txt-category").value == "Shoes"){
+                document.getElementById("clothing-sizes").style.display = "none";
+                document.getElementById("shoes-sizes").style.display = "flex";
+                document.getElementById("acseqpmnt-sizes").style.display = "none";
+            }else if(document.getElementById("txt-category").value == "Accessories and Equipment"){
+                document.getElementById("clothing-sizes").style.display = "none";
+                document.getElementById("shoes-sizes").style.display = "none";
+                document.getElementById("acseqpmnt-sizes").style.display = "flex";
+            }
         }
     </script>   
 </body>
