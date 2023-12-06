@@ -44,7 +44,7 @@
                     case "innerwears":
                         include_once "./categories/innerwears.php";
                         break;
-                    case "acsandqpmnt":
+                    case "acsandeqpmnt":
                         include_once "./categories/accessories&equipment.php";
                         break;                
                 }
