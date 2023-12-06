@@ -78,6 +78,19 @@ a {
   padding: 0.5rem 0;
   font-family: "poppins", sans-serif;
 }
+#txt-size {
+  width: 25rem;
+  padding: 0.5rem 0;
+}
+#txt-category {
+  margin-top: 0.3rem;
+  width: 25rem;
+  padding: 0.5rem 0;
+}
+#txt-sports {
+  width: 25rem;
+  padding: 0.5rem 0;
+}
 .add-btn {
   background-color: #fcf5ed;
   letter-spacing: 1px;
