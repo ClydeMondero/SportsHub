@@ -4,29 +4,22 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
-body {
-  background-image: url("../assets/imgs/wave-bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .title {
-  color: #ffffff;
-  font-size: 2rem;
+  color: #000000;
+  font-size: 3rem;
 }
 .seller-container {
   display: flex;
 }
 
 .form-container {
-  background-color: #191919;
   padding: 2rem;
   margin: 2rem;
   width: 75%;
-  height: 40%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border-radius: 0.5rem;
 }
 
 .form-container form {
@@ -34,7 +27,11 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
-
+.first-form {
+  background-color: #191919;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
 .data {
   display: flex;
   align-items: center;
@@ -44,12 +41,14 @@ body {
 .labels {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  margin-bottom: 2.4rem;
+  gap: 1.4rem;
 }
 
 .labels label {
   color: #ffffff;
   font-size: 1.5rem;
+  margin-top: 0.4rem;
 }
 
 .inputs {
@@ -59,6 +58,7 @@ body {
 }
 
 .inputs input {
+  margin-top: 0.6rem;
   font-size: 1rem;
   width: 30rem;
   padding: 0.5rem;
@@ -67,7 +67,7 @@ body {
 .inputs input[type="file"] {
   color: #ffffff;
 }
-#change-info {
+#add-btn {
   width: 15rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
@@ -77,23 +77,83 @@ body {
   transition: 0.2s;
   background-color: #fcf5ed;
 }
-#change-info:hover {
+#add-btn:hover {
   cursor: pointer;
   color: #ffffff;
   background-color: #ce5a67;
 }
-#change-pass {
-  width: 15rem;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  font-size: 1rem;
+.table-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.product-search {
+  display: flex;
+  align-items: center;
+}
+.product-search i {
+  position: relative;
+  left: 1.8rem;
+  top: 0.1rem;
+  font-size: 1.4rem;
+}
+.product-search span {
+  font-size: 2.3rem;
   font-weight: bold;
-  border: none;
-  transition: 0.2s;
-  background-color: #fcf5ed;
+  font-family: "poppinss", sans-serif;
 }
-#change-pass:hover {
-  cursor: pointer;
+.product-search input {
+  border-radius: 0.8rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 20rem;
+}
+.delete-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.delete-container button {
+  border: none;
+  background-color: white;
+}
+
+.delete-container span {
+  font-size: 1.5rem;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem 0 1rem 0;
+}
+
+.fa-trash {
+  font-size: 1.4rem;
+}
+
+.fa-trash:hover {
+  color: #ce5a67;
+}
+table,
+th,
+tr,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+th {
+  background-color: #191919;
   color: #ffffff;
-  background-color: #ce5a67;
+}
+.fa-pen-to-square a {
+  text-decoration: none;
 }

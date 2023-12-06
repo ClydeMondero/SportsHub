@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+body {
+  background-image: url("../assets/imgs/wave-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title {
+  color: #ffffff;
+  font-size: 2rem;
+}
+.seller-container {
+  display: flex;
+}
+
+.form-container {
+  background-color: #191919;
+  padding: 2rem;
+  margin: 2rem;
+  width: 75%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 0.5rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.labels label {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputs input {
+  font-size: 1rem;
+  width: 30rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+.inputs input[type="file"] {
+  color: #ffffff;
+}
+#change-info {
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  transition: 0.2s;
+  background-color: #fcf5ed;
+}
+#change-info:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #ce5a67;
+}
+#change-pass {
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  transition: 0.2s;
+  background-color: #fcf5ed;
+}
+#change-pass:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #ce5a67;
+}
+.back {
+  margin-top: 1rem;
+}
+.back a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.back i {
+  font-size: 3rem;
+  transition: 0.2s;
+}
+.back i:hover {
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-shadow: 3px 3px 3px rgb(69, 66, 66);
+}

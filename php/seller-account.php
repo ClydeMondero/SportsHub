@@ -16,37 +16,53 @@
             <form method="POST" class="first-form" enctype="multipart/form-data">
                 <div class="data">
                     <div class="labels">
-                        <label for="txt-fullname">Fullname:</label>
+                        <label for="txt-fullname">Email:</label>
                         <label for="txt-username">Username:</label>
-                        <label for="image">Image:</label>
                         <label for="txt-address">Address:</label>
                         <label for="txt-phonenumber">Phone number:</label>
-                    </div>
-                    <div class="inputs">
-                        <input type="text" name="txt-fullname" id="txt-fullname" required>
-                        <input type="text" name="txt-username" id="txt-username" required>
-                        <input type="file" name="image" id="image" required>
-                        <input type="text" name="txt-address" id="txt-address" required>
-                        <input type="text" name="txt-phonenumber" id="txt-phonenumber" required>
-                    </div>
-                </div>
-                <input type="submit" name="change-info" id="change-info" value="Save Changes">
-            </form>
-            <form method="POST" class="second-form">
-            <h1 class="title">Change Password</h1>
-                <div class="data">
-                    <div class="labels">
                         <label for="txt-password">Password:</label>
                         <label for="txt-confirmpassword">Confirm Password:</label>
                     </div>
                     <div class="inputs">
+                        <input type="text" name="txt-email" id="txt-email" required>
+                        <input type="text" name="txt-username" id="txt-username" required>
+                        <input type="text" name="txt-address" id="txt-address" required>
+                        <input type="text" name="txt-phonenumber" id="txt-phonenumber" required>
                         <input type="password" name="txt-password" id="txt-password" required>
                         <input type="password" name="txt-confirmpassword" id="txt-confirmpassword" required>
-                    </div>
-                </div>
-                <input type="submit" name="change-pass" id="change-pass" value="Change Password">
+                        <input type="submit" name="add-btn" id="add-btn" value="Add Seller">
+                    </div>        
             </form>
         </div>
+        <div class="table-actions">
+        <div class="delete-container">
+            <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
+        </div>
+        <div class="product-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" name="search" placeholder="Search Items...">
+        </div>
+    </div>
+    <div class="product-table">
+        <table>
+            <tr>
+                <th>Select</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Address</th>
+                <th>Phonenumber</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>user@gmail.com</td>
+                <td>user</td>
+                <td>Balbul</td>
+                <td>091232323232</td>
+                <td><a href="seller.php" style="text-decoration:none; color: black;"><i class='fa-solid fa-pen-to-square'></a></i></td>
+            </tr>
+        </table>
+    </div>
     </div>
 </body>
 </html>

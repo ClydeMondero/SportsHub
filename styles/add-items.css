@@ -95,7 +95,8 @@ a {
   width: 25rem;
   padding: 0.5rem 0;
   border-radius: 0.2rem;
-}#txt-brands {
+}
+#txt-brands {
   width: 25rem;
   padding: 0.5rem 0;
   border-radius: 0.2rem;
@@ -180,35 +181,6 @@ img {
   margin: 0 0.7rem;
 }
 
-.delete-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.delete-container button {
-  border: none;
-  background-color: white;
-}
-
-.delete-container span {
-  font-size: 1.5rem;
-}
-
-.table-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 2.5rem 0 1rem 0;
-}
-
-.fa-trash {
-  font-size: 1.4rem;
-}
-
-.fa-trash:hover {
-  color: #ce5a67;
-}
 .fa-pen-to-square:hover {
   color: #f4bf96;
 }
