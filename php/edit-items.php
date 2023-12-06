@@ -141,47 +141,56 @@
             <form method="POST" class="form" enctype="multipart/form-data">
                 <h1>Update Product</h1>
                  <div id="data">
-                    
                  <div class="form-labels-one">
-                        <div class="labels">
-                            <label for="txt-product-name">Product Name:</label>
-                            <label for="image">Image: </label>
-                            <label for="txt-brand">Brand:</label>
-                            <label for="txt-sports">Sports: </label>
-                            <label for="txt-description">Description: </label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="txt-product-name" id="txt-product-name" value="<?php echo $productName; ?>" required>
+    <div class="labels">
+        <label for="txt-product-name">Product Name:</label>
+        <label for="image">Image: </label>
+        <label for="txt-brand">Brand:</label>
+        <label for="txt-sports">Sports: </label>
+        <label for="txt-description">Description: </label>
+    </div>
+    <div class="inputs">
+        <input type="text" name="txt-product-name" id="txt-product-name" value="<?php echo $productName; ?>" required>
 
+        <!-- Edit This MJ -->
 
-                            <!-- Edit This MJ -->
+        <div class="img-container">
+            <img src="../products/<?php echo $productImage; ?>" width="60px" height="60px" alt="">
+            <input type="file" name="image" id="image">
+        </div>
 
-                            <div class="img-container">
-                                <img src="../products/<?php echo $productImage; ?>" width="60px" height="60px" alt="">
-                                <input type="file" name="image" id="image">
-                            </div>                           
+        <input type="text" name="txt-brand" id="txt-brand" value="<?php echo $productBrand; ?>" required>
+        <select name="txt-sports" id="txt-sports" required>
+            <option value="football" <?php echo ($productSport == 'football') ? 'selected' : ''; ?>>Football</option>
+            <option value="basketball" <?php echo ($productSport == 'basketball') ? 'selected' : ''; ?>>Basketball</option>
+            <option value="tennis" <?php echo ($productSport == 'tennis') ? 'selected' : ''; ?>>Tennis</option>
+        </select>
+        <input type="text" name="txt-product-description" id="txt-product-description" value="<?php echo $productDescription; ?>" required>
+    </div>
+</div>
 
-
-                            <input type="text" name="txt-brand" id="txt-brand" value="<?php echo $productBrand; ?>" required>
-                            <input type="text" name="txt-sports" id="txt-sports" value="<?php echo $productSport; ?>" required>
-                            <input type="text" name="txt-product-description" id="txt-product-description" value="<?php echo $productDescription; ?>" required>
-                        </div>
-       
-                    </div>
-                    <div class="form-labels-two">
-                        <div class="labels">
-                            <label for="txt-size">Size: </label>
-                            <label for="txt-category">Category: </label>
-                            <label for="txt-quantity">Quantity: </label>
-                            <label for="txt-price">Price: </label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="txt-size" id="txt-size" value="<?php echo $productSize; ?>" required>
-                            <input type="text" name="txt-category" id="txt-category" value="<?php echo $productCategory; ?>" required>
-                            <input type="text" name="txt-quantity" id="txt-quantity" value="<?php echo $productStocks; ?>" required>
-                            <input type="text" name="txt-price" id="txt-price" value="<?php echo $productPrice; ?>" required>
-                        </div>
-                    </div>
+<div class="form-labels-two">
+    <div class="labels">
+        <label for="txt-size">Size: </label>
+        <label for="txt-category">Category: </label>
+        <label for="txt-quantity">Quantity: </label>
+        <label for="txt-price">Price: </label>
+    </div>
+    <div class="inputs">
+        <select name="txt-size" id="txt-size" required>
+            <option value="small" <?php echo ($productSize == 'small') ? 'selected' : ''; ?>>Small</option>
+            <option value="medium" <?php echo ($productSize == 'medium') ? 'selected' : ''; ?>>Medium</option>
+            <option value="large" <?php echo ($productSize == 'large') ? 'selected' : ''; ?>>Large</option>
+        </select>
+        <select name="txt-category" id="txt-category" required>
+            <option value="clothing" <?php echo ($productCategory == 'clothing') ? 'selected' : ''; ?>>Clothing</option>
+            <option value="shoes" <?php echo ($productCategory == 'shoes') ? 'selected' : ''; ?>>Shoes</option>
+            <option value="accessories" <?php echo ($productCategory == 'accessories') ? 'selected' : ''; ?>>Accessories</option>
+        </select>
+        <input type="text" name="txt-quantity" id="txt-quantity" value="<?php echo $productStocks; ?>" required>
+        <input type="text" name="txt-price" id="txt-price" value="<?php echo $productPrice; ?>" required>
+    </div>
+</div>
                  </div>
                  <div class="action">
                  <input type="submit" class="edit-btn" value="SAVE" name="btnEdit">
