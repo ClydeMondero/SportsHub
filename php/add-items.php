@@ -86,11 +86,25 @@
                         <div class="inputs">
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
                             <input type="file" name="image" id="image" required>
-                            <input type="text" name="txt-brand" id="txt-brand" required>
+                            <select name="txt-brand" id="txt-brands" required>
+                                <option value="Adidas">Adidas</option>
+                                <option value="Asics">Asics</option>
+                                <option value="Mikasa">Mikasa</option>
+                                <option value="Molten">Molten</option>
+                                <option value="Nike">Nike</option>
+                                <option value="Puma">Puma</option>
+                                <option value="Speedo">Speedo</option>
+                                <option value="Yonex">Yonex</option>
+                            </select>
                             <select name="txt-sports" id="txt-sports" required>
-                                <option value="football">Football</option>
-                                <option value="basketball">Basketball</option>
-                                <option value="tennis">Tennis</option>
+                                <option value="General">General</option>
+                                <option value="Football">Football</option>
+                                <option value="Basketball">Basketball</option>
+                                <option value="Tennis">Tennis</option>
+                                <option value="Football">Badminton</option>
+                                <option value="Football">Baseball</option>
+                                <option value="Basketball">Swimming</option>
+                                <option value="Tennis">Volleyball</option>
                             </select>
                             <input type="text" name="txt-product-description" id="txt-product-description" required>
                         </div>
@@ -98,22 +112,43 @@
                     </div>
                     <div class="form-labels-two">
                         <div class="labels">
-                            <label for="txt-size">Size: </label>
                             <label for="txt-category">Category: </label>
+                            <label for="txt-size">Size: </label>
                             <label for="txt-quantity">Quantity: </label>
                             <label for="txt-price">Price: </label>
                         </div>
                         <div class="inputs">
-                            <select name="txt-size" id="txt-size" required>
-                                <option value="small">Small</option>
-                                <option value="medium">Medium</option>
-                                <option value="large">Large</option>
+
+                            <select name="txt-category" id="txt-category" onchange="changeSize()" required>
+                                <option value="Tops">Tops</option>
+                                <option value="Shoes">Shoes</option>
+                                <option value="Accessories and Equipment">Accessories and Equipment</option>
+                                <option value="Bottoms">Bottoms</option>
+                                <option value="Innerwear">Innerwears</option>
                             </select>
-                                <select name="txt-category" id="txt-category" required>
-                                    <option value="clothing">Clothing</option>
-                                    <option value="shoes">Shoes</option>
-                                    <option value="accessories">Accessories</option>
+
+                            <select name="txt-size" class="txt-size" id="clothing-sizes"  required>
+                                <option value="X-Small">X-Small</option>
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                                <option value="X-Large">X-Large</option>
+                                <option value="XX-Large">XX-Large</option>
                             </select>
+
+                            <select name="txt-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+
+                            <select name="txt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
+                                <option value="N/A">N/A</option>
+                            </select>
+                            
                             <input type="text" name="txt-quantity" id="txt-quantity" required>
                             <input type="text" name="txt-price" id="txt-price" required>
                         </div>
@@ -224,7 +259,24 @@
                 if(event.keyCode === 13){
                     document.getElementById("searchForm").submit();
                 }
-            })        
+            })
+            
+        function changeSize(){
+            if(document.getElementById("txt-category").value == "Tops" || document.getElementById("txt-category").value == "Bottoms" || document.getElementById("txt-category").value == "Innerwears"){
+                document.getElementById("clothing-sizes").style.display = "flex";
+                document.getElementById("shoes-sizes").style.display = "none";
+                document.getElementById("acseqpmnt-sizes").style.display = "none";
+            }else if(document.getElementById("txt-category").value == "Shoes"){
+                document.getElementById("clothing-sizes").style.display = "none";
+                document.getElementById("shoes-sizes").style.display = "flex";
+                document.getElementById("acseqpmnt-sizes").style.display = "none";
+            }else if(document.getElementById("txt-category").value == "Accessories and Equipment"){
+                document.getElementById("clothing-sizes").style.display = "none";
+                document.getElementById("shoes-sizes").style.display = "none";
+                document.getElementById("acseqpmnt-sizes").style.display = "flex";
+            }
+        }
+        
     </script>
 </body>
 </html>

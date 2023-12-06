@@ -24,8 +24,7 @@
             <div class=" dropdown categories-dropdown">
                 <h1 onclick="toggleDropdown('categories')">Category</h1>
                 <ul class="pages selected">
-                    <li><a href="shopping-page.php?page=shoes" >Shoes</a></li>
-                    <li><a href="shopping-page.php?page=general" >General</a></li>             
+                    <li><a href="shopping-page.php?page=shoes" >Shoes</a></li>           
                     <li><a href="shopping-page.php?page=topsandtees">Tops & T-Shirts</a></li>
                     <li><a href="shopping-page.php?page=shortsandpants">Shorts & Pants</a></li>
                     <li><a href="shopping-page.php?page=innerwears" >Inner Wears</a></li>
@@ -36,9 +35,15 @@
             <div class="dropdown sports-dropdown">
                 <h1 onclick="toggleDropdown('sports')">Sports</h1>
                 <ul class="pages">
+                    <li><a href="shopping-page.php?page=general" >General</a></li>  
                     <li><a href="shopping-page.php?page=football" >Football</a></li>
                     <li><a href="shopping-page.php?page=basketball" >Basketball</a></li>
-                    <li><a href="shopping-page.php?page=running" >Running</a></li>
+                    <li><a href="shopping-page.php?page=running" >Track and Field</a></li>
+                    <li><a href="shopping-page.php?page=baseball" >Baseball</a></li>  
+                    <li><a href="shopping-page.php?page=volleyball" >Volleyball</a></li>
+                    <li><a href="shopping-page.php?page=swimming" >Swimming</a></li>
+                    <li><a href="shopping-page.php?page=badminton" >Badminton</a></li>
+                    <li><a href="shopping-page.php?page=tennis" >Tennis</a></li>
                 </ul>
             </div>
 
@@ -48,6 +53,11 @@
                     <li><a href="shopping-page.php?page=nike">Nike</a></li>
                     <li><a href="shopping-page.php?page=adidas">Adidas</a></li>
                     <li><a href="shopping-page.php?page=puma">Puma</a></li>
+                    <li><a href="shopping-page.php?page=asics">Asics</a></li>
+                    <li><a href="shopping-page.php?page=speedo">Speedo</a></li>
+                    <li><a href="shopping-page.php?page=yonex">Yonex</a></li>
+                    <li><a href="shopping-page.php?page=molten">Molten</a></li>
+                    <li><a href="shopping-page.php?page=mikasa">Mikasa</a></li>
                 </ul>
             </div>
         </div>
@@ -56,14 +66,12 @@
             <?php                   
                 if(isset($_GET["page"])){
                 switch($_GET["page"]){
+                    //Dropdown Category
                     case "shoes":
                         include_once "./categories/shoes.php";                        
                         break;
                     case "topsandtees":
                         include_once "./categories/tops&tshirts.php";
-                        break;
-                    case "general":
-                        include_once "./categories/general.php";
                         break;
                     case "shortsandpants":
                         include_once "./categories/shorts&pants.php";
@@ -74,6 +82,10 @@
                     case "acsandeqpmnt":
                         include_once "./categories/accessories&equipment.php";
                         break;
+                    //Dropdown Sports    
+                    case "general":
+                        include_once "./sports/general.php";
+                        break;
                     case "football":
                         include_once "./sports/football.php";
                         break;
@@ -81,8 +93,24 @@
                         include_once "./sports/basketball.php";
                         break;
                     case "running":
-                        include_once "./sports/running.php";
+                        include_once "./sports/track and field.php";
                         break;
+                    case "baseball":
+                        include_once "./sports/baseball.php";
+                        break;
+                    case "swimming":
+                        include_once "./sports/swimming.php";
+                        break;
+                    case "volleyball":
+                        include_once "./sports/volleyball.php";
+                        break;
+                    case "badminton":
+                        include_once "./sports/badminton.php";
+                        break;
+                    case "tennis":
+                        include_once "./sports/tennis.php";
+                        break;
+                    //Dropdown Brands
                     case "nike":
                         include_once "./brands/nike.php";
                         break;
@@ -91,7 +119,22 @@
                         break;
                     case "puma":
                         include_once "./brands/puma.php";
-                        break;                 
+                        break;
+                    case "asics":
+                        include_once "./brands/asics.php";
+                        break;
+                    case "speedo":
+                        include_once "./brands/speedo.php";
+                        break;
+                    case "yonex":
+                        include_once "./brands/yonex.php";
+                        break; 
+                    case "molten":
+                        include_once "./brands/molten.php";
+                        break;
+                    case "mikasa":
+                        include_once "./brands/mikasa.php";
+                        break;                
                 }
                 }else{
                     include_once "./categories/shoes.php";                      

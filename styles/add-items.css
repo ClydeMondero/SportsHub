@@ -78,18 +78,27 @@ a {
   padding: 0.5rem 0;
   font-family: "poppins", sans-serif;
 }
-#txt-size {
+.txt-size {
+  margin-top: 0.3rem;
   width: 25rem;
   padding: 0.5rem 0;
+  border-radius: 0.2rem;
 }
 #txt-category {
   margin-top: 0.3rem;
   width: 25rem;
   padding: 0.5rem 0;
+  border-radius: 0.2rem;
 }
 #txt-sports {
+  margin-top: 0.3rem;
   width: 25rem;
   padding: 0.5rem 0;
+  border-radius: 0.2rem;
+}#txt-brands {
+  width: 25rem;
+  padding: 0.5rem 0;
+  border-radius: 0.2rem;
 }
 .add-btn {
   background-color: #fcf5ed;
