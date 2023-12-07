@@ -48,7 +48,7 @@
 
       <div class="form-input">
         <label>Contact Number:</label>
-        <input type="text" name="contactNumber" required min="11" max="11" />
+        <input type="text" name="contactNumber" maxlength="11" required />
       </div>
 
       <div class="form-input">
