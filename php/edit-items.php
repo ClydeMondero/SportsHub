@@ -12,16 +12,6 @@
     //Set the values from the database to string to set it in the fields
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $productName = $row['product_name'];
-            $productDescription = $row['product_description'];
-            $productCategory = $row['product_category'];
-            $productSport = $row['product_sport'];
-            $productSize = $row['product_size'];
-            $productStocks = $row['product_stocks'];
-            $productImage = $row['product_image'];
-            $productBrand = $row['product_brand'];
-            $productPrice = $row['product_price'];
-            $dateAdded = $row['date_added'];
         }
     //Get the values from the form
         if(isset($_POST['btnEdit'])){
@@ -145,13 +135,14 @@
                  <div class="form-labels-one">
                         <div class="labels">
                             <label for="txt-product-name">Product Name:</label>
-                            <label for="image">Image: </label>
+                            <label for="image">Image: </label> 
                             <label for="txt-brand">Brand:</label>
                             <label for="txt-sports">Sports: </label>
                             <label for="txt-description">Description: </label>
                         </div>
                         <div class="inputs">
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
+                            <?php echo ("<img src='../products/" . $row["product_image"] . "' width='100'>");?> 
                             <input type="file" name="image" id="image" required>
                             <select name="txt-brand" id="txt-brands" required>
                                 <option value="Adidas">Adidas</option>

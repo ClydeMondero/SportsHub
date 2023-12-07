@@ -62,7 +62,7 @@
 
             if($accType === 'customer'){
               header('Location: landing-page.php');
-            }else if($accType === 'admin'){
+            }else if($accType === 'admin' || $accType == 'seller'){
               header('Location: dashboard-page.php');
             }
   

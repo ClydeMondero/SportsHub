@@ -13,10 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $deleteQuery = "update `tbproducts` set `product_stocks`= 0 where `product_id` in (".$productsToDelete.")";
         $conn->query($deleteQuery);
         mysqli_close($conn);
-        echo ("<script>alert('Product/s Deleted');</script>");
-        header('location: add-items.php');
+        echo "<script>alert('Product/s put off sale');</script>";
+
+        echo "<script>setTimeout(function() { window.location.href = 'add-items.php'; }, 1000);</script>";
+        exit();
     } else {
-        echo ("<script>alert('No Products Selected');</script>");
+        echo ("<script>alert('No Product Selected');</script>");
+        echo "<script>setTimeout(function() { window.location.href = 'add-items.php'; }, 1000);</script>";
+        exit();
     }
 } 
 ?>

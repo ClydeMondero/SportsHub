@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 11:26 AM
+-- Generation Time: Dec 07, 2023 at 10:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,10 +80,10 @@ INSERT INTO `tbproducts` (`product_id`, `product_name`, `product_description`, `
 (53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Football', '10', 10, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
 (54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'shoes', 'Basketball', 'small', 5, '65642124cc18a.png', 'Nike', 2995, '2023-11-27'),
 (57, 'Sando', 'Lorem Ipsum', 'Innerwears', 'General', 'Large', 5, '656f03f5ef3aa.png', 'Nike', 1200, '2023-12-05'),
-(58, 'Basketball Ball', 'Lorem Ipsum', 'Accessories and Equipment', 'Basketball', 'N/A', 5, '656f047fce4d6.jpg', 'Molten', 1500, '2023-12-05'),
-(59, 'Tshirt', 'Lorem Ipsum', 'Tops', 'General', 'Large', 5, '656f05a5b930e.png', 'Adidas', 1600, '2023-12-05'),
-(60, 'Shorts', 'Lorem Ipsum', 'Bottoms', 'General', '38', 4, '656f06b5c415e.png', 'Adidas', 1600, '2023-12-05'),
-(61, 'Test1', 'Lorem Ipsum', 'Accessories and Equipment', 'Tennis', 'N/A', 5, '65703a57545f8.png', 'Asics', 1600, '2023-12-06');
+(58, 'Basketball Ball', 'Lorem Ipsum', 'Accessories and Equipment', 'Basketball', 'N/A', 0, '656f047fce4d6.jpg', 'Molten', 1500, '2023-12-05'),
+(59, 'Tshirt', 'Lorem Ipsum', 'Tops', 'General', 'Large', 0, '656f05a5b930e.png', 'Adidas', 1600, '2023-12-05'),
+(60, 'Shorts', 'Lorem Ipsum', 'Bottoms', 'General', '38', 0, '656f06b5c415e.png', 'Adidas', 1600, '2023-12-05'),
+(61, 'Test1', 'Lorem Ipsum', 'Accessories and Equipment', 'Tennis', 'N/A', 0, '65703a57545f8.png', 'Asics', 1600, '2023-12-06');
 
 -- --------------------------------------------------------
 
@@ -107,8 +107,8 @@ CREATE TABLE `tbusers` (
 --
 
 INSERT INTO `tbusers` (`user_id`, `user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`, `acc_type`) VALUES
-(11, 'Eurie Oliveria', 'eurie', '$2y$10$h7ehCle9Y9z2lS/YBBA1Eu62JLykCX4JluoMuHkFrEEERUn/ocygm', 'eurie@gmail.com', '09123412312', 'Manila', 'admin'),
-(12, 'Clyde Mondero', 'clyde01', '$2y$10$9k4iyvPfuDDAVMo59dp4be5wlND9qyXf3.KnabN2nql0ASDVAsO6i', 'mondero@gmail.com', '091234123121', 'Baliuag', 'customer');
+(11, 'Eurie Oliveria', 'eurie', '$2y$10$h7ehCle9Y9z2lS/YBBA1Eu62JLykCX4JluoMuHkFrEEERUn/ocygm', 'eurie1@gmail.com', '09123412312', 'Manila', 'admin'),
+(18, 'Markjames Villagonzalo', 'markjames', '$2y$10$SXH2u752PHsLCb3Dti4fGuHCMWaZOQdD3dwP7/.oPkQegXh3rxV/K', 'markjames@gmail.com', '09213456544', 'Baliuag, Bulacan', 'seller');
 
 --
 -- Indexes for dumped tables
@@ -168,7 +168,7 @@ ALTER TABLE `tbproducts`
 -- AUTO_INCREMENT for table `tbusers`
 --
 ALTER TABLE `tbusers`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

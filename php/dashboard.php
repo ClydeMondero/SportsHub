@@ -28,9 +28,9 @@
                 <i class="fa-solid fa-boxes-stacked"></i>
                 <span class="">PRODUCTS</span>
             </div></a>
-            <a href="seller.php" style="text-decoration:none;"><div class="dashboard-features">
+            <a href="seller-account.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-solid fa-sitemap"></i>
-                <span class="">SELLER ACCOUNT</span>
+                <span class="">SELLER ACCOUNTS</span>
             </div></a>
             <div class="dashboard-features">
                <i class="fa-solid fa-list-check"></i>
