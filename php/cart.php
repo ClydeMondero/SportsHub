@@ -17,22 +17,45 @@
 <div class="cart-container">
     <?php include "header.php"?>
         <div class="container">
-            <h1 class="title">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
+            <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
             <div class="cart-table">
                 <table>
                     <tr>
+                        <th>Select</th>
                         <th>Image</th>
                         <th>Product Name</th>
                         <th>Qty</th>
-                        <th>Total</th>
+                        <th>Price</th>
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <td><img src="" alt=""></td>
+                        <td><input type="checkbox"></td>
+                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
+                        <td>Bag ito</td>
+                        <td>10</td>
+                        <td>230</td>
+                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                    <td><input type="checkbox"></td>
+                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
+                        <td>Bag ito</td>
+                        <td>10</td>
+                        <td>230</td>
+                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                    <td><input type="checkbox"></td>
+                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
+                        <td>Bag ito</td>
+                        <td>10</td>
+                        <td>230</td>
+                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+    <?php include "check-out.php"?>
 </body>
 </html>

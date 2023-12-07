@@ -10,9 +10,7 @@
 </head>
 <body>
 <div class="sale-container">
-        <?php
-            include("../php/dashboard.php");
-        ?>
+        <?php include("../php/dashboard.php"); ?>
         <div class="container">
                 <h1 class="title">Sales</h1>
              <div class="table-actions">

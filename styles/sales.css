@@ -12,7 +12,7 @@ a {
 }
 .container {
   margin-top: 2rem;
-  width: 100%;
+  width: 73%;
 }
 .title {
   font-size: 4rem;
@@ -64,6 +64,7 @@ th {
   color: #ffffff;
 }
 table {
+  font-family: "poppins", sans-serif;
   text-align: center;
   margin-top: 1rem;
   width: 98%;
