@@ -73,7 +73,7 @@
         <div class="container">
             <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
             <div class="cart-table">
-                <form action="" method="post">
+                <form action="place-order.php" method="post">
                     <table>
                         <tr>
                             <th>Select</th>

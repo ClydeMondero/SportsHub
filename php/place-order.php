@@ -48,7 +48,7 @@
     <div class="container">
         <div class="payment-method">
             <div class="back">
-                <a href="./shopping-page.php">
+                <a href="shopping-page.php?page=shoes&type=categories" >
                     <i class="fa-solid fa-chevron-left"></i>     
                     <span>Back</span>
                 </a>
