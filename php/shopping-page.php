@@ -137,6 +137,9 @@
                             break;
                         case "mikasa":
                             include_once "./brands/mikasa.php";
+                            break;
+                        default:
+                            include_once "./categories/shoes.php";                        
                             break;                
                     }
                 }

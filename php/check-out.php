@@ -5,10 +5,7 @@
             <h1>Order Summary</h1>
         </div>
         <div class="infos">
-            <?php
-            $formattedTotal = number_format($total, 2, '.', ',');
-            ?>
-            <span>Sub-Total: ₱<?php echo $formattedTotal; ?></span>
+            <span id="totalAmount">Total: ₱<?php echo number_format($total, 2, '.', ','); ?></span>
             <span>Shipping: Free</span>
         </div>
         <div class="checkout">

@@ -95,7 +95,7 @@
                                 echo '<button class="buy-btn" onClick = "handleClick()">Buy Now</button>';
                                 echo '<button class="cart-btn" onClick = "handleClick()><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }else{
-                                echo '<button id="buy-now-btn" class="buy-btn">Buy Now</button>';
+                                echo '<button id="buy-now-btn" class="buy-btn" type="button">Buy Now</button>';
                                 echo '<button class="cart-btn" type="submit" name="add_to_cart"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }
                         echo '</div>';
