@@ -4,7 +4,7 @@
     $loggedIn = isset($_SESSION['loggedin']);
     $userID = $_SESSION['id'];
 
-    $selectQuery = 'SELECT p.product_id, p.product_name, p.product_image, p.product_price, p.product_stocks, c.cart_product_size, c.cart_quantity
+    $selectQuery = 'SELECT c.cart_id, p.product_id, p.product_name, p.product_image, p.product_price, p.product_stocks, c.cart_product_size, c.cart_quantity
                 FROM tbcarts c
                 JOIN tbproducts p ON c.product_id = p.product_id WHERE user_id = '.$userID;
 
@@ -31,11 +31,11 @@
     <title>Vulcan - Shopping Cart</title>
     <script>
 
-        function updateQuantity(input, productId) {
+        function updateQuantity(input, cartId, productSize) {
             var quantity = input.value;
 
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "update_quantity.php?product_id=" + productId + "&quantity=" + quantity, true);
+            xhr.open("GET", "update_quantity.php?cart_id=" + cartId + "&quantity=" + quantity + "&size=" + encodeURIComponent(productSize), true);
             xhr.send();
 
             updateSubtotal(input.parentNode.parentNode);
@@ -44,27 +44,30 @@
         function updateSubtotal(row) {
             var quantityInput = row.querySelector('input[name="quantity[]"]');
             var priceCell = row.cells[5];
-            var subtotalCell = row.cells[6];
+            var subtotalCell = row.cells[7];
             var quantity = parseInt(quantityInput.value);
             var priceText = priceCell.textContent.replace(/[^\d.]/g, '');
             var price = parseFloat(priceText);
             var subtotal = quantity * price;
             subtotalCell.textContent = '₱' + subtotal.toFixed(2);
-            updateTotal();
         }
 
         function updateTotal() {
             var total = 0;
-            var subtotalCells = document.querySelectorAll('td:nth-child(7)');
+            var subtotalCells = document.querySelectorAll('td:nth-child(8)'); // Update the index based on your table structure
 
             subtotalCells.forEach(function(subtotalCell) {
-                var subtotalText = subtotalCell.textContent.replace(/[^\d.]/g, '');
-                total += parseFloat(subtotalText);
+                var checkbox = subtotalCell.parentNode.querySelector('.cart-checkbox');
+                if (checkbox.checked) {
+                    var subtotalText = subtotalCell.textContent.replace(/[^\d.]/g, '');
+                    total += parseFloat(subtotalText);
+                }
             });
-        
+
             var totalAmountElement = document.getElementById('totalAmount');
             totalAmountElement.textContent = 'Total: ₱' + total.toFixed(2);
         }
+
     </script>
 </head>
 <body>
@@ -73,7 +76,7 @@
         <div class="container">
             <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
             <div class="cart-table">
-                <form action="place-order.php" method="post">
+                <form action="cart-check-out.php" method="post" id="checkoutForm">
                     <table>
                         <tr>
                             <th>Select</th>
@@ -82,6 +85,7 @@
                             <th>Size</th>
                             <th>Qty</th>
                             <th>Price</th>
+                            <th>Remaining Stock</th>
                             <th>Subtotal</th>
                             <th>Action</th>
                         </tr>
@@ -89,18 +93,18 @@
                             $total = 0;
                             foreach ($query_result as $row) {
                                 echo "<tr>";
-                                echo "<td><input type='checkbox' name='select[]'></td>";
+                                echo "<td><input type='checkbox' class='cart-checkbox' name='select[]' value='{$row['cart_id']}' onchange='updateTotal()'></td>";
                                 echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
                                 echo "<td>{$row['product_name']}</td>";
                                 echo "<td>{$row['cart_product_size']}</td>";
-                                echo "<td><input type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['product_id']})'></td>";
+                                echo "<td><input type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
                                 echo "<td>₱{$row['product_price']}</td>";
+                                echo "<td>{$row['product_stocks']}</td>";
                                 $subtotal = $row['product_price'] * $row['cart_quantity'];
                                 echo "<td>₱{$subtotal}</td>";
 
-                                echo "<td><button type='submit' name='delete_btn'>Delete</button></td>";
+                                echo "<td><button type='submit' name='delete_btn'>Delete Selected</button></td>";
                                 echo "</tr>";
-                                $total += $subtotal;
                             }
                         ?>
                     </table>

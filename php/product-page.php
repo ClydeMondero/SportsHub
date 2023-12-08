@@ -104,10 +104,10 @@
                 echo '</div>'; 
 
             echo '</div>';
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_to_cart'])) {
                 $productID = $row['product_id'];
                 $selectedSize = '';
-            
                 if ($row['product_category'] == 'Shoes') {
                     $selectedSize = $_POST['shoes-size'];
                 } elseif ($row['product_category'] == 'Tops' || $row['product_category'] == 'Bottoms' || $row['product_category'] == 'Innerwear') {
@@ -123,24 +123,41 @@
                 $checkStmt->execute();
                 $checkResult = $checkStmt->get_result();
                 $checkStmt->close();
-            
-                if ($checkResult->num_rows > 0) {
-                    $updateCartQuery = "UPDATE `tbcarts` SET `cart_quantity` = `cart_quantity` + 1 WHERE `user_id` = ? AND `product_id` = ? AND `cart_product_size` = ?";
-                    $updateStmt = $conn->prepare($updateCartQuery);
-                    $updateStmt->bind_param("iis", $_SESSION['id'], $productID, $selectedSize);
-                    $updateStmt->execute();
-                    $updateStmt->close();
-                } else {
-                    $cartInsertQuery = "INSERT INTO `tbcarts` (`user_id`, `product_id`, `cart_product_size`, `cart_quantity`, `cart_date`) VALUES (?, ?, ?, ?, NOW())";
-                    $stmt = $conn->prepare($cartInsertQuery);
-                    $stmt->bind_param("iisi", $_SESSION['id'], $productID, $selectedSize, $quantity);
-                    $stmt->execute();
-                    $stmt->close();
+
+                $totalQuantityInCart = 0;
+                $checkCartQuantityQuery = "SELECT * FROM `tbcarts` WHERE `user_id` = ? AND `product_id` = ?";
+                $checkQtyStmt = $conn->prepare($checkCartQuantityQuery);
+                $checkQtyStmt->bind_param("ii", $_SESSION['id'], $productID);
+                $checkQtyStmt->execute();
+                $checkQtyResult = $checkQtyStmt->get_result();
+                $checkQtyStmt->close();
+
+                while ($cartRow = $checkQtyResult->fetch_assoc()) {
+                    $totalQuantityInCart += $cartRow['cart_quantity'];
+                }
+
+                if (($totalQuantityInCart + $quantity) > $stock) {
+                    echo "<script>alert('Cannot add to cart. Exceeds available stock.');</script>";
+                }else{
+                    if ($checkResult->num_rows > 0) {
+                        $updateCartQuery = "UPDATE `tbcarts` SET `cart_quantity` = `cart_quantity` + 1 WHERE `user_id` = ? AND `product_id` = ? AND `cart_product_size` = ?";
+                        $updateStmt = $conn->prepare($updateCartQuery);
+                        $updateStmt->bind_param("iis", $_SESSION['id'], $productID, $selectedSize);
+                        $updateStmt->execute();
+                        $updateStmt->close();
+                    } else {
+                        $cartInsertQuery = "INSERT INTO `tbcarts` (`user_id`, `product_id`, `cart_product_size`, `cart_quantity`, `cart_date`) VALUES (?, ?, ?, ?, NOW())";
+                        $stmt = $conn->prepare($cartInsertQuery);
+                        $stmt->bind_param("iisi", $_SESSION['id'], $productID, $selectedSize, $quantity);
+                        $stmt->execute();
+                        $stmt->close();
+                    }
+                
+                    echo "<script>alert('Product/s Added to your Cart');</script>";
+                    echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php?page=shoes&type=categories'; }, 1000);</script>";
+                    exit();
                 }
             
-                echo "<script>alert('Product/s Added to your Cart');</script>";
-                echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php'; }, 1000);</script>";
-                exit();
             }
 
         ?>
@@ -189,8 +206,10 @@
             });
 
         }
+        
 
         window.onload = changeSize;
+        
     </script>
 </body>
 </html>
