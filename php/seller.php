@@ -109,15 +109,18 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/seller.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
-    <title>VULCAN - Seller Account</title>
+    <title>Vulcan - Seller Account</title>
 </head>
 <body>
 <div class="seller-container">
-        <?php include("../php/dashboard.php"); ?>
-        <div class="form-container">
-        <div class="back">
-         <a href="seller-account.php"><i class="fa-solid fa-left-long"></i></a>
-         </div>
+        <?php include("../php/dashboard.php"); ?>       
+        <div class="form-container">   
+            <div class="back">
+                    <a href="add-items.php">
+                        <i class="fa-solid fa-chevron-left"></i>                     
+                        <span>Back</span>
+                    </a>
+            </div>         
             <h1 class="title">Update Account</h1>
             <form method="POST" class="first-form" enctype="multipart/form-data">
                 <div class="data">

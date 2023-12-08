@@ -64,7 +64,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/seller-account.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
-    <title>VULCAN - Seller Account</title>
+    <title>Vulcan - Seller Account</title>
 </head>
 <body>
 <div class="seller-container">
@@ -96,7 +96,7 @@
         </div>
         <div class="table-actions">
         <div class="delete-container">
-            <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
+            <button type="button" class="delete-action" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
         </div>
         <div class="product-search">
             <i class="fa-solid fa-magnifying-glass"></i>

@@ -79,6 +79,7 @@ a {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: max-content;
 }
 
 .product-tags p {

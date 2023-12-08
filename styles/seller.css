@@ -17,6 +17,15 @@ body {
   display: flex;
 }
 
+.back {
+  font-size: 2rem;
+}
+
+.back a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .form-container {
   background-color: #191919;
   padding: 2rem;
@@ -68,6 +77,7 @@ body {
   color: #ffffff;
 }
 #change-info {
+  align-self: center;
   width: 15rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
@@ -83,6 +93,7 @@ body {
   background-color: #ce5a67;
 }
 #change-pass {
+  align-self: center;
   width: 15rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
@@ -96,20 +107,4 @@ body {
   cursor: pointer;
   color: #ffffff;
   background-color: #ce5a67;
-}
-.back {
-  margin-top: 1rem;
-}
-.back a {
-  color: #ffffff;
-  text-decoration: none;
-}
-.back i {
-  font-size: 3rem;
-  transition: 0.2s;
-}
-.back i:hover {
-  font-size: 3.5rem;
-  color: #ffffff;
-  text-shadow: 3px 3px 3px rgb(69, 66, 66);
 }
