@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/term-of-use.css"> 
     <title>Document</title>
 </head>
 <body>
+<div class="terms-of-use-container">
+    <div class="back">
+            <a href="landing-page.php">
+                <i class="fa-solid fa-chevron-left"></i>                     
+                <span>Back</span>
+            </a>
+        </div>
 <h1>Vulcan Sports Hub Term of Use</h1>
         <p>Date of last revision: December 2023</p>
 
@@ -239,5 +249,6 @@
                     DAMAGES.  YOU ASSUME TOTAL RESPONSIBILITY FOR YOUR USE OF THE PLATFORM. YOUR ONLY REMEDY AGAINST VULCAN IN CONNECTION WITH 
                     ANY DAMAGES ARISING FROM YOUR USE OF THE PLATFORM OR ANY CONTENT IS TO STOP USING THE PLATFORM.</p>
         </ol>
+</div>
 </body>
 </html>
