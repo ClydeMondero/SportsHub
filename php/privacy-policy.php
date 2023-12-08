@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/privacy-policy.css"> 
+    <title>Vulcan - Privacy Policy</title>
 </head>
 <body>
+<div class="guide-container">
+    <div class="back">
+            <a href="landing-page.php">
+                <i class="fa-solid fa-chevron-left"></i>                     
+                <span>Back</span>
+            </a>
+        </div>
 <h1>VULCAN SPORTS HUB PRIVACY POLICY AND COOKIE POLICY</h1>
 
 <p>This privacy policy describes the personal data collected or generated (processed) when you interact with VULCAN through our 
@@ -210,5 +220,6 @@ We strongly encourage you to read our privacy policy and keep yourself informed 
 <h2>QUESTIONS and Feedback</h2>
 <p>We welcome questions, comments, and concerns about our privacy policy and privacy practices. If you wish to provide feedback or if you have questions or concerns or wish to exercise your rights related to your ]
 personal data, please contact us via: (i) the “Talk to Professionals” section of our website; or (ii) an email to vulcan-sports-hub-contact@gmail.com;</p>
+</div>
 </body>
 </html>
