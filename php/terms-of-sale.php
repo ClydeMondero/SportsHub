@@ -1,7 +1,13 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <body>
-    <h3>Terms and Condition of Sale</h3>
+<h3>Terms and Condition of Sale</h3>
     <p>You should view, read and print a copy of these Terms or save them to your computer for future
         reference. We may amend these Terms from time to time as set out below. Every time you wish to
         order Products or use our site, please check these Terms to ensure you understand the terms which
@@ -235,5 +241,4 @@
             obligations.</p>
     </ol>
 </body>
-
 </html>

@@ -1,6 +1,13 @@
-<html>
-    <body>
-        <h1>Vulcan Sports Hub Term of Use</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Vulcan Sports Hub Term of Use</h1>
         <p>Date of last revision: December 2023</p>
 
         <p><b>PLEASE READ THESE TERMS OF USE (“TERMS”) CAREFULLY BEFORE USING THE VULCAN SPORTS HUB PLATFORM.</b></p>
@@ -232,5 +239,5 @@
                     DAMAGES.  YOU ASSUME TOTAL RESPONSIBILITY FOR YOUR USE OF THE PLATFORM. YOUR ONLY REMEDY AGAINST VULCAN IN CONNECTION WITH 
                     ANY DAMAGES ARISING FROM YOUR USE OF THE PLATFORM OR ANY CONTENT IS TO STOP USING THE PLATFORM.</p>
         </ol>
-    </body>
+</body>
 </html>
