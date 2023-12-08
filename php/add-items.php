@@ -42,7 +42,7 @@
             }
     
             if(!$product_duplicate){
-                $insert_query = "insert into `tbproducts`(`product_name`, `product_description` ,`product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_description','$product_category','$product_sport','$product_size','$product_quantity','$newImageName','$product_brand','$product_price')";
+                $insert_query = "insert into `tbproducts`(`product_name`, `product_description` ,`product_category`, `product_sport`, `product_stocks`, `product_image`,`product_brand`, `product_price`) values ('$product_name','$product_description','$product_category','$product_sport','$product_quantity','$newImageName','$product_brand','$product_price')";
                 if($conn->query($insert_query) === TRUE){
                     echo ("<script>alert('Product Added!');</script>");
                 }else{
@@ -113,42 +113,19 @@
                     <div class="form-labels-two">
                         <div class="labels">
                             <label for="txt-category">Category: </label>
-                            <label for="txt-size">Size: </label>
                             <label for="txt-quantity">Quantity: </label>
                             <label for="txt-price">Price: </label>
                         </div>
                         <div class="inputs">
 
-                            <select name="txt-category" id="txt-category" onchange="changeSize()" required>
+                            <select name="txt-category" id="txt-category" required>
                                 <option value="Tops">Tops</option>
                                 <option value="Shoes">Shoes</option>
                                 <option value="Accessories and Equipment">Accessories and Equipment</option>
                                 <option value="Bottoms">Bottoms</option>
-                                <option value="Innerwear">Innerwears</option>
+                                <option value="Innerwears">Innerwears</option>
                             </select>
 
-                            <select name="txt-size" class="txt-size" id="clothing-sizes"  required>
-                                <option value="X-Small">X-Small</option>
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
-                                <option value="X-Large">X-Large</option>
-                                <option value="XX-Large">XX-Large</option>
-                            </select>
-
-                            <select name="txt-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-
-                            <select name="txt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            
                             <input type="text" name="txt-quantity" id="txt-quantity" required>
                             <input type="text" name="txt-price" id="txt-price" required>
                         </div>
@@ -193,7 +170,7 @@
                         <?php
                             include('conn.php');
                             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` where `product_name` like '%$searchTerm%' order by product_stocks desc";
+                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` where `product_name` like '%$searchTerm%' order by product_stocks desc";
                             $result = $conn->query($sql);
                             
                             while($row = $result->fetch_assoc()){
@@ -260,23 +237,6 @@
                     document.getElementById("searchForm").submit();
                 }
             })
-            
-        function changeSize(){
-            if(document.getElementById("txt-category").value == "Tops" || document.getElementById("txt-category").value == "Bottoms" || document.getElementById("txt-category").value == "Innerwears"){
-                document.getElementById("clothing-sizes").style.display = "flex";
-                document.getElementById("shoes-sizes").style.display = "none";
-                document.getElementById("acseqpmnt-sizes").style.display = "none";
-            }else if(document.getElementById("txt-category").value == "Shoes"){
-                document.getElementById("clothing-sizes").style.display = "none";
-                document.getElementById("shoes-sizes").style.display = "flex";
-                document.getElementById("acseqpmnt-sizes").style.display = "none";
-            }else if(document.getElementById("txt-category").value == "Accessories and Equipment"){
-                document.getElementById("clothing-sizes").style.display = "none";
-                document.getElementById("shoes-sizes").style.display = "none";
-                document.getElementById("acseqpmnt-sizes").style.display = "flex";
-            }
-        }
-        
     </script>
 </body>
 </html>
