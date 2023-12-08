@@ -142,8 +142,10 @@
                         </div>
                         <div class="inputs">
                             <input type="text" name="txt-product-name" id="txt-product-name" required>
-                            <?php echo ("<img src='../products/" . $row["product_image"] . "' width='100'>");?> 
-                            <input type="file" name="image" id="image" required>
+                            <div class="image-file">
+                                <?php echo ("<img src='../products/" . $row["product_image"] . "' width='60' ' height='60'>>");?> 
+                                <input type="file" name="image" id="image" required>
+                            </div>
                             <select name="txt-brand" id="txt-brands" required>
                                 <option value="Adidas">Adidas</option>
                                 <option value="Asics">Asics</option>

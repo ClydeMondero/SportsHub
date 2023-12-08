@@ -32,10 +32,10 @@
                 <i class="fa-solid fa-sitemap"></i>
                 <span class="">SELLER ACCOUNTS</span>
             </div></a>
-            <div class="dashboard-features">
+            <a href="sales.php" style="text-decoration:none;"><div class="dashboard-features">
                <i class="fa-solid fa-list-check"></i>
                <span class="">SALES</span>
-            </div>
+            </div></a>
         </div>
         <div class="sign-out">
             <a href="logout.php" style="text-decoration:none;"><span>SIGN OUT</span><i class="fa-solid fa-right-from-bracket"></i></a>

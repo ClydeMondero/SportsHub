@@ -16,6 +16,9 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
+.image-file {
+  display: flex;
+}
 #image {
   color: #ffffff;
 }
@@ -52,6 +55,7 @@ body {
 }
 #clothing-sizes {
   width: 25rem;
+  margin-top: 0.3rem;
   padding: 0.5rem 0;
   border-radius: 0.2rem;
 }
@@ -74,7 +78,7 @@ body {
 .form-labels-one label {
   color: #ffffff;
   font-size: 1.2rem;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   font-family: "poppins", sans-serif;
 }
 .labels label,

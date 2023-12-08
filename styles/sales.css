@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.sale-container {
+  display: flex;
+}
+.container {
+  margin-top: 2rem;
+  width: 73%;
+}
+.title {
+  font-size: 4rem;
+  font-family: "poppins", sans-serif;
+}
+.product-search {
+  margin-right: 2rem;
+  display: flex;
+  margin-left: 65%;
+  margin-right: 3%;
+  padding: 0 3rem;
+  align-items: center;
+}
+.product-search i {
+  position: relative;
+  left: 1.8rem;
+  top: 0.1rem;
+  font-size: 1.4rem;
+}
+.product-search span {
+  font-size: 2.3rem;
+  font-weight: bold;
+  font-family: "poppinss", sans-serif;
+}
+.product-search input {
+  border-radius: 0.8rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 20rem;
+}
+#filter {
+  width: 10rem;
+  height: 2rem;
+  cursor: pointer;
+  border: 2px solid #191919;
+  border-radius: 0.2rem;
+}
+table,
+th,
+td,
+tr {
+  border-collapse: collapse;
+  padding: 1rem;
+  border: 1px solid black;
+}
+th {
+  background-color: #191919;
+  color: #ffffff;
+}
+table {
+  font-family: "poppins", sans-serif;
+  text-align: center;
+  margin-top: 1rem;
+  width: 98%;
+}

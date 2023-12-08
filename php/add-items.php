@@ -161,7 +161,7 @@
             </form>
                 <div class="table-actions">
                     <div class="delete-container">
-                        <button type="button" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
+                        <button type="button" class="delete-action" onclick="handleDelete()"><i class="fa-solid fa-trash"><span class="delete"> Delete</span></i></button>
                     </div>
 
                     <div class="product-search">                        

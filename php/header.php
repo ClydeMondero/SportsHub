@@ -17,10 +17,10 @@
                 <div class="search-results"></div>                                    
         </div>        
 
-        <div class="add-to-cart">
+        <a href="cart.php"><div class="add-to-cart">
             <p class="cart-count">0</p>
             <i class="fa-solid fa-cart-shopping"></i>
-        </div>
+        </div></a>
     </div>
     
     <div class="login-and-signup">
@@ -30,7 +30,7 @@
     </div>
 
     <div class="profile-and-logout">
-        <a href="login.php"><p>Profile</p></a>
+        <a href="profile.php"><p>Profile</p></a>
         <div class="line"></div>
         <a href="logout.php"><p>Logout</p></a>
     </div>
