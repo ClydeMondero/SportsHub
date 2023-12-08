@@ -32,8 +32,6 @@
                 <span>Back</span>
             </a>
         </div>
-        
-    
         <?php
             $query_result = $conn->query($product_query);
             foreach($query_result as $row){
@@ -63,48 +61,88 @@
                             echo '<p>'.$sport.'</p>';
                     echo '</div>';
 
+                    echo '<form method = "POST" action="">';
                     echo '
                         <div>
-                        <label for="txt-size">Size:</label>
-                        <select name="txt-size" class="txt-size" id="clothing-sizes"  required>
-                            <option value="X-Small">X-Small</option>
-                            <option value="Small">Small</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Large">Large</option>
-                            <option value="X-Large">X-Large</option>
-                            <option value="XX-Large">XX-Large</option>
-                        </select>
-            
-                        <select name="txt-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-            
-                        <select name="txt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
-                            <option value="N/A">N/A</option>
-                        </select>
-                        </div>
-                        ';
+                            <label>Size:</label>
+                            <select name="clothing-size" class="txt-size" id="clothing-sizes"  required>
+                                <option value="X-Small">X-Small</option>
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                                <option value="X-Large">X-Large</option>
+                                <option value="XX-Large">XX-Large</option>
+                            </select>
 
+                            <select name="shoes-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+
+                            <select name="acseqpmnt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
+                                <option value="N/A">N/A</option>
+                            </select>
+                            </div>
+                            ';
                     echo '<div>';
                         echo '<p class="product-stock">Stock: <span>'.$stock.'</span></p>';
                         echo '<div class="buttons">';
-                            echo '<button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             if(!$loggedIn){
                                 echo '<button class="buy-btn" onClick = "handleClick()">Buy Now</button>';
+                                echo '<button class="cart-btn" onClick = "handleClick()><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }else{
                                 echo '<button id="buy-now-btn" class="buy-btn">Buy Now</button>';
+                                echo '<button class="cart-btn" type="submit" name="add_to_cart"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }
                         echo '</div>';
                     echo '</div>';
-
+                    echo '</form>';
                 echo '</div>'; 
 
             echo '</div>';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_to_cart'])) {
+                $productID = $row['product_id'];
+                $selectedSize = '';
+            
+                if ($row['product_category'] == 'Shoes') {
+                    $selectedSize = $_POST['shoes-size'];
+                } elseif ($row['product_category'] == 'Tops' || $row['product_category'] == 'Bottoms' || $row['product_category'] == 'Innerwear') {
+                    $selectedSize = $_POST['clothing-size'];
+                } elseif ($row['product_category'] == 'Accessories and Equipment') {
+                    $selectedSize = $_POST['acseqpmnt-size'];
+                }
+                $quantity = 1;
+
+                $checkCartQuery = "SELECT * FROM `tbcarts` WHERE `user_id` = ? AND `product_id` = ? AND `cart_product_size` = ?";
+                $checkStmt = $conn->prepare($checkCartQuery);
+                $checkStmt->bind_param("iis", $_SESSION['id'], $productID, $selectedSize);
+                $checkStmt->execute();
+                $checkResult = $checkStmt->get_result();
+                $checkStmt->close();
+            
+                if ($checkResult->num_rows > 0) {
+                    $updateCartQuery = "UPDATE `tbcarts` SET `cart_quantity` = `cart_quantity` + 1 WHERE `user_id` = ? AND `product_id` = ? AND `cart_product_size` = ?";
+                    $updateStmt = $conn->prepare($updateCartQuery);
+                    $updateStmt->bind_param("iis", $_SESSION['id'], $productID, $selectedSize);
+                    $updateStmt->execute();
+                    $updateStmt->close();
+                } else {
+                    $cartInsertQuery = "INSERT INTO `tbcarts` (`user_id`, `product_id`, `cart_product_size`, `cart_quantity`, `cart_date`) VALUES (?, ?, ?, ?, NOW())";
+                    $stmt = $conn->prepare($cartInsertQuery);
+                    $stmt->bind_param("iisi", $_SESSION['id'], $productID, $selectedSize, $quantity);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            
+                echo "<script>alert('Product/s Added to your Cart');</script>";
+                echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php'; }, 1000);</script>";
+                exit();
+            }
+
         ?>
     </div>        
 

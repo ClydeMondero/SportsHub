@@ -1,6 +1,21 @@
 <?php
+    include('conn.php');
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
+    $userID = $_SESSION['id'];
+
+    $selectQuery = 'SELECT p.product_name, p.product_image, p.product_price, c.cart_product_size, c.cart_quantity
+                FROM tbcarts c
+                JOIN tbproducts p ON c.product_id = p.product_id WHERE user_id = '.$userID;
+
+    $query_result = $conn->query($selectQuery);
+    foreach ($query_result as $row) {
+        $productName = $row['product_name'];
+        $productImage = $row['product_image'];
+        $productPrice = $row['product_price'];
+        $productSize = $row['cart_product_size'];
+        $productQuantity = $row['cart_quantity'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,34 +39,28 @@
                         <th>Select</th>
                         <th>Image</th>
                         <th>Product Name</th>
+                        <th>Size</th>
                         <th>Qty</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
-                        <td>Bag ito</td>
-                        <td>10</td>
-                        <td>230</td>
-                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
-                    </tr>
-                    <tr>
-                    <td><input type="checkbox"></td>
-                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
-                        <td>Bag ito</td>
-                        <td>10</td>
-                        <td>230</td>
-                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
-                    </tr>
-                    <tr>
-                    <td><input type="checkbox"></td>
-                        <td><img src="../assets/imgs/bag.jpg" alt="" height="90px" width="90px"></td>
-                        <td>Bag ito</td>
-                        <td>10</td>
-                        <td>230</td>
-                        <td><button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button></td>
-                    </tr>
+                    <?php
+                        $total = 0;
+                        foreach ($query_result as $row) {
+                            echo "<tr>";
+                            echo "<td><input type='checkbox' name='select[]'></td>";
+                            echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
+                            echo "<td>{$row['product_name']}</td>";
+                            echo "<td>{$row['cart_product_size']}</td>";
+                            echo "<td>{$row['cart_quantity']}</td>";
+                            echo "<td>{$row['product_price']}</td>";
+                            echo "<td><button>Delete</button></td>";
+                            echo "</tr>";
+
+                            $subtotal = $productPrice * $productQuantity;
+                            $total += $subtotal;
+                        }
+                    ?>
                 </table>
             </div>
         </div>
