@@ -20,7 +20,7 @@
         echo '</a>';
         echo '<p class="product-tags">'.$category.'</p>';
         echo '<p class="product-tags">'.$sport.'</p>';
-        echo '<p>₱'.$price.'</p>';
+        echo '<p>₱'.number_format($price, 2).'</p>';
         echo '</div>';
         echo '</div>';
     }
@@ -29,12 +29,3 @@
 
 <style><?php include "../styles/product.css"; ?></style>
 
-<!-- <div class="product">
-    <img src="../assets/imgs/shoes/airforce1.jpg" alt="">
-    <div class="product-details">
-        <p class="product-name">Nike Air Force 1</p>
-        <p class="product-tags">Shoes</p>
-        <p class="product-tags">Casual</p>
-        <p>₱6,195</p>        
-    </div>    
-</div> -->

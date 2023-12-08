@@ -33,6 +33,7 @@
                             <th>Order ID</th>
                             <th>Product Name</th>
                             <th>Username</th>
+                            <th>Payment Method</th>
                             <th>Order Date</th>
                             <th>Order Arrived Date</th>
                             <th>Order Status</th>
@@ -41,6 +42,7 @@
                             <td>92</td>
                             <td>Gulaman</td>
                             <td>danricksam</td>
+                            <td>GCash</td>
                             <td>06-21-2003</td>
                             <td>06-26-2003</td>
                             <td>Delivered</td>

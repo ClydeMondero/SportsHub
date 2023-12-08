@@ -6,7 +6,7 @@
     //Retrieve From Database Based on the passed ID
     if (isset($_GET['id'])) {
         $productID = $_GET['id'];
-        $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_size`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = " . $productID;
+        $product_query = "select `product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added` from `tbproducts` where `product_id` = " . $productID;
         $result = $conn->query($product_query);
         
     //Set the values from the database to string to set it in the fields
@@ -17,7 +17,6 @@
         if(isset($_POST['btnEdit'])){
             $product_name = $_POST['txt-product-name'];
             $product_brand = $_POST['txt-brand'];
-            $product_size = $_POST['txt-size'];
             $product_category = $_POST['txt-category'];
             $product_quantity = $_POST['txt-quantity'];
             $product_price = $_POST['txt-price'];
@@ -25,11 +24,11 @@
             $product_description = $_POST['txt-product-description'];
             //Check for duplicate
             $product_duplicate = false;
-            $check_name_query = "select `product_name` from `tbproducts` where `product_name` not like '".$productName."'";
+            $check_name_query = "select `product_name` from `tbproducts` where `product_name` not like '".$row['product_name']."'";
             $check_result = $conn->query($check_name_query);
 
-            foreach($check_result as $row){
-                if($row['product_name'] == $product_name){
+            foreach($check_result as $check_row){
+                if($check_row['product_name'] == $product_name){
                     $product_duplicate = true;
                     echo ("<script>alert('Product already in the store!');</script>");
                 }
@@ -65,7 +64,6 @@
                     `product_description` = '$product_description',
                     `product_category` = '$product_name',
                     `product_sport` = '$product_sport',
-                    `product_size` = '$product_size',
                     `product_stocks` = '$product_quantity',
                     `product_image` = '$newImageName',
                     `product_brand` = '$product_brand',
@@ -90,7 +88,6 @@
                 `product_description` = '$product_description',
                 `product_category` = '$product_category',
                 `product_sport` = '$product_sport',
-                `product_size` = '$product_size',
                 `product_stocks` = '$product_quantity',
                 `product_brand` = '$product_brand',
                 `product_price` = '$product_price'
@@ -141,76 +138,52 @@
                             <label for="txt-description">Description: </label>
                         </div>
                         <div class="inputs">
-                            <input type="text" name="txt-product-name" id="txt-product-name" required>
+                            <input type="text" name="txt-product-name" id="txt-product-name" value="<?php echo $row['product_name']; ?>" required>
                             <div class="image-file">
                                 <?php echo ("<img src='../products/" . $row["product_image"] . "' width='60' ' height='60'>>");?> 
-                                <input type="file" name="image" id="image" required>
+                                <input type="file" name="image" id="image">
                             </div>
-                            <select name="txt-brand" id="txt-brands" required>
-                                <option value="Adidas">Adidas</option>
-                                <option value="Asics">Asics</option>
-                                <option value="Mikasa">Mikasa</option>
-                                <option value="Molten">Molten</option>
-                                <option value="Nike">Nike</option>
-                                <option value="Puma">Puma</option>
-                                <option value="Speedo">Speedo</option>
-                                <option value="Yonex">Yonex</option>
+                            <select name="txt-brand" id="txt-brands"  required>
+                                <option value="Adidas" <?php if ($row['product_brand'] == 'Adidas') echo 'selected'; ?>>Adidas</option>
+                                <option value="Asics" <?php if ($row['product_brand'] == 'Asics') echo 'selected'; ?>>Asics</option>
+                                <option value="Mikasa" <?php if ($row['product_brand'] == 'Mikasa') echo 'selected'; ?>>Mikasa</option>
+                                <option value="Molten" <?php if ($row['product_brand'] == 'Molten') echo 'selected'; ?>>Molten</option>
+                                <option value="Nike" <?php if ($row['product_brand'] == 'Nike') echo 'selected'; ?>>Nike</option>
+                                <option value="Puma" <?php if ($row['product_brand'] == 'Puma') echo 'selected'; ?>>Puma</option>
+                                <option value="Speedo" <?php if ($row['product_brand'] == 'Speedo') echo 'selected'; ?>>Speedo</option>
+                                <option value="Yonex" <?php if ($row['product_brand'] == 'Yonex') echo 'selected'; ?>>Yonex</option>
                             </select>
                             <select name="txt-sports" id="txt-sports" required>
-                                <option value="General">General</option>
-                                <option value="Football">Football</option>
-                                <option value="Basketball">Basketball</option>
-                                <option value="Tennis">Tennis</option>
-                                <option value="Football">Badminton</option>
-                                <option value="Football">Baseball</option>
-                                <option value="Basketball">Swimming</option>
-                                <option value="Tennis">Volleyball</option>
+                                <option value="General" <?php if ($row['product_sport'] == 'General') echo 'selected'; ?>>General</option>
+                                <option value="Football" <?php if ($row['product_sport'] == 'Football') echo 'selected'; ?>>Football</option>
+                                <option value="Basketball" <?php if ($row['product_sport'] == 'Basketball') echo 'selected'; ?>>Basketball</option>
+                                <option value="Tennis" <?php if ($row['product_sport'] == 'Tennis') echo 'selected'; ?>>Tennis</option>
+                                <option value="Football" <?php if ($row['product_sport'] == 'Badminton') echo 'selected'; ?>>Badminton</option>
+                                <option value="Football" <?php if ($row['product_sport'] == 'Baseball') echo 'selected'; ?>>Baseball</option>
+                                <option value="Basketball" <?php if ($row['product_sport'] == 'Swimming') echo 'selected'; ?>>Swimming</option>
+                                <option value="Tennis" <?php if ($row['product_sport'] == 'Volleyball') echo 'selected'; ?>>Volleyball</option>
                             </select>
-                            <input type="text" name="txt-product-description" id="txt-product-description" required>
+                            <input type="text" name="txt-product-description" id="txt-product-description" value="<?php echo $row['product_description']; ?>" required>
                         </div>
        
                     </div>
                     <div class="form-labels-two">
                         <div class="labels">
                             <label for="txt-category">Category: </label>
-                            <label for="txt-size">Size: </label>
                             <label for="txt-quantity">Quantity: </label>
                             <label for="txt-price">Price: </label>
                         </div>
                         <div class="inputs">
 
                             <select name="txt-category" id="txt-category" onchange="changeSize()" required>
-                                <option value="Tops">Tops</option>
-                                <option value="Shoes">Shoes</option>
-                                <option value="Accessories and Equipment">Accessories and Equipment</option>
-                                <option value="Bottoms">Bottoms</option>
-                                <option value="Innerwear">Innerwears</option>
+                                <option value="Tops" <?php if ($row['product_category'] == 'Tops') echo 'selected'; ?>>Tops</option>
+                                <option value="Shoes" <?php if ($row['product_category'] == 'Shoes') echo 'selected'; ?>>Shoes</option>
+                                <option value="Accessories and Equipment" <?php if ($row['product_category'] == 'Accessories and Equipment') echo 'selected'; ?>>Accessories and Equipment</option>
+                                <option value="Bottoms" <?php if ($row['product_category'] == 'Bottoms') echo 'selected'; ?>>Bottoms</option>
+                                <option value="Innerwears" <?php if ($row['product_category'] == 'Innerwears') echo 'selected'; ?>>Innerwears</option>
                             </select>
-
-                            <select name="txt-size" class="txt-size" id="clothing-sizes"  required>
-                                <option value="X-Small">X-Small</option>
-                                <option value="Small">Small</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Large">Large</option>
-                                <option value="X-Large">X-Large</option>
-                                <option value="XX-Large">XX-Large</option>
-                            </select>
-
-                            <select name="txt-size" class="txt-size" id="shoes-sizes" style="display:none;" required>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-
-                            <select name="txt-size" class="txt-size" id="acseqpmnt-sizes" style="display:none;" required>
-                                <option value="N/A">N/A</option>
-                            </select>
-                            
-                            <input type="text" name="txt-quantity" id="txt-quantity" required>
-                            <input type="text" name="txt-price" id="txt-price" required>
+                            <input type="text" name="txt-quantity" id="txt-quantity" value="<?php echo $row['product_stocks']; ?>" required>
+                            <input type="text" name="txt-price" id="txt-price" value="<?php echo $row['product_price']; ?>" required>
                         </div>
                     </div>
                  </div>
