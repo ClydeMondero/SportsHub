@@ -17,9 +17,9 @@
         <div class="information">
             <h1>TALK TO PROFESSIONALS</h1>
             <div class="professionals-gmail">
-                <div class="gmails"><i class="fa-solid fa-envelope"></i> Clyde Reyniel C. Mondero</div>
-                <div class="gmails"><i class="fa-solid fa-envelope"></i> Andrei John D. Poma</div>
-                <div class="gmails"><i class="fa-solid fa-envelope"></i> Bhenz Mharl L. Bartolome</div>
+               <a href="mailto:monderoclyde24@gmail.com" target="_blank"><div class="gmails"><i class="fa-solid fa-envelope"></i> Clyde Reyniel C. Mondero</div></a>
+               <a href="mailto:andreipoma123@gmail.com" target="_blank"><div class="gmails"><i class="fa-solid fa-envelope"></i> Andrei John D. Poma</div></a>
+                <a href="mailto:bhenzmharlbartolome" target="_blank"></a><div class="gmails"><i class="fa-solid fa-envelope"></i> Bhenz Mharl L. Bartolome</div>
             </div>
         </div>
     </div>
