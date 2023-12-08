@@ -17,9 +17,7 @@
         $productSize = $row['cart_product_size'];
         $productQuantity = $row['cart_quantity'];
         $productStock = $row['product_stocks'];
-    }
-
-    $_SESSION['cartSize'] = mysqli_num_rows($query_result);
+    }         
 ?>
 <!DOCTYPE html>
 <html lang="en">
