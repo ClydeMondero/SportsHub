@@ -20,7 +20,7 @@
         echo '</a>';
         echo '<p class="product-tags">'.$category.'</p>';
         echo '<p class="product-tags">'.$sport.'</p>';
-        echo '<p>₱'.$price.'</p>';
+        echo '<p>₱'.number_format($price, 2).'</p>';
         echo '</div>';
         echo '</div>';
     }
