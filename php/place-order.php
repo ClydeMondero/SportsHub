@@ -41,30 +41,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/place-order.css">   
     <title>Vulcan - Place Order Page</title>
-
-
-    <script>
-        function updateTotal() {
-            // Get the selected quantity
-            var quantityInput = document.getElementById('quantity');
-            var quantity = parseInt(quantityInput.value);
-
-            // Check if the entered quantity exceeds the available stock
-            if (quantity > <?php echo $productStocks; ?>) {
-                // If so, set the quantity to the available stock
-                quantity = <?php echo $productStocks; ?>;
-                quantityInput.value = quantity;
-            }
-
-            // Update the displayed quantity
-            document.getElementById('displayedQuantity').innerText = quantity + " pc";
-
-            // Calculate and update the total price
-            var totalPrice = quantity * <?php echo $productPrice; ?>;
-            document.getElementById('totalPrice').innerText = "₱" + totalPrice.toFixed(2);
-        }
-    </script>
-
 </head>
 <body>
     <?php include "./header.php" ?>
@@ -100,11 +76,6 @@
                 </div>
 
                 <div class="line"></div>
-
-                <div class="row2">
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" value="1" min="1" oninput="updateTotal()" max="<?php echo $productStocks; ?>">
-                </div>
 
                 <h2>Your Address</h2>
 
@@ -164,7 +135,7 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $productID = $_POST['product_id'];
-            $quantity = $_POST['quantity'];
+            $quantity = 1;
             $paymentMethod = $_POST['payment'];
             $street = $_POST['street'];
             $barangay = $_POST['barangay'];
@@ -194,7 +165,7 @@
 
                     $conn->query($orderInsertQuery);
                     echo "<script>alert('Order Placed');</script>";
-                    echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php'; }, 1000);</script>";
+                    echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php?page=shoes&type=categories'; }, 1000);</script>";
                     exit();
                 } else {
                     echo "<script>alert('Not enough stock available.');</script>";

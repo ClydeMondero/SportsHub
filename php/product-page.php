@@ -27,7 +27,7 @@
     
     <div class="product-container">
         <div class="back">
-            <a href="./shopping-page.php">
+            <a href="shopping-page.php?page=shoes&type=categories" >
                 <i class="fa-solid fa-chevron-left"></i>                     
                 <span>Back</span>
             </a>
@@ -95,7 +95,7 @@
                                 echo '<button class="buy-btn" onClick = "handleClick()">Buy Now</button>';
                                 echo '<button class="cart-btn" onClick = "handleClick()><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }else{
-                                echo '<button id="buy-now-btn" class="buy-btn">Buy Now</button>';
+                                echo '<button id="buy-now-btn" class="buy-btn" type="button">Buy Now</button>';
                                 echo '<button class="cart-btn" type="submit" name="add_to_cart"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>';
                             }
                         echo '</div>';
