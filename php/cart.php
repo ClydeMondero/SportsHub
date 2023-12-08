@@ -103,7 +103,7 @@
                                 $subtotal = $row['product_price'] * $row['cart_quantity'];
                                 echo "<td>₱".number_format($subtotal, 2)."</td>";
 
-                                echo "<td><button type='submit' name='delete_btn'>Delete Selected</button></td>";
+                                echo "<td><button type='submit' name='delete_btn'>Delete</button></td>";
                                 echo "</tr>";
                             }
                         ?>
