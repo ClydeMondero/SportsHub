@@ -21,6 +21,7 @@ a {
   color: #ffffff;
 }
 .form-container {
+  padding: 2.5rem 0;
   display: flex;
   flex-direction: column;
   width: 75%;
@@ -29,7 +30,6 @@ a {
   background-color: #191919;
   border-radius: 0.6rem;
   padding: 2.2rem 1rem;
-  margin-top: 2.7rem;
 }
 .form h1 {
   color: #ffffff;
@@ -119,20 +119,27 @@ a {
   background-color: #ce5a67;
 }
 .table-actions {
-  margin: 1rem;
+  margin: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.delete {
+  font-family: "poppinss", sans-serif;
+  font-weight: 100;
+}
+
 .delete-action {
   background-color: #ce5a67;
   border: none;
   padding: 0.5rem 0.7rem;
   border-radius: 1rem;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: 0.2s;
 }
+
 .delete-action:hover {
   cursor: pointer;
 }
@@ -158,9 +165,11 @@ a {
   height: 2.5rem;
   width: 20rem;
 }
+
 .product-table {
   background-color: #ffffff;
 }
+
 table,
 th,
 td {
@@ -229,9 +238,4 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.delete {
-  font-family: "poppins", sans-serif;
-  font-weight: 100;
 }

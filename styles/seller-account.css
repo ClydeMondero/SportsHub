@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
 }
 .title {
   color: #000000;
@@ -13,8 +12,7 @@
 }
 
 .form-container {
-  padding: 2rem;
-  margin: 2rem;
+  padding: 2rem 0;
   width: 75%;
   height: 30%;
   display: flex;
@@ -109,35 +107,40 @@
   height: 2.5rem;
   width: 20rem;
 }
-.delete-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
+
+.delete {
+  font-family: "poppinss", sans-serif;
+  font-weight: 100;
 }
 
-.delete-container button {
+.delete-action {
+  background-color: #ce5a67;
   border: none;
-  background-color: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: 0.2s;
 }
-
-.delete-container span {
-  font-size: 1.5rem;
+.delete-action:hover {
+  cursor: pointer;
 }
 
 .table-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2.5rem 0 1rem 0;
 }
 
-.fa-trash {
-  font-size: 1.4rem;
+.product-table {
+  background-color: #ffffff;
 }
 
-.fa-trash:hover {
-  color: #ce5a67;
+.product-table a {
+  color: black;
+  text-decoration: none;
 }
+
 table,
 th,
 tr,
@@ -156,4 +159,19 @@ th {
 }
 .fa-pen-to-square a {
   text-decoration: none;
+}
+.actions i {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 0.7rem;
+}
+
+.fa-pen-to-square:hover {
+  color: #f4bf96;
+}
+
+.check input[type="checkbox"] {
+  line-height: normal;
+  width: 20px;
+  height: 20px;
 }

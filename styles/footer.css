@@ -9,6 +9,11 @@ footer {
   background-color: #191919;
 }
 
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .footer-container {
   width: 75%;
   display: flex;
@@ -34,6 +39,7 @@ footer {
   justify-content: center;
   flex-direction: column;
 }
+
 .gmails {
   font-size: 0.8rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

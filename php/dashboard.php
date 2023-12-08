@@ -38,7 +38,7 @@
             </div></a>
         </div>
         <div class="sign-out">
-            <a href="logout.php" style="text-decoration:none;"><span>SIGN OUT</span><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="logout.php" style="text-decoration:none;"><span>SIGN OUT </span><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
 </body>

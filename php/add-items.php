@@ -188,7 +188,7 @@
                                 echo "<td>" . $row["product_category"] . "</td>";
                                 echo "<td>" . $row["product_sport"] . "</td>";
                                 echo "<td>" . $row["product_stocks"] . "</td>";
-                                echo "<td>" . $row["product_price"] . "</td>";
+                                echo "<td>₱" . number_format($row["product_price"], 2) . "</td>";
                                 echo "<td class='actions'>";                                
                                 echo '<a href = "./edit-items.php?id='. $row["product_id"].'">';
                                 echo "<i class='fa-solid fa-pen-to-square'></i></a>";                                

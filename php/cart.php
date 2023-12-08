@@ -17,7 +17,7 @@
         $productSize = $row['cart_product_size'];
         $productQuantity = $row['cart_quantity'];
         $productStock = $row['product_stocks'];
-    }
+    }         
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,10 +98,10 @@
                                 echo "<td>{$row['product_name']}</td>";
                                 echo "<td>{$row['cart_product_size']}</td>";
                                 echo "<td><input type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
-                                echo "<td>₱{$row['product_price']}</td>";
+                                echo "<td>₱".number_format($row['product_price'], 2)."</td>";
                                 echo "<td>{$row['product_stocks']}</td>";
                                 $subtotal = $row['product_price'] * $row['cart_quantity'];
-                                echo "<td>₱{$subtotal}</td>";
+                                echo "<td>₱".number_format($subtotal, 2)."</td>";
 
                                 echo "<td><button type='submit' name='delete_btn'>Delete Selected</button></td>";
                                 echo "</tr>";

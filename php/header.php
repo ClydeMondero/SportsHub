@@ -52,7 +52,11 @@
             echo '<style>
                 .profile-and-logout{display: none !important;}
             </style>';
-        }               
+        }             
+        
+        if(isset($_SESSION["cartSize"])){
+            echo "<script>document.querySelector('.cart-count').innerHTML = ".$_SESSION["cartSize"]."</script>";
+        }
     ?>
 </div>   
 

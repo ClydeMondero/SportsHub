@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.terms-of-sales-container {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.back a i {
+  margin-right: 0.5rem;
+}
+
+h3 {
+  text-align: center;
+  color: #333;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-top: 2rem;
+}
+
+ol > li {
+  margin-top: 1.3rem;
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
