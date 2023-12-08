@@ -17,7 +17,7 @@
                 <span>Back</span>
             </a>
         </div>
-<h1>VULCAN SPORTS HUB PRIVACY POLICY AND COOKIE POLICY</h1>
+<h1>VULCAN SPORTS HUB PRIVACY POLICY</h1>
 
 <p>This privacy policy describes the personal data collected or generated (processed) when you interact with VULCAN through our 
     websites (“<b>Sites</b>”), digital experiences, mobile applications, stores events, or one of our other products or services, all of 

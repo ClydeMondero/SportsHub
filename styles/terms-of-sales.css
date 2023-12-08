@@ -10,6 +10,20 @@ body {
   color: #333;
 }
 
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #000;
+}
+
 .terms-of-sales-container {
   max-width: 800px;
   margin: 5rem auto;
