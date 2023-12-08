@@ -44,6 +44,10 @@
             echo '<style>
                 .profile-and-logout{display: flex !important;}
             </style>';
+
+            echo '<style>
+                .add-to-cart{display: flex !important;}
+            </style>';
         } else{
             echo '<style>
                 .login-and-signup{display: flex !important;}
@@ -51,6 +55,10 @@
 
             echo '<style>
                 .profile-and-logout{display: none !important;}
+            </style>';
+
+            echo '<style>
+                .add-to-cart{display: none !important;}
             </style>';
         }             
         
