@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/terms-of-sales.css"> 
     <title>Document</title>
 </head>
 <body>
-<h3>Terms and Condition of Sale</h3>
+    <div class="terms-of-sales-container">
+    <div class="back">
+            <a href="landing-page.php">
+                <i class="fa-solid fa-chevron-left"></i>                     
+                <span>Back</span>
+            </a>
+        </div>
+    <h3>Terms and Condition of Sale</h3>
     <p>You should view, read and print a copy of these Terms or save them to your computer for future
         reference. We may amend these Terms from time to time as set out below. Every time you wish to
         order Products or use our site, please check these Terms to ensure you understand the terms which
@@ -240,5 +250,6 @@
             waived our rights against you and will not mean that you do not have to comply with those
             obligations.</p>
     </ol>
+    </div>
 </body>
 </html>
