@@ -29,7 +29,7 @@
             <p class="trending-caption">Speed Beyond Your Wildest Dreams</p>
             <p class="description">Make it real with Mercurial Dream Speed 7.
             </p>
-            <a href="shopping-page.php"><button>Shop Now</button></a>
+            <a href="shopping-page.php?page=shoes&type=categories"><button>Shop Now</button></a>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
             <p class="description">Made from at least 20% recycled content by weight, 
                 it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout.
             </p>
-            <a href="shopping-page.php"><button>Shop Now</button></a>
+            <a href="shopping-page.php?page=shoes&type=categories"><button>Shop Now</button></a>
         </div>
     </div>
 
