@@ -18,7 +18,7 @@
             <h1>TALK TO PROFESSIONALS</h1>
             <div class="professionals-gmail">
                 <div class="gmails"><i class="fa-solid fa-envelope"></i> Clyde Reyniel C. Mondero</div>
-                <div class="gmails"><i class="fa-solid fa-envelope"></i> Andrei John D. Poma</div>
+                <div class="gmails"><i class="fa-solid fa-envelope"></i> Andrei John V. Poma</div>
                 <div class="gmails"><i class="fa-solid fa-envelope"></i> Bhenz Mharl L. Bartolome</div>
             </div>
         </div>
@@ -29,10 +29,10 @@
             <div class="gray-text"><i class="fa-solid fa-copyright"></i> 2023, Vulcan Sports Hub Inc. All Rights Reserved.</div>
         </div>
         <div class="right-content">
-            <p class="gray-text">Guide</p>
-            <p class="gray-text">Term of Use</p>
-            <p class="gray-text">Term of Sale</p>
-            <p class="gray-text">Vulcan Sports Hub Policy</p>
+            <p class="gray-text"><a href="guides.php">Guide</a></p>
+            <p class="gray-text"><a href="term-of-use.php">Term of Use</a></p>
+            <p class="gray-text"><a href="terms-of-sale.php">Term of Sale</a></p>
+            <p class="gray-text"><a href="privacy-policy.php">Vulcan Sports Hub Policy</a></p>
         </div>
     </div>
 </footer>
