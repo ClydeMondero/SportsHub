@@ -9,6 +9,11 @@ footer {
   background-color: #191919;
 }
 
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .footer-container {
   width: 75%;
   display: flex;
@@ -33,10 +38,6 @@ footer {
   align-items: self-start;
   justify-content: center;
   flex-direction: column;
-}
-
-.professionals-gmail a {
-  color: white;
 }
 
 .gmails {

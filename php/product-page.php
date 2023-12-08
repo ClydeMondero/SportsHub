@@ -139,7 +139,7 @@
                 }
             
                 echo "<script>alert('Product/s Added to your Cart');</script>";
-                echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php'; }, 1000);</script>";
+                echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php?page=shoes&type=categories'; }, 1000);</script>";
                 exit();
             }
 
