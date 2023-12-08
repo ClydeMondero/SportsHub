@@ -3,11 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  background-image: url("../assets/imgs/bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .admin {
   display: flex;
   align-items: center;
