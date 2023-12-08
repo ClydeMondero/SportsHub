@@ -121,11 +121,14 @@
         <?php
             include("../php/dashboard.php");
         ?>
-        <div class="form-container">
-         <div class="back">
-         <a href="add-items.php"><i class="fa-solid fa-left-long"></i></a>
-         </div>
-         <form method="POST" class="form" enctype="multipart/form-data">
+        <div class="form-container">        
+            <div class="back">
+                <a href="add-items.php">
+                    <i class="fa-solid fa-chevron-left"></i>                     
+                    <span>Back</span>
+                </a>
+            </div>
+            <form method="POST" class="form" enctype="multipart/form-data">
                 <h1>Update Product</h1>
                  <div id="data">
                     
