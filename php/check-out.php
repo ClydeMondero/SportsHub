@@ -9,7 +9,13 @@
             <span>Shipping: Free</span>
         </div>
         <div class="checkout">
-            <button class="checkout-btn" >Check out</button>
+            <button class="checkout-btn" onclick="submitForm()">Check out</button>
         </div>
     </div>
 </section>
+
+<script>
+    function submitForm() {
+        document.getElementById("checkoutForm").submit();
+    }
+</script>
