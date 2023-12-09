@@ -3,6 +3,8 @@
         session_start();
         $loggedIn = isset($_SESSION['loggedin']);
         $userID = $_SESSION['id'];
+
+        $total = $_GET['totalsum'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +26,7 @@
                 </div>
             <div class="gcash-container">
                 <img src="../assets/imgs/gcash-payment.jpg" alt="Gcash" height="650px" width="550px">
-                <span>Amount to Pay: ₱210,000</span>
+                <span>Amount to Pay: ₱<?php echo number_format($total, 2, '.', ',');?></span>
         </div>
     </div>
 </div>

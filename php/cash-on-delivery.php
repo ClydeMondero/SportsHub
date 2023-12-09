@@ -3,6 +3,8 @@
         session_start();
         $loggedIn = isset($_SESSION['loggedin']);
         $userID = $_SESSION['id'];
+
+        $total = $_GET['totalsum'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,7 @@
                 <p>
                     Your Cash On Delivery Request has been Accepted!
                 </p>
-                <span>Amount to Pay: ₱210,000</span>
+                <span>Amount to Pay: ₱<?php echo number_format($total, 2, '.', ',');?></span>
             </div>
             <div class="logo">
                 <img src="../assets/imgs/cod.png" alt="">

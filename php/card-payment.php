@@ -3,6 +3,8 @@
         session_start();
         $loggedIn = isset($_SESSION['loggedin']);
         $userID = $_SESSION['id'];
+
+        $total = $_GET['totalsum'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,13 +39,24 @@
                   </div>
             </div>
             <div class="number">
-            <p class="txt-amount">Amount to Pay: ₱210,000 </p>
+            <span>Amount to Pay: ₱<?php echo number_format($total, 2, '.', ',');?></span>
                 <label for="card-number">Enter your Account Number: </label>
                 <input type="text" name="card-number" class="card-number" placeholder="XXXX-XXXX">
-                <button type="submit">BUY</button>
+                <button type="button" onclick="handleClick()">BUY</button>
             </div>
         </div>
     </div>
     <?php include ("footer.php"); ?> 
 </body>
+
+<script>
+  function handleClick(){
+      if(document.querySelector(".card-number").value == ""){
+        alert("Please enter your card number");
+      }else{
+        alert("Payment Successful. You may now close the window.");
+      }
+  }
+</script>
+
 </html>
