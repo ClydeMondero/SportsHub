@@ -88,9 +88,9 @@
   $(document).ready(function(){
     $('#search').on('input', function() {
         
-            var product_name = $(this).val();
-            if (product_name !== "") {
-                $.post("get-products.php", {product_name: product_name}, function(data) {
+            var search_term = $(this).val();
+            if (search_term !== "") {
+                $.post("get-products.php", {search_term: search_term}, function(data) {
                     $("div.search-results").css({'display':'block'});
                     $("div.search-results").html(data);
                 })
