@@ -149,16 +149,27 @@
             }
 
             
-            echo ("<script>alert('Order/s placed.');</script>");
-            if ($_POST['payment'] == 'COD') {
-                echo "<script>setTimeout(function() { window.open('cash-on-delivery.php?totalsum=$totalSum', '_blank'); }, 400);</script>";
-                echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
-            } elseif ($_POST['payment'] == 'GCash') {
-                echo "<script>setTimeout(function() { window.open('gcash.php?totalsum=$totalSum', '_blank'); }, 400);</script>";
-                echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
-            } elseif ($_POST['payment'] == 'Card') {
-                echo "<script>setTimeout(function() { window.open('card-payment.php?totalsum=$totalSum', '_blank'); }, 400);</script>";
-                echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
+            if($_POST['payment'] == 'COD') {
+                echo "<script>
+                        setTimeout(function() { 
+                            window.open('cash-on-delivery.php?totalsum=$totalSum', '_blank'); 
+                            window.location.href = 'cart.php';
+                        }, 400);
+                        </script>";
+            } elseif($_POST['payment'] == 'GCash') {
+                echo "<script>
+                        setTimeout(function() { 
+                            window.open('gcash.php?totalsum=$totalSum', '_blank'); 
+                            window.location.href = 'cart.php';
+                        }, 400);
+                        </script>";
+            } elseif($_POST['payment'] == 'Card') {
+                echo "<script>
+                        setTimeout(function() { 
+                            window.open('card-payment.php?totalsum=$totalSum', '_blank'); 
+                            window.location.href = 'cart.php';
+                        }, 400);
+                        </script>";
             }
             exit();
          }
