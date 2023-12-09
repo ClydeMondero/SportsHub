@@ -11,6 +11,9 @@
 <body>
     <div class="admin">
         <?php
+            session_start();
+            $loggedIn = isset($_SESSION['loggedin']);
+            
             include("../php/dashboard.php");?>
 
         <?php

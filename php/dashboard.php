@@ -36,8 +36,10 @@
                <i class="fa-solid fa-list-check"></i>
                <span class="">SALES</span>
             </div></a>
-        </div>
+        </div>      
         <div class="sign-out">
+            <p><?php echo $_SESSION['username'] ?></p>      
+            <div class="line"></div>      
             <a href="logout.php" style="text-decoration:none;"><span>SIGN OUT </span><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
