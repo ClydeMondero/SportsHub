@@ -116,7 +116,7 @@ if (isset($_GET['id'])) {
         <?php include("../php/dashboard.php"); ?>       
         <div class="form-container">   
             <div class="back">
-                    <a href="add-items.php">
+                    <a href="seller-account.php">
                         <i class="fa-solid fa-chevron-left"></i>                     
                         <span>Back</span>
                     </a>

@@ -122,7 +122,25 @@
                 <?php
                     include('conn.php');
                     $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-                    $sql = "SELECT `user_id`, `user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`, `acc_type` FROM `tbusers` where `user_fullname` like '%$searchTerm%'";
+                    $sql = "SELECT 
+                        `user_id`, 
+                        `user_fullName`, 
+                        `user_username`, 
+                        `user_password`, 
+                        `user_email`, 
+                        `user_contactNo`, 
+                        `user_address`, 
+                        `acc_type` 
+                    FROM 
+                        `tbusers` 
+                    WHERE 
+                        `user_fullName` LIKE '%$searchTerm%'
+                        OR `user_username` LIKE '%$searchTerm%'
+                        OR `user_email` LIKE '%$searchTerm%'
+                        OR `user_contactNo` LIKE '%$searchTerm%'
+                        OR `user_address` LIKE '%$searchTerm%'
+                    ORDER BY 
+                        `user_id`";
                     $result = $conn->query($sql);
 
                     while($row = $result->fetch_assoc()){

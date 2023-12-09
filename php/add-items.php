@@ -170,7 +170,24 @@
                         <?php
                             include('conn.php');
                             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-                            $sql = "select `product_id`, `product_name`, `product_category`, `product_sport`, `product_stocks`, `product_image`, `product_brand`, `product_price` from `tbproducts` where `product_name` like '%$searchTerm%' order by product_stocks desc";
+                            $sql = "SELECT 
+                            `product_id`, 
+                            `product_name`, 
+                            `product_category`, 
+                            `product_sport`, 
+                            `product_stocks`, 
+                            `product_image`, 
+                            `product_brand`, 
+                            `product_price` 
+                        FROM 
+                            `tbproducts` 
+                        WHERE 
+                            `product_name` LIKE '%$searchTerm%'
+                            OR `product_category` LIKE '%$searchTerm%'
+                            OR `product_sport` LIKE '%$searchTerm%'
+                            OR `product_brand` LIKE '%$searchTerm%'
+                        ORDER BY 
+                            `product_stocks` DESC";
                             $result = $conn->query($sql);
                             
                             while($row = $result->fetch_assoc()){

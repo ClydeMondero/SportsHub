@@ -68,6 +68,20 @@
             totalAmountElement.textContent = 'Total: ₱' + total.toFixed(2);
         }
 
+        function deleteCartItem(cartId) {
+            var confirmation = confirm("Are you sure you want to delete this item from the cart?");
+            if (confirmation) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "delete-cart-entry.php?cart_id=" + cartId, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        location.reload();
+                    }
+                };
+                xhr.send();
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -108,8 +122,7 @@
                                 echo "<td>{$row['product_stocks']}</td>";
                                 $subtotal = $row['product_price'] * $row['cart_quantity'];
                                 echo "<td>₱".number_format($subtotal, 2)."</td>";
-
-                                echo "<td><button class='remove-btn' type='submit' name='delete_btn'><i class='fa-solid fa-trash'><span class='remove'> Delete</span></button></td>";
+                                echo "<td><button class='remove-btn' type='button' name='delete_btn' onclick='deleteCartItem({$row['cart_id']})'><i class='fa-solid fa-trash'></i><span class='remove'> Delete</span></button></td>";
                                 echo "</tr>";
                             }
                         ?>
