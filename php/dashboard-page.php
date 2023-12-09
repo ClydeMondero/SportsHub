@@ -33,9 +33,9 @@
             <div class="first-row-container">
                 <div class="rows">
                     <div class="rows-content">
-                    <i class="fa-solid fa-coins"></i>
-                    <h1><?php echo $numOfSales ?></h1>
-                    </div>
+                        <i class="fa-solid fa-coins"></i>
+                        <h1><?php echo $numOfSales ?></h1>                      
+                    </div>                   
                     <p>Sales</p>
                 </div>               
 
