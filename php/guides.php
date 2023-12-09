@@ -21,7 +21,7 @@
     <ol type="1">
         <li>Category</li>
         <ul type="square">
-            <li>shoes</li>
+            <li>Shoes</li>
         </ul>
         <ul type="square">
             <li>Tops & T-Shirts</li>
