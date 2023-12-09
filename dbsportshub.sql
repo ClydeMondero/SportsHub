@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 05:33 AM
+-- Generation Time: Dec 09, 2023 at 12:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,8 +61,8 @@ CREATE TABLE `tborders` (
 --
 
 INSERT INTO `tborders` (`order_id`, `product_id`, `order_product_size`, `order_quantity`, `user_id`, `order_price`, `order_payment_method`, `order_address`, `order_date`, `order_arrival_date`, `order_status`) VALUES
-(54, 49, '7', 2, 19, 13790, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Pending'),
-(55, 49, '12', 1, 19, 6895, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Pending');
+(56, 49, '11', 2, 19, 13790, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Cancelled'),
+(57, 54, '9', 1, 19, 2995, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Delivered');
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,8 @@ CREATE TABLE `tbproducts` (
 --
 
 INSERT INTO `tbproducts` (`product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added`) VALUES
-(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'General', 0, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
-(52, 'Nike Air Force 1 07 LV8', 'The radiance lives on in the Air Force 1 07 LV8. This b-ball original puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine. This winter-ready version helps keep you warm and has traction to beat the elements.', 'Tops', 'General', 5, '6565f17cc7302.png', 'Nike', 6895, '2023-11-27'),
+(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'General', 10, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
+(52, 'Nike Air Force 1 07 LV8', 'The radiance lives on in the Air Force 1 07 LV8. This b-ball original puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine. This winter-ready version helps keep you warm and has traction to beat the elements.', 'Shoes', 'General', 5, '6565f17cc7302.png', 'Nike', 6895, '2023-11-27'),
 (53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Football', 0, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
 (54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'Shoes', 'Basketball', 3, '65642124cc18a.png', 'Nike', 2995, '2023-11-27'),
 (57, 'Sando', 'Lorem Ipsum', 'Innerwears', 'General', 5, '656f03f5ef3aa.png', 'Nike', 1200, '2023-12-05'),
@@ -113,6 +113,7 @@ CREATE TABLE `tbusers` (
   `user_email` varchar(255) NOT NULL,
   `user_contactNo` varchar(255) NOT NULL,
   `user_address` varchar(255) NOT NULL,
+  `user_image` varchar(255) NOT NULL,
   `acc_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -120,11 +121,11 @@ CREATE TABLE `tbusers` (
 -- Dumping data for table `tbusers`
 --
 
-INSERT INTO `tbusers` (`user_id`, `user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`, `acc_type`) VALUES
-(11, 'Eurie Oliveria', 'eurie', '$2y$10$h7ehCle9Y9z2lS/YBBA1Eu62JLykCX4JluoMuHkFrEEERUn/ocygm', 'eurie1@gmail.com', '09123412312', 'Manila', 'admin'),
-(18, 'Markjames Villagonzalo', 'markjames', '$2y$10$SXH2u752PHsLCb3Dti4fGuHCMWaZOQdD3dwP7/.oPkQegXh3rxV/K', 'markjames@gmail.com', '09213456544', 'Baliuag, Bulacan', 'seller'),
-(19, 'Andrei Poma', 'andrei123', '$2y$10$rHmJFBRluecS5SAmRz2FlO8PmKCRgRYzbQpXmomzVkMqxtl8Cd6iO', 'andrei@gmail.com', '09123253212', 'San Rafael, Bulacan', 'customer'),
-(20, 'Rikki Vinas', 'rikki123', '$2y$10$PAllP794EKSSAlKXVewmC.xs9HPf3g4SroxOA6dS.SC3sRysI6dMK', 'rikki@gmail.com', '09231512342', 'Baliuag, Bulacan', 'customer');
+INSERT INTO `tbusers` (`user_id`, `user_fullName`, `user_username`, `user_password`, `user_email`, `user_contactNo`, `user_address`, `user_image`, `acc_type`) VALUES
+(11, 'Eurie Oliveria', 'eurie', '$2y$10$h7ehCle9Y9z2lS/YBBA1Eu62JLykCX4JluoMuHkFrEEERUn/ocygm', 'eurie1@gmail.com', '09123412312', 'Manila', '', 'admin'),
+(18, 'Markjames Villagonzalo', 'markjames', '$2y$10$SXH2u752PHsLCb3Dti4fGuHCMWaZOQdD3dwP7/.oPkQegXh3rxV/K', 'markjames@gmail.com', '09213456544', 'Baliuag, Bulacan', '', 'seller'),
+(19, 'Andrei Poma', 'andrei123', '$2y$10$VwqomcxXvkY4hjre/0gIlOzMA3HCbUvvC2I8x.XuWCup5AA/S56Y6', 'andrei@gmail.com', '09123253212', 'San Rafael, Bulacan', '65743486da38d.jpg', 'customer'),
+(20, 'Rikki Vinas', 'rikki123', '$2y$10$PAllP794EKSSAlKXVewmC.xs9HPf3g4SroxOA6dS.SC3sRysI6dMK', 'rikki@gmail.com', '09231512342', 'Baliuag, Bulacan', '', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -166,13 +167,13 @@ ALTER TABLE `tbusers`
 -- AUTO_INCREMENT for table `tbcarts`
 --
 ALTER TABLE `tbcarts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tborders`
 --
 ALTER TABLE `tborders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `tbproducts`
