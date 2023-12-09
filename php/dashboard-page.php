@@ -15,7 +15,7 @@
 
         <?php
         include "conn.php";
-        $countSales = "SELECT COUNT(1) FROM `tborders` WHERE `order_status`= 'Delivered';";
+        $countSales = "SELECT SUM(`order_price`) FROM `tborders` WHERE `order_status` = 'Delivered';";
         $numOfSales = $conn->query($countSales)->fetch_row()[0];
 
         $countUsers = "SELECT COUNT(1) FROM `tbusers`;";        
