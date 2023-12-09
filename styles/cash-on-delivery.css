@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url("../assets/imgs/bg-cod.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 30%;
+}
+.logo img {
+  height: 850px;
+  width: 850px;
+  object-fit: cover;
+}
+.title {
+  margin-left: 2rem;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+.title span {
+  font-size: 2rem;
+  font-family: "poppins", sans-serif;
+  font-weight: bold;
+}
+.title p {
+  max-width: 55rem;
+  padding-left: 2rem;
+  font-size: 4rem;
+  font-family: "poppins", sans-serif;
+  font-weight: bold;
+}
+.content {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
