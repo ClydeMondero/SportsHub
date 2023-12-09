@@ -43,6 +43,19 @@ body::-webkit-scrollbar-thumb {
   max-height: 50rem;
 }
 
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top button {
+  padding: 1rem;
+  background-color: #191919;
+  color: white;
+  font-size: 1rem;
+}
+
 .title2 {
   font-size: 3rem;
   font-family: "poppins", sans-serif;
