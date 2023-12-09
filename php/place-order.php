@@ -195,15 +195,27 @@
 
                     $conn->query($orderInsertQuery);
                     echo "<script>alert('Order Placed');</script>";
-                    if ($_POST['payment'] == 'COD') {
-                        echo "<script>setTimeout(function() { window.open('cash-on-delivery.php?totalsum=$totaPrice', '_blank'); }, 400);</script>";
-                        echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
-                    } elseif ($_POST['payment'] == 'GCash') {
-                        echo "<script>setTimeout(function() { window.open('gcash.php?totalsum=$totaPrice', '_blank'); }, 400);</script>";
-                        echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
-                    } elseif ($_POST['payment'] == 'Card') {
-                        echo "<script>setTimeout(function() { window.open('card-payment.php?totalsum=$totaPrice', '_blank'); }, 400);</script>";
-                        echo "<script>setTimeout(function() { window.open('cart.php', '_self'); }, 400);</script>";
+                    if($paymentMethod == 'COD') {
+                        echo "<script>
+                                setTimeout(function() { 
+                                    window.open('cash-on-delivery.php?totalsum=$totalPrice', '_blank'); 
+                                    window.location.href = 'shopping-page.php';
+                                }, 400);
+                                </script>";
+                    } elseif($paymentMethod == 'GCash') {
+                        echo "<script>
+                                setTimeout(function() { 
+                                    window.open('gcash.php?totalsum=$totalPrice', '_blank'); 
+                                    window.location.href = 'shopping-page.php';
+                                }, 400);
+                                </script>";
+                    } elseif($paymentMethod == 'Card') {
+                        echo "<script>
+                                setTimeout(function() { 
+                                    window.open('card-payment.php?totalsum=$totalPrice', '_blank'); 
+                                    window.location.href = 'shopping-page.php';
+                                }, 400);
+                                </script>";
                     }
                     exit();
                 } else {
