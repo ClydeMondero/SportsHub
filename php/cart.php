@@ -88,6 +88,12 @@
     <div class="cart-container">
         <?php include "header.php"?>
         <div class="container">
+            <div class="back">
+                <a href="shopping-page.php?page=shoes&type=categories" >
+                    <i class="fa-solid fa-chevron-left"></i>     
+                    <span>Back</span>
+                </a>
+            </div>
             <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
             <div class="cart-table">
                 <form action="cart-check-out.php" method="post" id="checkoutForm">
@@ -105,19 +111,23 @@
                         </tr>
                         <?php
                             $total = 0;
-                            foreach ($query_result as $row) {
-                                echo "<tr>";
-                                echo "<td><input type='checkbox' class='cart-checkbox' name='select[]' value='{$row['cart_id']}' onchange='updateTotal()'></td>";
-                                echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
-                                echo "<td>{$row['product_name']}</td>";
-                                echo "<td>{$row['cart_product_size']}</td>";
-                                echo "<td><input class='quantity' type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
-                                echo "<td>₱".number_format($row['product_price'], 2)."</td>";
-                                echo "<td>{$row['product_stocks']}</td>";
-                                $subtotal = $row['product_price'] * $row['cart_quantity'];
-                                echo "<td>₱".number_format($subtotal, 2)."</td>";
-                                echo "<td><button class='remove-btn' type='button' name='delete_btn' onclick='deleteCartItem({$row['cart_id']})'><i class='fa-solid fa-trash'></i><span class='remove'> Delete</span></button></td>";
-                                echo "</tr>";
+                            if(mysqli_num_rows($query_result) > 0){
+                                foreach ($query_result as $row) {
+                                    echo "<tr>";
+                                    echo "<td><input type='checkbox' class='cart-checkbox' name='select[]' value='{$row['cart_id']}' onchange='updateTotal()'></td>";
+                                    echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
+                                    echo "<td>{$row['product_name']}</td>";
+                                    echo "<td>{$row['cart_product_size']}</td>";
+                                    echo "<td><input class='quantity' type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
+                                    echo "<td>₱".number_format($row['product_price'], 2)."</td>";
+                                    echo "<td>{$row['product_stocks']}</td>";
+                                    $subtotal = $row['product_price'] * $row['cart_quantity'];
+                                    echo "<td>₱".number_format($subtotal, 2)."</td>";
+                                    echo "<td><button class='remove-btn' type='button' name='delete_btn' onclick='deleteCartItem({$row['cart_id']})'><i class='fa-solid fa-trash'></i><span class='remove'> Delete</span></button></td>";
+                                    echo "</tr>";
+                                }
+                            }else{                                
+                                echo "<tr><td colspan='9' class='empty-table'>There's no product in your cart.</td></tr>";                                
                             }
                         ?>
                     </table>
@@ -125,6 +135,11 @@
             </div>
         </div>
     </div>
-    <?php include "check-out.php"?>
+   
+    <?php     
+        if(mysqli_num_rows($query_result) > 0){
+            include "check-out.php";
+        }
+    ?>
 </body>
 </html>

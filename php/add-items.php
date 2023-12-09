@@ -5,7 +5,6 @@
     if(isset($_POST["btnAdd"])){
         $product_name = $_POST['txt-product-name'];
         $product_brand = $_POST['txt-brand'];
-        $product_size = $_POST['txt-size'];
         $product_category = $_POST['txt-category'];
         $product_quantity = $_POST['txt-quantity'];
         $product_price = $_POST['txt-price'];

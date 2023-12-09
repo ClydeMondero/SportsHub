@@ -4,9 +4,9 @@ section {
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
+  width: 95%;
+  margin: 0 2.5%;
   height: 8rem;
-  margin-left: 10%;
-  margin-right: 10%;
   background-color: #191919;
   border-radius: 0.6rem;
 }

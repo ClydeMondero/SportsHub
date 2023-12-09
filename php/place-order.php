@@ -142,27 +142,23 @@
         <div class="check-out">
             <div class="black">
                 <div class="cream">
-                    <div class="products">
+                    <div class="products">                        
                         <div class="product">
                             <?php echo '<img src="../products/' . $image . '" alt="' . $row['product_name'] . '">';?>
                             <div class="product-details">
                                 <div>
-                                    <h3 class="product-name"><?php echo $productName ?></h3>
-                                    <p class="product-price">₱<?php echo $productPrice ?></p>
+                                    <h2 class="product-name"><?php echo $productName ?></h2>
+                                    <p class="product-price">Price: ₱<?php echo $productPrice ?></p>
                                     <p class="product-price">Size: <?php echo $productSize ?></p>
-                                </div>                                
-                                <div class="product-quantity" id="displayedQuantity">1 pc</div>
-
+                                    <div class="product-quantity" id="displayedQuantity">Quantity: 1 pc</div>
+                                </div>                                                               
                             </div>                            
-                        </div>                       
-                    </div>
-                   
-                    <div class="line"></div>
-
-                    <div class="total">
-                        <p>Total: </p>
-                        <p id="totalPrice">₱<?php echo $productPrice; ?></p>
-                    </div>
+                        </div>   
+                        <div class="total">
+                            <p>Sub Total: </p>
+                            <p id="totalPrice">₱<?php echo $productPrice; ?></p>
+                        </div>                    
+                    </div>                                                           
                 </div> 
             </div>
         </div>
