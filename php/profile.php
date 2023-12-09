@@ -116,76 +116,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/profile.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Vulcan - Profile</title>
 </head>
 <body>
-    <div class="class-container">
-    <form method="POST">
-        <h1>PROFILE</h1>
-    <div class="profile-picture-container">
-        <input type="file" name="image" id="image">
-        <img src="../user_image/" alt="Profile Picture" class="profile-picture">
-    </div>
-        <label for="fullname">Fullname</label>
-            <input type="text" id="fullname" name="fullname" value="<?php echo $userDetails['user_fullName']; ?>">
-            
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<?php echo $userDetails['user_username']; ?>">
-            
-            <label for="address">Address</label>
-            <input type="text" id="address" name="address" value="<?php echo $userDetails['user_address']; ?>">
-            
-            <label for="phoneNumber">Phone Number</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" value="<?php echo $userDetails['user_contactNo']; ?>">
-            
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" value="<?php echo $userDetails['user_email']; ?>">
-            
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-        <input type="submit" name="submit-btn" value="SAVE">
-    </form>
-    <div class="user-table">
-        <span>MY ORDERS</span>
-        <table>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Size</th>
-                <th>Quantity</th>
-                <th>Price Per Product</th>
-                <th>Subtotal</th>
-                <th>Payment Method</th>
-                <th>Address</th>
-                <th>Order Date</th>
-                <th>Order Arrived Date</th>
-                <th>Order Status</th>
-                <th>Action</th>
-            </tr>
-            <?php
-                while ($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . $row['product_name'] . '</td>';
-                    echo '<td>' . $row['order_product_size'] . '</td>';
-                    echo '<td>' . $row['order_quantity'] . '</td>';
-                    // Calculate and display price per product
-                    $pricePerProduct = $row['order_price'] / $row['order_quantity'];
-                    echo '<td>' . $pricePerProduct . '</td>';
-                    echo '<td>' . $row['order_price'] . '</td>';
-                    echo '<td>' . $row['order_payment_method'] . '</td>';
-                    echo '<td>' . $row['order_address'] . '</td>';
-                    echo '<td>' . $row['order_date'] . '</td>';
-                    echo '<td>' . $row['order_arrival_date'] . '</td>';
-                    echo '<td>' . $row['order_status'] . '</td>';
-                    if ($row['order_status'] === 'Pending' || $row['order_status'] === 'In Transit') {
-                        echo '<td><button class="cancel-btn" type="button" name="cancel-btn" onclick="cancelOrder(' . $row['order_id'] . ', \'' . $row['order_date'] . '\', \'' . $row['order_status'] . '\')">Cancel</button></td>';
-                    } else if ($row['order_status'] === 'Delivered') {
-                        echo '<td><button class="cancel-btn" type="button" name="cancel-btn" onclick="returnOrder(' . $row['order_id'] . ', \'' . $row['order_arrival_date'] . '\', \'' . $row['order_status'] . '\')">Return</button></td>';
+    <div class="class-container">    
+        <div class="left">
+            <div class="back">
+                <a href="shopping-page.php?page=shoes&type=categories">
+                    <i class="fa-solid fa-chevron-left"></i>                     
+                    <span>Back</span>
+                </a>
+            </div>
+            <form method="POST">            
+                <h1>PROFILE</h1>
+                <div class="profile-picture-container">
+                    <input type="file" name="image" id="image">
+                    <img src="../user_image/" alt="Profile Picture" class="profile-picture">
+                </div>
+                <label for="fullname">Fullname</label>
+                    <input type="text" id="fullname" name="fullname" value="<?php echo $userDetails['user_fullName']; ?>">
+                    
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" value="<?php echo $userDetails['user_username']; ?>">
+                    
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" value="<?php echo $userDetails['user_address']; ?>">
+                    
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="<?php echo $userDetails['user_contactNo']; ?>">
+                    
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" value="<?php echo $userDetails['user_email']; ?>">
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                <input type="submit" name="submit-btn" value="SAVE">
+            </form>
+        </div>   
+        <div class="user-table">          
+            <span>MY ORDERS</span>
+            <table>                              
+                <tr class="table-title">
+                    <th>Product Name</th>
+                    <th>Product Size</th>
+                    <th>Quantity</th>
+                    <th>Price Per Product</th>
+                    <th>Subtotal</th>
+                    <th>Payment Method</th>
+                    <th>Address</th>
+                    <th>Order Date</th>
+                    <th>Order Arrived Date</th>
+                    <th>Order Status</th>
+                    <th>Action</th>
+                </tr>
+                
+                <?php
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>';
+                        echo '<td>' . $row['product_name'] . '</td>';
+                        echo '<td>' . $row['order_product_size'] . '</td>';
+                        echo '<td>' . $row['order_quantity'] . '</td>';
+                        // Calculate and display price per product
+                        $pricePerProduct = $row['order_price'] / $row['order_quantity'];
+                        echo '<td>' . $pricePerProduct . '</td>';
+                        echo '<td>' . $row['order_price'] . '</td>';
+                        echo '<td>' . $row['order_payment_method'] . '</td>';
+                        echo '<td>' . $row['order_address'] . '</td>';
+                        echo '<td>' . $row['order_date'] . '</td>';
+                        echo '<td>' . $row['order_arrival_date'] . '</td>';
+                        echo '<td>' . $row['order_status'] . '</td>';
+                        if ($row['order_status'] === 'Pending' || $row['order_status'] === 'In Transit') {
+                            echo '<td><button class="order-btn" type="button" name="cancel-btn" onclick="cancelOrder(' . $row['order_id'] . ', \'' . $row['order_date'] . '\', \'' . $row['order_status'] . '\')">Cancel</button></td>';
+                        } else if ($row['order_status'] === 'Delivered') {
+                            echo '<td><button class="order-btn" type="button" name="cancel-btn" onclick="returnOrder(' . $row['order_id'] . ', \'' . $row['order_arrival_date'] . '\', \'' . $row['order_status'] . '\')">Return</button></td>';
+                        }
+                        echo '</tr>';
                     }
-                    echo '</tr>';
-                }
-            ?>
-        </table>
-    </div>
+                ?>
+            </table>
+        </div>
     </div>
 </body>
 
