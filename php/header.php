@@ -37,7 +37,11 @@
 
     <?php
         include('conn.php');
-        $userID = $_SESSION['id'];
+
+        if(isset($_SESSION['id'])){
+            $userID = $_SESSION['id'];
+        }
+
         if($loggedIn){
             echo '<style>
                 .login-and-signup{display: none !important;}
