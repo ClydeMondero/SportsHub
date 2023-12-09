@@ -60,13 +60,7 @@
         <div class="container">
                 <h1 class="title">Sales</h1>
              <div class="table-actions">
-                    <div class="product-search">  
-                        <select name="filter" id="filter">
-                            <option value="Returned">Returned</option>
-                            <option value="Delivered">Delivered</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Cancelled"></option>
-                        </select>                      
+                    <div class="product-search">                                              
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <form method="GET" action="" id="searchForm">
                             <input type="search" name="search" placeholder="Search Items..."  value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">                            
