@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 03:07 PM
+-- Generation Time: Dec 09, 2023 at 05:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,16 +36,6 @@ CREATE TABLE `tbcarts` (
   `cart_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbcarts`
---
-
-INSERT INTO `tbcarts` (`cart_id`, `user_id`, `product_id`, `cart_product_size`, `cart_quantity`, `cart_date`) VALUES
-(3, 19, 58, 'N/A', 1, '2023-12-08 09:55:04'),
-(4, 19, 49, '12', 1, '2023-12-08 09:55:26'),
-(5, 19, 53, '7', 1, '2023-12-08 09:56:36'),
-(7, 19, 49, '7', 1, '2023-12-08 12:34:24');
-
 -- --------------------------------------------------------
 
 --
@@ -71,10 +61,8 @@ CREATE TABLE `tborders` (
 --
 
 INSERT INTO `tborders` (`order_id`, `product_id`, `order_product_size`, `order_quantity`, `user_id`, `order_price`, `order_payment_method`, `order_address`, `order_date`, `order_arrival_date`, `order_status`) VALUES
-(29, 49, '7', 3, 19, 20685, 'COD', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-08', '2023-12-15', 'Pending'),
-(30, 49, '7', 1, 19, 6895, 'COD', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-08', '2023-12-15', 'Pending'),
-(31, 49, '7', 1, 19, 6895, 'COD', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-08', '2023-12-15', 'Pending'),
-(32, 49, '7', 1, 19, 6895, 'COD', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-08', '2023-12-15', 'Pending');
+(54, 49, '7', 2, 19, 13790, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Pending'),
+(55, 49, '12', 1, 19, 6895, 'GCash', 'Mabini, Tambubong, San Rafael, Bulacan', '2023-12-09', '2023-12-16', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -100,16 +88,16 @@ CREATE TABLE `tbproducts` (
 --
 
 INSERT INTO `tbproducts` (`product_id`, `product_name`, `product_description`, `product_category`, `product_sport`, `product_stocks`, `product_image`, `product_brand`, `product_price`, `date_added`) VALUES
-(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'General', 4, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
+(49, 'Air Jordan 1 Low SE', 'Fresh look, familiar feel. Every time the AJ1 gets a remake, you get the classic sneaker in new colours and textures. Premium materials and accents give modern expression to an all-time favourite.', 'Shoes', 'General', 0, '65641efc5df26.png', 'Nike', 6895, '2023-11-27'),
 (52, 'Nike Air Force 1 07 LV8', 'The radiance lives on in the Air Force 1 07 LV8. This b-ball original puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine. This winter-ready version helps keep you warm and has traction to beat the elements.', 'Tops', 'General', 5, '6565f17cc7302.png', 'Nike', 6895, '2023-11-27'),
-(53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Football', 6, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
-(54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'shoes', 'Basketball', 5, '65642124cc18a.png', 'Nike', 2995, '2023-11-27'),
+(53, 'Nike Superfly 9 Elite Mercurial Dream Speed', 'You`ve perfected your skill through endless training and channelled your inner fire into your craft. Now, when the weight of the match is squarely on your shoulders, rise to the occasion and deliver. Bold reds and gentle oranges speak to the fearless-yet-grounded attitude needed to embrace these pressure-packed moments. Loaded with a football-specific Zoom Air unit and sticky touch, the Elite boot helps you—and the world`s biggest stars—take your game to the next level and put the pedal down in the waning minutes of a match, when it matters most.', 'Shoes', 'Football', 0, '656420acf1f93.png', 'Nike', 15195, '2023-11-27'),
+(54, 'Nike Downshifter 12', 'Take those first steps on your running journey in the Nike Downshifter 12. Made from at least 20% recycled content by weight, it has a supportive fit and stable ride, with a lightweight feel that easily transitions from your workout to hangout. Your trek begins. Lace up and hit the road.', 'Shoes', 'Basketball', 3, '65642124cc18a.png', 'Nike', 2995, '2023-11-27'),
 (57, 'Sando', 'Lorem Ipsum', 'Innerwears', 'General', 5, '656f03f5ef3aa.png', 'Nike', 1200, '2023-12-05'),
-(58, 'Basketball Ball', 'Lorem Ipsum', 'Accessories and Equipment', 'Basketball', 6, '656f047fce4d6.jpg', 'Molten', 1500, '2023-12-05'),
+(58, 'Basketball Ball', 'Lorem Ipsum', 'Accessories and Equipment', 'Basketball', 2, '656f047fce4d6.jpg', 'Molten', 1500, '2023-12-05'),
 (59, 'Tshirt', 'Lorem Ipsum', 'Tops', 'General', 6, '656f05a5b930e.png', 'Adidas', 1600, '2023-12-05'),
-(60, 'Shorts', 'Lorem Ipsum', 'Bottoms', 'General', 6, '656f06b5c415e.png', 'Adidas', 1600, '2023-12-05'),
+(60, 'Shorts', 'Lorem Ipsum', 'Bottoms', 'General', 4, '656f06b5c415e.png', 'Adidas', 1600, '2023-12-05'),
 (61, 'Test1', 'Lorem Ipsum', 'Accessories and Equipment', 'Tennis', 6, '65703a57545f8.png', 'Asics', 1600, '2023-12-06'),
-(62, 'Test 2', 'Raketa', 'Accessories and Equipment', 'Football', 5, '6572b10021ed6.png', 'Yonex', 4000, '2023-12-08');
+(62, 'Test 2', 'Raketa', 'Accessories and Equipment', 'Football', 3, '6572b10021ed6.png', 'Yonex', 4000, '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -178,13 +166,13 @@ ALTER TABLE `tbusers`
 -- AUTO_INCREMENT for table `tbcarts`
 --
 ALTER TABLE `tbcarts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tborders`
 --
 ALTER TABLE `tborders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `tbproducts`
