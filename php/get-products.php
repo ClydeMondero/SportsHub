@@ -1,7 +1,9 @@
 <?php 
     include "conn.php";
 
-    $search = "select * from tbproducts where product_name like '%".$_POST["product_name"]."%'";
+    $search = "SELECT * FROM tbproducts WHERE product_name LIKE '%".$_POST["search_term"]."%' OR product_category LIKE '%".$_POST["search_term"]."%' OR product_sport LIKE '%".$_POST["search_term"]."%' OR product_brand LIKE '%".$_POST["search_term"]."%'";
+
+$results = $conn->query($search);
 
     $results = $conn->query($search);
 

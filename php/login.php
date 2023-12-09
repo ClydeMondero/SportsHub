@@ -37,7 +37,7 @@
         <input type="password" name="password" placeholder="***************" required min="8" max="16" />
       </div>
       <input type="submit" class="login-btn" name="btnLogin" value="SIGN IN" />
-      <p class="forgot-pass-text">Forgot password?</p>
+      <a href="forgot-password.php">Forgot password?</a>
       <p>Don't have an account? <a href="register.php">Sign Up now</a></p>
     </form>
   </div>
