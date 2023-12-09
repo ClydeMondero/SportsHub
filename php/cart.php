@@ -74,6 +74,12 @@
     <div class="cart-container">
         <?php include "header.php"?>
         <div class="container">
+            <div class="back">
+                <a href="shopping-page.php?page=shoes&type=categories" >
+                    <i class="fa-solid fa-chevron-left"></i>     
+                    <span>Back</span>
+                </a>
+            </div>
             <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
             <div class="cart-table">
                 <form action="cart-check-out.php" method="post" id="checkoutForm">
