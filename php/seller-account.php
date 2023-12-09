@@ -116,6 +116,7 @@
                     <th>Username</th>
                     <th>Address</th>
                     <th>Phonenumber</th>
+                    <th>Type</th>
                     <th>Action</th>
                 </tr>
 
@@ -139,6 +140,7 @@
                         OR `user_email` LIKE '%$searchTerm%'
                         OR `user_contactNo` LIKE '%$searchTerm%'
                         OR `user_address` LIKE '%$searchTerm%'
+                        OR `acc_type` LIKE '%$searchTerm%'
                     ORDER BY 
                         `user_id`";
                     $result = $conn->query($sql);
@@ -151,6 +153,7 @@
                         echo "<td>" . $row["user_username"] . "</td>";
                         echo "<td>" . $row["user_address"] . "</td>";
                         echo "<td>" . $row["user_contactNo"] . "</td>";
+                        echo "<td>" . $row["acc_type"] . "</td>";
                         echo "<td class='actions'>";                                
                         echo '<a href = "./seller.php?id='. $row["user_id"].'">';
                         echo "<i class='fa-solid fa-pen-to-square'></i></a>";                                
