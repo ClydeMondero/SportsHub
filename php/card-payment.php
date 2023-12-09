@@ -19,12 +19,6 @@
     <div class="card-payment-container">
         <?php include "header.php"?>
         <div class="container">
-        <div class="back">
-            <a href="place-order.php">
-                <i class="fa-solid fa-chevron-left"></i>                     
-                <span>Back</span>
-            </a>
-        </div>
             <div class="title">
                     <span>Card Payment</span>
                 </div>
@@ -43,6 +37,7 @@
                   </div>
             </div>
             <div class="number">
+            <p class="txt-amount">Amount to Pay: ₱210,000 </p>
                 <label for="card-number">Enter your Account Number: </label>
                 <input type="text" name="card-number" class="card-number" placeholder="XXXX-XXXX">
                 <button type="submit">BUY</button>

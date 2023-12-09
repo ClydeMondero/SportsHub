@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .back a {
   font-family: "poppins", sans-serif;
   text-decoration: none;
@@ -64,6 +65,14 @@
   font-family: "poppins", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
+}
+.number p {
+  font-family: "poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.txt-amount {
+  margin-right: 10rem;
 }
 .card-number {
   font-family: "poppins", sans-serif;
