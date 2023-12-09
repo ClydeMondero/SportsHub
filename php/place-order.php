@@ -3,6 +3,8 @@
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
 
+    $orderDate = date('Y-m-d H:i:s');
+    $orderArrivalDate = date('Y-m-d', strtotime($orderDate . ' + 7 days'));
      if(isset($_GET['id'])){
         $userID = $_SESSION['id'];
         $productID = $_GET['id'];
@@ -128,6 +130,11 @@
                     <input type="text" name="city" id="city">
                 </div>
 
+                <div class="arrival-date">
+                    <h2>Expected Arrival Date</h2>
+                    <p><?php echo date('F j, Y', strtotime($orderArrivalDate)); ?></p>
+                </div>
+
                 <input type="submit" class="order" value="Place Order">
             </form>
         </div>
@@ -182,8 +189,6 @@
                     $newStocks = $currentStocks - $quantity;
                     $updateStockQuery = "UPDATE `tbproducts` SET `product_stocks`='$newStocks' WHERE `product_id`='$productID'";
                     $conn->query($updateStockQuery);
-                    $orderDate = date('Y-m-d H:i:s');
-                    $orderArrivalDate = date('Y-m-d', strtotime($orderDate . ' + 7 days'));
                     $orderInsertQuery = "INSERT INTO `tborders` 
                     (`product_id`, `order_product_size`, `order_quantity`, `user_id`, 
                     `order_price`, `order_payment_method`, `order_address`, `order_date`, 

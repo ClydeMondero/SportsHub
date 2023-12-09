@@ -38,15 +38,6 @@
                             <th>Order Arrived Date</th>
                             <th>Order Status</th>
                         </tr>
-                        <tr>
-                            <td>92</td>
-                            <td>Gulaman</td>
-                            <td>danricksam</td>
-                            <td>GCash</td>
-                            <td>06-21-2003</td>
-                            <td>06-26-2003</td>
-                            <td>Delivered</td>
-                        </tr>
                     </table>
                 </div>
             </div>
