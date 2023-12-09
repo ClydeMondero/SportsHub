@@ -94,7 +94,10 @@
                     <span>Back</span>
                 </a>
             </div>
-            <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>
+            <div class="top">
+                <button onclick="toggleSelectAll()">Select All</button>
+                <h1 class="title2">Your Cart <i class="fa-solid fa-cart-shopping"></i></h1>                
+            </div>
             <div class="cart-table">
                 <form action="cart-check-out.php" method="post" id="checkoutForm">
                     <table>
@@ -141,5 +144,17 @@
             include "check-out.php";
         }
     ?>
+
+
+    <script>
+        function toggleSelectAll(){
+            const checkboxes = document.querySelectorAll('.cart-checkbox');
+
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = !checkbox.checked;
+                updateTotal();
+            }); 
+        }        
+    </script>
 </body>
 </html>

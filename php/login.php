@@ -47,12 +47,12 @@
     
     session_start();
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      if($stmt = $conn->prepare('select user_id, user_password, acc_type from tbusers where user_email = ?')){
+      if($stmt = $conn->prepare('select user_id, user_password, acc_type, user_image, user_username from tbusers where user_email = ?')){
         $stmt->bind_param('s', $_POST['email']);
         $stmt->execute();
         $stmt->store_result();
         if($stmt->num_rows() > 0){
-          $stmt->bind_result($id, $password,$accType);
+          $stmt->bind_result($id, $password,$accType, $profilePicture, $username);
           $stmt->fetch();
           
           $verify = password_verify($_POST['password'], $password);
@@ -62,6 +62,9 @@
             $_SESSION['name'] = $_POST['email'];
             $_SESSION['id'] = $id;
             $_SESSION['acc_type'] = $accType;
+
+            $_SESSION['profile-picture'] = $profilePicture;
+            $_SESSION['username'] = $username;
 
             if($accType === 'customer'){
               header('Location: landing-page.php');
