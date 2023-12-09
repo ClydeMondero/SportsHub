@@ -54,6 +54,12 @@ body::-webkit-scrollbar-thumb {
   background-color: #191919;
   color: white;
   font-size: 1rem;
+  border: none;
+}
+
+.top button:hover {
+  background-color: #ce5a67;
+  border: none;
 }
 
 .title2 {
