@@ -30,17 +30,22 @@
     </div>
 
     <div class="profile-and-logout">
-        <a href="profile.php"><p>Profile</p></a>
+        <div class="profile">            
+             <img class="profile-picture" src="../user_image/<?php echo $_SESSION['profile-picture'] ?>">
+             <a href="profile.php"><p><?php echo $_SESSION['username'] ?></p></a>
+        </div>
+       
         <div class="line"></div>
         <a href="logout.php"><p>Logout</p></a>
     </div>
 
-    <?php
+    <?php                
         include('conn.php');
-
+    
         if(isset($_SESSION['id'])){
             $userID = $_SESSION['id'];
-        }
+        }     
+        
 
         if($loggedIn){
             echo '<style>
