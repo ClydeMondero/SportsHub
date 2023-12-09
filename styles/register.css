@@ -9,6 +9,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+a {
+  text-decoration: none;
+}
+
 .form-container {
   width: max-content;
   margin-top: 12vh;
@@ -52,6 +57,24 @@ h1 {
   color: #000000;
   font-size: 1.2rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.agreement {
+  align-self: start;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.agreement input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+.agreement a {
+  color: rgb(65, 65, 241);
+  text-decoration: underline;
 }
 
 .submit-btn {

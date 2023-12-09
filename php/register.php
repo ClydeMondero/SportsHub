@@ -14,7 +14,10 @@
 
 <body>
   <div class="back">
-    <a href="landing-page.php"><i class="fa-solid fa-chevron-left"><span> Back</span></i></a>
+      <a href="landing-page.php">
+          <i class="fa-solid fa-chevron-left"></i>                     
+          <span>Back</span>
+      </a>
   </div>
   <div class="form-container">
   <div class ="row-title-and-exit">
@@ -55,6 +58,12 @@
         <label>Address:</label>
         <input type="text" name="address" required />
       </div>
+
+      <div class="agreement">         
+        <input type="checkbox" name="terms" id="terms" required>
+        <label for="terms">I agree to the <a href="term-of-use.php" target="_blank">Vulcan Sports Hub Terms  </a></label>         
+      </div>
+
       <input type="submit" class="submit-btn" name="btnSubmit" value="SIGN UP" />
       <p class="have-account">Already have an account? <a href="login.php">Login here</a></p>      
     </form>
@@ -70,7 +79,7 @@
     $confirm_password = $_POST["confirmPassword"];
     $email = $_POST["email"];
     $contact_number = $_POST["contactNumber"];
-    $address = $_POST["address"];
+    $address = $_POST["address"];    
 
     $select_query = "select user_username, user_email from `tbusers`";
     $query_result = $conn->query($select_query);

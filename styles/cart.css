@@ -35,6 +35,12 @@ input[type="checkbox"] {
   width: 25px;
   height: 25px;
 }
+
+.remove {
+  font-family: "poppinss", sans-serif;
+  font-weight: 100;
+}
+
 .remove-btn {
   border-radius: 5rem;
   background-color: #ce5a67;
@@ -44,13 +50,7 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: 0.2s;
 }
-.remove-btn:hover {
-  background-color: #c43243;
-}
 
-.remove-btn i {
-  font-size: 2.3rem;
-}
 table,
 th,
 tr,
@@ -69,4 +69,12 @@ table {
 th {
   background-color: #191919;
   color: #ffffff;
+}
+
+.quantity {
+  padding: 1rem;
+  outline: #ce5a67;
+  color: #ce5a67;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
 }

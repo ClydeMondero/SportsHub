@@ -31,12 +31,19 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.back {
+  margin-bottom: 1rem;
+}
+
 .back a {
   text-decoration: none;
   color: #333;
   display: flex;
   align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+
 .back a i {
   margin-right: 0.6rem;
 }
