@@ -2,11 +2,16 @@
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
 
-    include('conn.php'); // Replace with your actual database connection file
+    include('conn.php');
 
     $currentDate = date("Y-m-d");
-    $sql = "UPDATE `tborders` SET `order_status` = 'Delivered' WHERE `order_arrival_date` = '$currentDate'";
-    $conn->query($sql);
+
+    $sqlUpdateDelivered = "UPDATE `tborders` SET `order_status` = 'Delivered' WHERE `order_status` = 'In Transit' AND `order_arrival_date` = '$currentDate'";
+    $conn->query($sqlUpdateDelivered);
+
+    $sqlUpdateInTransit = "UPDATE `tborders` SET `order_status` = 'In Transit' WHERE `order_status` = 'Pending' AND DATEDIFF('$currentDate', `order_date`) >= 1";
+    $conn->query($sqlUpdateInTransit);
+
     $conn->close();
 
 ?>
