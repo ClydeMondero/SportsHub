@@ -62,7 +62,7 @@
                     $updateQuery = "UPDATE `tbproducts` SET
                     `product_name` = '$product_name',
                     `product_description` = '$product_description',
-                    `product_category` = '$product_name',
+                    `product_category` = '$product_category',
                     `product_sport` = '$product_sport',
                     `product_stocks` = '$product_quantity',
                     `product_image` = '$newImageName',
@@ -161,10 +161,10 @@
                                 <option value="Football" <?php if ($row['product_sport'] == 'Football') echo 'selected'; ?>>Football</option>
                                 <option value="Basketball" <?php if ($row['product_sport'] == 'Basketball') echo 'selected'; ?>>Basketball</option>
                                 <option value="Tennis" <?php if ($row['product_sport'] == 'Tennis') echo 'selected'; ?>>Tennis</option>
-                                <option value="Football" <?php if ($row['product_sport'] == 'Badminton') echo 'selected'; ?>>Badminton</option>
-                                <option value="Football" <?php if ($row['product_sport'] == 'Baseball') echo 'selected'; ?>>Baseball</option>
-                                <option value="Basketball" <?php if ($row['product_sport'] == 'Swimming') echo 'selected'; ?>>Swimming</option>
-                                <option value="Tennis" <?php if ($row['product_sport'] == 'Volleyball') echo 'selected'; ?>>Volleyball</option>
+                                <option value="Badminton" <?php if ($row['product_sport'] == 'Badminton') echo 'selected'; ?>>Badminton</option>
+                                <option value="Baseball" <?php if ($row['product_sport'] == 'Baseball') echo 'selected'; ?>>Baseball</option>
+                                <option value="Swimming" <?php if ($row['product_sport'] == 'Swimming') echo 'selected'; ?>>Swimming</option>
+                                <option value="Volleyball" <?php if ($row['product_sport'] == 'Volleyball') echo 'selected'; ?>>Volleyball</option>
                             </select>
                             <input type="text" name="txt-product-description" id="txt-product-description" value="<?php echo $row['product_description']; ?>" required>
                         </div>
