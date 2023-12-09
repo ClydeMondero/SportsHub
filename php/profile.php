@@ -133,10 +133,16 @@
     <div class="class-container">
     <form method="POST" enctype="multipart/form-data">
         <h1>PROFILE</h1>
-    <div class="profile-picture-container">
-        <input type="file" name="image" id="image">
-        <img src="../user_image/<?php echo $userDetails['user_image']; ?>" alt="Profile Picture" class="profile-picture">
-    </div>
+        <div class="profile-picture-container">
+            <input type="file" name="image" id="image">
+            <?php
+            if (!empty($userDetails['user_image'])) {
+                echo '<img src="../user_image/' . $userDetails['user_image'] . '" alt="Profile Picture" class="profile-picture">';
+            } else {
+                echo '<img src="../user_image/' . $userDetails['user_image'] . '" alt="Profile Picture" class="profile-picture" style="display: none;">';
+            }
+            ?>
+        </div>
         <label for="fullname">Fullname</label>
             <input type="text" id="fullname" name="fullname" value="<?php echo $userDetails['user_fullName']; ?>">
             
