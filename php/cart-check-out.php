@@ -165,8 +165,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/imgs/Vulcan Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles/place-order.css">   
-    <title>Vulcan - Place Order Page</title>
+    <link rel="stylesheet" href="../styles/cart-checkout.css">   
+    <title>Vulcan - Cart Check Out Page</title>
 
 </head>
 <body>
@@ -238,28 +238,29 @@
         <div class="check-out">
             <div class="black">
                 <div class="cream">
-                <div class="cart-products">
-                        <h2>Cart Items</h2>
-                        <?php foreach ($cartProducts as $cartProduct): ?>
-                            <div class="cart-item">
-                                <img src="../products/<?php echo $cartProduct['product_image']; ?>" alt="<?php echo $cartProduct['product_name']; ?>" width="200px">
-                                <div class="product-details">
-                                    <h3 class="product-name"><?php echo $cartProduct['product_name']; ?></h3>
-                                    <h3 class="product-name">Size:<?php echo $cartProduct['cart_product_size']; ?></h3>
-                                    <p class="product-price">Price: ₱<?php echo number_format($cartProduct['product_price'], 2); ?></p>
-                                    <p class="product-quantity">Quantity: <?php echo $cartProduct['cart_quantity']; ?> pc</p>
-                                    <p class="product-price">Subtotal: ₱<?php echo number_format($cartProduct['product_price'] * $cartProduct['cart_quantity'], 2); ?></p>
-                                </div>
+                    <div class="cart-products">                            
+                            <div class="top">
+                                <h1>Cart Items</h1>
+                                <div class="total">
+                                <p>Total: </p>
+                                <p id="totalPrice">₱<?php echo number_format($totalSum, 2); ?></p>
+                                </div>                                
                             </div>
-                        <?php endforeach; ?>
-                        
-                        <div class="total">
-                            <p>Total: </p>
-                            <p id="totalPrice">₱<?php echo number_format($totalSum, 2); ?></p>
+                            <?php foreach ($cartProducts as $cartProduct): ?>
+                                <div class="cart-product">
+                                    <img src="../products/<?php echo $cartProduct['product_image']; ?>" alt="<?php echo $cartProduct['product_name']; ?>" width="200px">
+                                    <div class="product-details">
+                                        <h2 class="product-name"><?php echo $cartProduct['product_name']; ?></h3>
+                                        <p class="product-size">Size: <?php echo $cartProduct['cart_product_size']; ?></p>
+                                        <p class="product-price">Price: ₱<?php echo number_format($cartProduct['product_price'], 2); ?></p>
+                                        <p class="product-quantity">Quantity: <?php echo $cartProduct['cart_quantity']; ?> pc</p>
+                                        <p class="product-subtotal">Subtotal: ₱<?php echo number_format($cartProduct['product_price'] * $cartProduct['cart_quantity'], 2); ?></p>                                       
+                                    </div>                                  
+                                </div>
+                                <hr>    
+                            <?php endforeach; ?>                                                                                    
                         </div>
-                    </div>
-                    </div>
-                    <div class="line"></div>
+                    </div>                    
                 </div> 
             </div>
         </div>
