@@ -14,8 +14,11 @@
 
 <body>       
   
-<div class="back">
-    <a href="landing-page.php"><i class="fa-solid fa-chevron-left"><span> Back</span></i></a>
+  <div class="back">
+      <a href="landing-page.php">
+          <i class="fa-solid fa-chevron-left"></i>                     
+          <span>Back</span>
+      </a>
   </div>
   <div class="form-container">
     <div class ="row-title-and-exit">

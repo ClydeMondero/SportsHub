@@ -35,7 +35,10 @@ body::-webkit-scrollbar-thumb {
   color: #333;
   display: flex;
   align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+
 .back {
   margin-bottom: 2rem;
 }

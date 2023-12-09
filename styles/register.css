@@ -9,6 +9,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+a {
+  text-decoration: none;
+}
+
 .form-container {
   width: max-content;
   margin-top: 12vh;
