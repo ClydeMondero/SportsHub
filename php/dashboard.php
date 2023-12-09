@@ -30,7 +30,7 @@
             </div></a>
             <a href="seller-account.php" style="text-decoration:none;"><div class="dashboard-features">
                 <i class="fa-solid fa-sitemap"></i>
-                <span class="">SELLER ACCOUNTS</span>
+                <span class="">ACCOUNTS</span>
             </div></a>
             <a href="sales.php" style="text-decoration:none;"><div class="dashboard-features">
                <i class="fa-solid fa-list-check"></i>

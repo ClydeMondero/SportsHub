@@ -55,25 +55,34 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $fileName = $_FILES["image"]["name"];
-        $fileSize = $_FILES["image"]["size"];
-        $tmpName = $_FILES["image"]["tmp_name"];
+        if (!empty($_FILES["image"]["name"])) {
+            // User has uploaded a new image
         
-        $validImageExtension = ['png','jpg'];
-        $imageExtension = explode('.', $fileName);
-        $imageExtension = strtolower(end($imageExtension));
-        if (!in_array($imageExtension, $validImageExtension)) {
-            echo "<script> alert('Invalid Image Extension'); </script>";
-        } else if ($fileSize > 1000000) {
-            echo "<script> alert('Image Size Is Too Large'); </script>";
+            $fileName = $_FILES["image"]["name"];
+            $fileSize = $_FILES["image"]["size"];
+            $tmpName = $_FILES["image"]["tmp_name"];
+        
+            $validImageExtension = ['png', 'jpg'];
+            $imageExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if (!in_array($imageExtension, $validImageExtension)) {
+                echo "<script> alert('Invalid Image Extension'); </script>";
+            } else if ($fileSize > 1000000) {
+                echo "<script> alert('Image Size Is Too Large'); </script>";
+            } else {
+                $newImageName = uniqid();
+                $newImageName .= '.' . $imageExtension;
+                $destinationPath = '../user_image/' . $newImageName;
+                $res = move_uploaded_file($tmpName, $destinationPath);
+        
+                $updateImage = "UPDATE `tbusers` SET
+                    `user_image`='$newImageName'
+                WHERE `user_id`='$userID'";
+                $updateImageResult = $conn->query($updateImage);
+            }
         } else {
-            $newImageName = uniqid();
-            $newImageName .= '.' . $imageExtension;
-            $destinationPath = '../user_image/' . $newImageName;
-            $res = move_uploaded_file($tmpName, $destinationPath);
-
+            // User did not upload a new image, maintain the current picture
             $updateImage = "UPDATE `tbusers` SET
-                `user_image`='$newImageName'
+                `user_image` = `user_image`
             WHERE `user_id`='$userID'";
             $updateImageResult = $conn->query($updateImage);
         }
@@ -105,6 +114,8 @@
         
         $updateResult = $conn->query($updateQuery);
         echo ("<script>alert('Profile Updated');</script>");
+        echo "<script>setTimeout(function() { window.location.href = 'profile.php'; }, 300);</script>";
+        exit();
     }
 
 ?>
@@ -128,12 +139,18 @@
                     <span>Back</span>
                 </a>
             </div>
-            <form method="POST">            
+            <form method="POST" enctype="multipart/form-data">            
                 <h1>PROFILE</h1>
-                <div class="profile-picture-container">
-                    <input type="file" name="image" id="image">
-                    <img src="../user_image/" alt="Profile Picture" class="profile-picture">
-                </div>
+                    <div class="profile-picture-container">
+                        <input type="file" name="image" id="image">
+                        <?php
+            if (!empty($userDetails['user_image'])) {
+                echo '<img src="../user_image/' . $userDetails['user_image'] . '" alt="Profile Picture" class="profile-picture">';
+            } else {
+                echo '<img src="../user_image/' . $userDetails['user_image'] . '" alt="Profile Picture" class="profile-picture" style="display: none;">';
+            }
+            ?>
+                    </div>
                 <label for="fullname">Fullname</label>
                     <input type="text" id="fullname" name="fullname" value="<?php echo $userDetails['user_fullName']; ?>">
                     

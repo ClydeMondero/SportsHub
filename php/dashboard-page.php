@@ -15,11 +15,14 @@
 
         <?php
         include "conn.php";
-        $countSales = "SELECT COUNT(1) FROM `tborders` WHERE `order_status`= 'Delivered';";
+        $countSales = "SELECT SUM(`order_price`) FROM `tborders` WHERE `order_status` = 'Delivered';";
         $numOfSales = $conn->query($countSales)->fetch_row()[0];
 
-        $countUsers = "SELECT COUNT(1) FROM `tbusers`;";        
-        $numOfUsers = $conn->query($countUsers)->fetch_row()[0];
+        $countSellers = "SELECT COUNT(1) FROM `tbusers` WHERE `acc_type` = 'seller';";
+        $numOfSellers = $conn->query($countSellers)->fetch_row()[0];
+
+        $countCustomers = "SELECT COUNT(1) FROM `tbusers` WHERE `acc_type` = 'customer';";
+        $numOfCustomers = $conn->query($countCustomers)->fetch_row()[0];
 
         $countProducts = "SELECT COUNT(1) FROM `tbproducts`;";        
         $numOfProducts = $conn->query($countProducts)->fetch_row()[0];
@@ -42,7 +45,8 @@
                 <div class="rows">
                     <div class="rows-content">
                         <i class="fa-solid fa-users"></i>
-                        <h1><?php echo $numOfUsers ?></h1>
+                        <h3>Sellers:<?php echo $numOfSellers ?></h3>
+                        <h3>Customers:<?php echo $numOfCustomers ?></h3>
                     </div>
                     <p>Users</p>
                 </div>
