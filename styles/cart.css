@@ -38,6 +38,11 @@ body::-webkit-scrollbar-thumb {
   color: black;
 }
 
+.cart-table {
+  overflow: auto;
+  max-height: 50rem;
+}
+
 .title2 {
   font-size: 3rem;
   font-family: "poppins", sans-serif;
@@ -68,12 +73,12 @@ th,
 tr,
 td {
   border-collapse: collapse;
-  padding: 1rem;
+  padding: 0.2rem;
   border: 2px solid #191919;
 }
 table {
   margin-top: 1rem;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "poppins", sans-serif;
   text-align: center;
   width: 100%;
@@ -81,6 +86,16 @@ table {
 th {
   background-color: #191919;
   color: #ffffff;
+}
+
+td img {
+  height: 100px;
+  width: 100px;
+}
+
+.empty-table {
+  font-size: 2rem;
+  padding: 1rem;
 }
 
 .quantity {

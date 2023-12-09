@@ -127,7 +127,7 @@
                                     echo "</tr>";
                                 }
                             }else{                                
-                                echo "<tr><td colspan='9'>There's no product in your cart.</td></tr>";
+                                echo "<tr><td colspan='9' class='empty-table'>There's no product in your cart.</td></tr>";                                
                             }
                         ?>
                     </table>
@@ -135,6 +135,11 @@
             </div>
         </div>
     </div>
-    <?php include "check-out.php"?>
+   
+    <?php     
+        if(mysqli_num_rows($query_result) > 0){
+            include "check-out.php";
+        }
+    ?>
 </body>
 </html>
