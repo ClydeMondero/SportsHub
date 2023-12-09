@@ -88,20 +88,23 @@
             // Insert into tborders table
             $insertOrderQuery = "INSERT INTO tborders (product_id, order_product_size, order_quantity, user_id, order_price, order_payment_method, order_address, order_date, order_arrival_date, order_status)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')";
-        
+
             $stmtInsertOrder = $conn->prepare($insertOrderQuery);
         
             foreach ($cartProducts as $cartProduct) {
                 $productID = $cartProduct['product_id'];
                 $orderProductSize = $cartProduct['cart_product_size'];
                 $orderQuantity = $cartProduct['cart_quantity'];
-        
-                // Corrected bind_param types
-                $stmtInsertOrder->bind_param("issdsssss", $productID, $orderProductSize, $orderQuantity, $userID, $totalSum, $_POST['payment'], $orderAddress, $orderDate, $orderArrivalDate);
+
+                // Calculate the subtotal for each item
+                $subtotal = $cartProduct['product_price'] * $orderQuantity;
+
+                // Corrected bind_param types and replaced $subtotal
+                $stmtInsertOrder->bind_param("issdsssss", $productID, $orderProductSize, $orderQuantity, $userID, $subtotal, $_POST['payment'], $orderAddress, $orderDate, $orderArrivalDate);
                 $stmtInsertOrder->execute();
             }
         
-            // Close the $stmtInsertOrder only once
+            // Close the $stmtInsertOrder
             $stmtInsertOrder->close();
         
             // Delete ordered items from tbcarts table
