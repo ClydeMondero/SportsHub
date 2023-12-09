@@ -7,11 +7,15 @@
         $selectedCartItems = $_POST['select'];
         $userID = $_SESSION['id'];
     
+        // Array to store products exceeding stock
+        $exceededStockProducts = array();
+    
         // Check if the selected items exceed the available stock
-        $checkStockQuery = "SELECT SUM(cart_quantity) AS total_quantity, product_id
-                            FROM tbcarts
-                            WHERE user_id = ? AND cart_id IN (" . implode(',', $selectedCartItems) . ")
-                            GROUP BY product_id";
+        $checkStockQuery = "SELECT SUM(c.cart_quantity) AS total_quantity, c.product_id, p.product_name
+                            FROM tbcarts c
+                            JOIN tbproducts p ON c.product_id = p.product_id
+                            WHERE c.user_id = ? AND c.cart_id IN (" . implode(',', $selectedCartItems) . ")
+                            GROUP BY c.product_id";
         $stmtStock = $conn->prepare($checkStockQuery);
         $stmtStock->bind_param("i", $userID);
         $stmtStock->execute();
@@ -19,6 +23,7 @@
     
         while ($stockRow = $stockResult->fetch_assoc()) {
             $productID = $stockRow['product_id'];
+            $productName = $stockRow['product_name'];
             $totalQuantity = $stockRow['total_quantity'];
         
             // Retrieve the available stock for the product
@@ -33,11 +38,21 @@
         
             // Check if the total quantity exceeds the available stock
             if ($totalQuantity > $availableStock) {
-                echo ("<script>alert('Quantity for selected products exceeds available stock.');</script>");
-                echo "<script>setTimeout(function() { window.location.href = 'cart.php'; }, 1000);</script>";
-                exit();
+                // Add product to the list
+                $exceededStockProducts[] = array('id' => $productID, 'name' => $productName);
             }
         }
+
+        // Check if there are products exceeding stock and display a message
+        if (!empty($exceededStockProducts)) {
+            $exceededProductsList = implode(', ', array_map(function($product) {
+                return $product['name'];
+            }, $exceededStockProducts));
+            echo ("<script>alert('Quantity for products: $exceededProductsList exceeds available stock.');</script>");
+            echo "<script>setTimeout(function() { window.location.href = 'cart.php'; }, 1000);</script>";
+            exit();
+        }
+      
     
         // If the stock check is successful, proceed with fetching cart items
         $cartQuery = "SELECT c.product_id, c.cart_quantity, p.product_name, p.product_image, p.product_price, c.cart_product_size

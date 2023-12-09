@@ -154,24 +154,7 @@
                     }                            
     
                     echo "<script>alert('Product/s Added to your Cart');</script>";
-    
-                $userID = $_SESSION['id'];
-
-                $selectQuery = 'SELECT p.product_id, p.product_name, p.product_image, p.product_price, p.product_stocks, c.cart_product_size, c.cart_quantity
-                FROM tbcarts c
-                JOIN tbproducts p ON c.product_id = p.product_id WHERE user_id = '.$userID;
-
-                $query_result = $conn->query($selectQuery); 
-
-                $totalQuantatity = 0;
-
-                foreach ($query_result as $row) {                
-                    $totalQuantatity += $row['cart_quantity'];                    
-                }   
-
-                $_SESSION['cartSize'] = $totalQuantatity;
-
-                echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php?page=shoes&type=categories?page=shoes&type=categories'; }, 300);</script>";               
+                    echo "<script>setTimeout(function() { window.location.href = 'shopping-page.php?page=shoes&type=categories?page=shoes&type=categories'; }, 300);</script>";               
 
                     exit();
                 }

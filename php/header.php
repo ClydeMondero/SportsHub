@@ -36,6 +36,8 @@
     </div>
 
     <?php
+        include('conn.php');
+        $userID = $_SESSION['id'];
         if($loggedIn){
             echo '<style>
                 .login-and-signup{display: none !important;}
@@ -48,6 +50,16 @@
             echo '<style>
                 .add-to-cart{display: flex !important;}
             </style>';
+
+            $totalQuantityQuery = 'SELECT SUM(cart_quantity) AS total_quantity FROM tbcarts WHERE user_id = ' . $userID;
+    
+            $totalQuantityResult = $conn->query($totalQuantityQuery);
+
+            $totalQuantityRow = $totalQuantityResult->fetch_assoc();
+
+            $_SESSION['cart_total_quantity'] = $totalQuantityRow['total_quantity'];
+
+
         } else{
             echo '<style>
                 .login-and-signup{display: flex !important;}
@@ -62,8 +74,8 @@
             </style>';
         }             
         
-        if(isset($_SESSION["cartSize"])){
-            echo "<script>document.querySelector('.cart-count').innerHTML = ".$_SESSION["cartSize"]."</script>";
+        if(isset($_SESSION['cart_total_quantity'])){
+            echo "<script>document.querySelector('.cart-count').innerHTML = ".$_SESSION['cart_total_quantity']."</script>";
         }
     ?>
 </div>   
