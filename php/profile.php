@@ -41,6 +41,7 @@
                 <th>Order Date</th>
                 <th>Order Arrival Date</th>
                 <th>Order Status</th>
+                <th>Actions</th>
             </tr>
             <tr>
                 <td>YOYO</td>
@@ -50,6 +51,7 @@
                 <td>06-12-2023</td>
                 <td>12-11-2023</td>
                 <td>Delivered</td>
+                <td></td>
             </tr>
             <tr>
                 <td>YOYO</td>
@@ -59,6 +61,7 @@
                 <td>06-12-2023</td>
                 <td>12-11-2023</td>
                 <td>Delivered</td>
+                <td></td>
             </tr>
         </table>
     </div>
