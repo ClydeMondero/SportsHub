@@ -2,20 +2,26 @@
     include('conn.php');
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['select'])) {
-        $selectedCartItems = $_POST['select'];
+    // Calculate the order arrival date (7 days from the order date)
+    $orderDate = date('Y-m-d H:i:s');
+    $orderArrivalDate = date('Y-m-d H:i:s', strtotime($orderDate . ' + 7 days'));
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userID = $_SESSION['id'];
     
         // Array to store products exceeding stock
         $exceededStockProducts = array();
     
         // Check if the selected items exceed the available stock
+        $selectedCartItems = isset($_POST['select']) && is_array($_POST['select']) ? $_POST['select'] : array();
+
+        // Check if $selectedCartItems is not empty before using it in the IN clause
+        $cartIdInClause = !empty($selectedCartItems) ? implode(',', $selectedCartItems) : 'NULL';
+
         $checkStockQuery = "SELECT SUM(c.cart_quantity) AS total_quantity, c.product_id, p.product_name
-                            FROM tbcarts c
-                            JOIN tbproducts p ON c.product_id = p.product_id
-                            WHERE c.user_id = ? AND c.cart_id IN (" . implode(',', $selectedCartItems) . ")
-                            GROUP BY c.product_id";
+                    FROM tbcarts c
+                    JOIN tbproducts p ON c.product_id = p.product_id
+                    WHERE c.user_id = ? AND c.cart_id IN ($cartIdInClause)
+                    GROUP BY c.product_id";
         $stmtStock = $conn->prepare($checkStockQuery);
         $stmtStock->bind_param("i", $userID);
         $stmtStock->execute();
@@ -26,7 +32,6 @@
             $productName = $stockRow['product_name'];
             $totalQuantity = $stockRow['total_quantity'];
         
-            // Retrieve the available stock for the product
             $getStockQuery = "SELECT product_stocks FROM tbproducts WHERE product_id = ?";
             $stmtGetStock = $conn->prepare($getStockQuery);
             $stmtGetStock->bind_param("i", $productID);
@@ -36,14 +41,11 @@
         
             $stmtGetStock->close();
         
-            // Check if the total quantity exceeds the available stock
             if ($totalQuantity > $availableStock) {
-                // Add product to the list
                 $exceededStockProducts[] = array('id' => $productID, 'name' => $productName);
             }
         }
 
-        // Check if there are products exceeding stock and display a message
         if (!empty($exceededStockProducts)) {
             $exceededProductsList = implode(', ', array_map(function($product) {
                 return $product['name'];
@@ -52,13 +54,16 @@
             echo "<script>setTimeout(function() { window.location.href = 'cart.php'; }, 1000);</script>";
             exit();
         }
-      
     
-        // If the stock check is successful, proceed with fetching cart items
         $cartQuery = "SELECT c.product_id, c.cart_quantity, p.product_name, p.product_image, p.product_price, c.cart_product_size
-                      FROM tbcarts c
-                      JOIN tbproducts p ON c.product_id = p.product_id
-                      WHERE c.user_id = ? AND c.cart_id IN (" . implode(',', $selectedCartItems) . ")";
+              FROM tbcarts c
+              JOIN tbproducts p ON c.product_id = p.product_id
+              WHERE c.user_id = ?";
+
+        if (!empty($selectedCartItems)) {
+            $cartQuery .= " AND c.cart_id IN (" . implode(',', $selectedCartItems) . ")";
+        }
+
         $stmt = $conn->prepare($cartQuery);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
@@ -73,11 +78,80 @@
             $totalSum += $subtotal;
         }
         $stmt->close();
-    }else{
-        echo ("<script>alert('No Selected Products');</script>");
-        echo "<script>setTimeout(function() { window.location.href = 'cart.php'; }, 1000);</script>";
-        exit();
+
+        if (isset($_POST['street'], $_POST['barangay'], $_POST['municipality'], $_POST['city'])) {
+            // Concatenate the address
+            $orderAddress = $_POST['street'] . ', ' . $_POST['barangay'] . ', ' . $_POST['municipality'] . ', ' . $_POST['city'];
+        
+            
+        
+            // Insert into tborders table
+            $insertOrderQuery = "INSERT INTO tborders (product_id, order_product_size, order_quantity, user_id, order_price, order_payment_method, order_address, order_date, order_arrival_date, order_status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')";
+        
+            $stmtInsertOrder = $conn->prepare($insertOrderQuery);
+        
+            foreach ($cartProducts as $cartProduct) {
+                $productID = $cartProduct['product_id'];
+                $orderProductSize = $cartProduct['cart_product_size'];
+                $orderQuantity = $cartProduct['cart_quantity'];
+        
+                // Corrected bind_param types
+                $stmtInsertOrder->bind_param("issdsssss", $productID, $orderProductSize, $orderQuantity, $userID, $totalSum, $_POST['payment'], $orderAddress, $orderDate, $orderArrivalDate);
+                $stmtInsertOrder->execute();
+            }
+        
+            // Close the $stmtInsertOrder only once
+            $stmtInsertOrder->close();
+        
+            // Delete ordered items from tbcarts table
+            $deleteCartItemsQuery = "DELETE FROM tbcarts WHERE user_id = ?";
+
+            if (!empty($selectedCartItems)) {
+                $deleteCartItemsQuery .= " AND cart_id IN (" . implode(',', $selectedCartItems) . ")";
+            }
+
+            $stmtDeleteCartItems = $conn->prepare($deleteCartItemsQuery);
+            $stmtDeleteCartItems->bind_param("i", $userID);
+            $stmtDeleteCartItems->execute();
+            $stmtDeleteCartItems->close();
+        
+            // Create an array to store the total quantity for each product ID
+            $totalQuantities = array();
+
+            // Calculate the total quantity for each product ID
+            foreach ($cartProducts as $cartProduct) {
+                $productID = $cartProduct['product_id'];
+                $orderQuantity = $cartProduct['cart_quantity'];
+            
+                // Add the quantity to the total for the respective product ID
+                if (!isset($totalQuantities[$productID])) {
+                    $totalQuantities[$productID] = $orderQuantity;
+                } else {
+                    $totalQuantities[$productID] += $orderQuantity;
+                }
+            }
+
+            // Update the stock for each product ID
+            foreach ($totalQuantities as $productID => $totalQuantity) {
+                // Update the stock in tbproducts table
+                $updateStockQuery = "UPDATE tbproducts
+                                     SET product_stocks = product_stocks - ?
+                                     WHERE product_id = ?";
+
+                $stmtUpdateStock = $conn->prepare($updateStockQuery);
+                $stmtUpdateStock->bind_param("ii", $totalQuantity, $productID);
+                $stmtUpdateStock->execute();
+                $stmtUpdateStock->close();
+            }
+
+            
+            echo ("<script>alert('Order/s successfully placed.');</script>");
+            echo "<script>setTimeout(function() { window.location.href = 'cart.php'; }, 1000);</script>";
+            exit();
+         }
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -147,6 +221,11 @@
                 <div class="row2">
                     <label for="city">City/Province:</label>
                     <input type="text" name="city" id="city">
+                </div>
+
+                <div class="arrival-date">
+                    <h2>Expected Arrival Date</h2>
+                    <p><?php echo date('F j, Y', strtotime($orderArrivalDate)); ?></p>
                 </div>
 
                 <input type="submit" class="order" value="Place Order">

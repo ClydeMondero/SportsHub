@@ -1,6 +1,14 @@
 <?php
     session_start();
     $loggedIn = isset($_SESSION['loggedin']);
+
+    include('conn.php'); // Replace with your actual database connection file
+
+    $currentDate = date("Y-m-d");
+    $sql = "UPDATE `tborders` SET `order_status` = 'Delivered' WHERE `order_arrival_date` = '$currentDate'";
+    $conn->query($sql);
+    $conn->close();
+
 ?>
 
 <!DOCTYPE html>

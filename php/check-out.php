@@ -16,6 +16,12 @@
 
 <script>
     function submitForm() {
-        document.getElementById("checkoutForm").submit();
+        var checkboxes = document.querySelectorAll('.cart-checkbox:checked');
+        
+        if (checkboxes.length > 0) {
+            document.getElementById("checkoutForm").submit();
+        } else {
+            alert('Please select at least one item before checking out.');
+        }
     }
 </script>
