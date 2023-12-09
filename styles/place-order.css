@@ -193,14 +193,6 @@ hr {
   opacity: 80%;
 }
 
-.check-out .line {
-  align-self: center;
-  width: 100%;
-  padding: 0.2rem;
-  background-color: #000;
-  margin: 2.5rem 0;
-}
-
 .total {
   align-self: start;
   display: flex;

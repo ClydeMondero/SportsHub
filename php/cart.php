@@ -111,19 +111,23 @@
                         </tr>
                         <?php
                             $total = 0;
-                            foreach ($query_result as $row) {
-                                echo "<tr>";
-                                echo "<td><input type='checkbox' class='cart-checkbox' name='select[]' value='{$row['cart_id']}' onchange='updateTotal()'></td>";
-                                echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
-                                echo "<td>{$row['product_name']}</td>";
-                                echo "<td>{$row['cart_product_size']}</td>";
-                                echo "<td><input class='quantity' type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
-                                echo "<td>₱".number_format($row['product_price'], 2)."</td>";
-                                echo "<td>{$row['product_stocks']}</td>";
-                                $subtotal = $row['product_price'] * $row['cart_quantity'];
-                                echo "<td>₱".number_format($subtotal, 2)."</td>";
-                                echo "<td><button class='remove-btn' type='button' name='delete_btn' onclick='deleteCartItem({$row['cart_id']})'><i class='fa-solid fa-trash'></i><span class='remove'> Delete</span></button></td>";
-                                echo "</tr>";
+                            if(mysqli_num_rows($query_result) > 0){
+                                foreach ($query_result as $row) {
+                                    echo "<tr>";
+                                    echo "<td><input type='checkbox' class='cart-checkbox' name='select[]' value='{$row['cart_id']}' onchange='updateTotal()'></td>";
+                                    echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
+                                    echo "<td>{$row['product_name']}</td>";
+                                    echo "<td>{$row['cart_product_size']}</td>";
+                                    echo "<td><input class='quantity' type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
+                                    echo "<td>₱".number_format($row['product_price'], 2)."</td>";
+                                    echo "<td>{$row['product_stocks']}</td>";
+                                    $subtotal = $row['product_price'] * $row['cart_quantity'];
+                                    echo "<td>₱".number_format($subtotal, 2)."</td>";
+                                    echo "<td><button class='remove-btn' type='button' name='delete_btn' onclick='deleteCartItem({$row['cart_id']})'><i class='fa-solid fa-trash'></i><span class='remove'> Delete</span></button></td>";
+                                    echo "</tr>";
+                                }
+                            }else{                                
+                                echo "<tr><td colspan='9'>There's no product in your cart.</td></tr>";
                             }
                         ?>
                     </table>
