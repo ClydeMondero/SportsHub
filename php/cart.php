@@ -97,13 +97,13 @@
                                 echo "<td><img src='../products/{$row['product_image']}' alt='Product Image' width='200'></td>";
                                 echo "<td>{$row['product_name']}</td>";
                                 echo "<td>{$row['cart_product_size']}</td>";
-                                echo "<td><input type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
+                                echo "<td><input class='quantity' type='number' name='quantity[]' value='{$row['cart_quantity']}' min='1' max='{$row['product_stocks']}' onchange='updateQuantity(this, {$row['cart_id']}); updateTotal();'></td>";
                                 echo "<td>₱".number_format($row['product_price'], 2)."</td>";
                                 echo "<td>{$row['product_stocks']}</td>";
                                 $subtotal = $row['product_price'] * $row['cart_quantity'];
                                 echo "<td>₱".number_format($subtotal, 2)."</td>";
 
-                                echo "<td><button type='submit' name='delete_btn'>Delete</button></td>";
+                                echo "<td><button class='remove-btn' type='submit' name='delete_btn'><i class='fa-solid fa-trash'><span class='remove'> Delete</span></button></td>";
                                 echo "</tr>";
                             }
                         ?>
