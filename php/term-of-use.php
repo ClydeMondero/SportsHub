@@ -12,7 +12,7 @@
 <body>
 <div class="terms-of-use-container">
     <div class="back">
-            <a href="landing-page.php">
+            <a href="index.php">
                 <i class="fa-solid fa-chevron-left"></i>                     
                 <span>Back</span>
             </a>

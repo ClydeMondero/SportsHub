@@ -15,7 +15,7 @@
 <body>       
   
   <div class="back">
-      <a href="landing-page.php">
+      <a href="index.php">
           <i class="fa-solid fa-chevron-left"></i>                     
           <span>Back</span>
       </a>
@@ -67,7 +67,7 @@
             $_SESSION['username'] = $username;
 
             if($accType === 'customer'){
-              header('Location: landing-page.php');
+              header('Location: index.php');
             }else if($accType === 'admin' || $accType == 'seller'){
               header('Location: dashboard-page.php');
             }

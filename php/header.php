@@ -4,8 +4,8 @@
 
 <div class="header">
     <div class="logo-and-title">
-        <a href="landing-page.php"><img src="../assets/imgs/Vulcan Logo.png" alt=""></a>
-        <a href="landing-page.php"><span>VULCAN</span></a>
+        <a href="index.php"><img src="../assets/imgs/Vulcan Logo.png" alt=""></a>
+        <a href="index.php"><span>VULCAN</span></a>
     </div>
 
     <div class="center">                
